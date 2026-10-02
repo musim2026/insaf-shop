@@ -1,134 +1,134 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ইনসাফ সুপার শপ- পাইকারি বাজার</title>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ইনসাফ সুপার শপ</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:'Hind Siliguri',system-ui;background:#f6f7fb}
-.announcementBar{display:none;background:linear-gradient(90deg,#facc15,#fbbf24);color:#422006;padding:10px 16px;text-align:center;font-weight:900;font-size:14px;position:sticky;top:0;z-index:50}
-.header{background:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px #0001;position:sticky;top:0;z-index:30}
-.logo{font-weight:900;font-size:24px;color:#16a34a;line-height:1.1}.logo small{display:block;font-size:11px;color:#64748b;font-weight:600}
-.dateBadge{background:#fff;border:2px solid #16a34a;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:700}
-.searchWrap{background:#fff;padding:12px 16px}.searchBox{max-width:720px;margin:0 auto;display:flex;background:#f1f5f9;border-radius:30px;overflow:hidden;border:1px solid #e2e8f0}
-.searchBox input{flex:1;border:0;padding:13px 16px;background:transparent;outline:none}.searchBox button{background:#16a34a;color:#fff;border:0;padding:0 22px;font-weight:800}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px;max-width:1200px;margin:0 auto}
-@media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr 1fr}}
-.card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #eef2f7;box-shadow:0 4px 14px #0001;display:flex;flex-direction:column}
-.card img{width:100%;height:175px;object-fit:cover}.card-body{padding:10px;flex:1;display:flex;flex-direction:column}
-.pName{font-weight:700;font-size:14px;min-height:38px}.retailPrice{color:#64748b;font-size:12px;font-weight:600}.wholesalePrice{color:#16a34a;font-weight:900;font-size:18px}
-.wholesaleBadge{font-size:10px;background:#f0fdf4;border:1px dashed #16a34a;color:#166534;padding:3px 8px;border-radius:20px;margin-top:5px;display:inline-block;font-weight:700}
-.stockLine{font-size:11px;margin-top:4px;padding:3px 8px;border-radius:20px;display:inline-block;width:fit-content}
-.inStock{background:#dcfce7;color:#166534}.lowStock{background:#fef9c3;color:#854d0e}.outStock{background:#fee2e2;color:#991b1b}
-.sizeWrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.sizeBtn{border:1px solid #cbd5e1;background:#fff;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer}
-.sizeBtn.active{background:#16a34a;color:#fff;border-color:#16a34a}.detailsText{font-size:11px;color:#475569;margin-top:6px;background:#f8fafc;padding:6px 8px;border-radius:6px}
-.qtyRow{display:flex;align-items:center;justify-content:space-between;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:6px;margin-top:10px}
-.qtyRow button{width:34px;height:34px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font-weight:bold;font-size:18px}
-.qtyRow input{width:60px;text-align:center;border:0;background:transparent;font-weight:900;font-size:17px}
-.itemTotal{margin-top:8px;background:#f0fdf4;border:1px dashed #16a34a;padding:6px 10px;border-radius:8px;font-size:13px;font-weight:700;color:#166534;text-align:center}
-.itemTotal.wholesaleActive{background:#16a34a;color:#fff;border-style:solid}
-.cartBar{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:40}
-.cartBar button{background:#22c55e;color:#0f172a;border:0;padding:12px 22px;border-radius:12px;font-weight:900}
-.footer{background:#fff;padding:22px 16px;text-align:center;margin-bottom:80px;color:#475569;font-size:13px}
-#adminPanel{display:none;position:fixed;inset:0;background:#f1f5f9;z-index:100;overflow:auto;padding:16px}
-.adminCard{background:#fff;padding:14px;border-radius:12px;margin:12px 0;box-shadow:0 2px 10px #0001}
-.adminCard input,.adminCard textarea{width:100%;padding:11px;margin:6px 0;border:1px solid #cbd5e1;border-radius:8px;font-family:inherit}
-.btn{border:0;padding:12px;border-radius:10px;width:100%;font-weight:800;margin-top:6px}.btnG{background:#16a34a;color:#fff}.btnDark{background:#0f172a;color:#fff}.btnRed{background:#ef4444;color:#fff}.btnYellow{background:#facc15;color:#422006}
-.uploadBox{border:2px dashed #16a34a;border-radius:12px;padding:12px;text-align:center;background:#f0fdf4;cursor:pointer;margin:8px 0}
+*{box-sizing:border-box}body{margin:0;font-family:'Hind Siliguri',sans-serif;background:#f6f7fb}
+.header{background:#fff;padding:10px 12px;box-shadow:0 2px 10px #0001;position:sticky;top:0;z-index:40}
+.h-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.h-name{font-weight:900;font-size:26px;color:#16a34a;flex:1;line-height:1.1}
+.h-date{font-size:13px;font-weight:800;border:2px solid #16a34a;padding:7px 12px;border-radius:20px;white-space:nowrap;background:#f0fdf4;color:#166534;flex-shrink:0}
+.h-second{font-size:11.5px;font-weight:700;color:#0f172a;margin-top:6px;white-space:nowrap;overflow-x:auto;display:block}
+.h-second::-webkit-scrollbar{display:none}
+.h-second span{color:#16a34a}
+.searchWrap{background:#fff;padding:12px 12px 14px;position:sticky;top:64px;z-index:30;box-shadow:0 2px 8px #0001}
+.searchBox{display:flex;background:#f1f5f9;border-radius:30px;border:1px solid #e2e8f0;overflow:hidden;max-width:720px;margin:0 auto}
+.searchBox input{flex:1;border:0;padding:12px 14px;background:transparent;outline:none;font-family:inherit;font-size:14px}
+.searchBox button{background:#16a34a;color:#fff;border:0;padding:0 22px;font-weight:800}
+.catWrap{display:flex;gap:8px;overflow-x:auto;margin-top:16px;max-width:720px;margin-left:auto;margin-right:auto;padding-bottom:2px}.catWrap::-webkit-scrollbar{display:none}
+.chip{background:#fff;border:1.5px solid #cbd5e1;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap;flex-shrink:0}.chip.active{background:#16a34a;color:#fff;border-color:#16a34a}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px;max-width:1200px;margin:0 auto}
+@media(min-width:800px){.grid{grid-template-columns:1fr 1fr 1fr 1fr}}
+.card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e5e7eb;box-shadow:0 3px 10px #0001;display:flex;flex-direction:column;cursor:pointer}
+.card img{width:100%;height:220px;object-fit:contain;background:#fff;padding:8px}
+.card-body{padding:8px 9px;flex:1}.pName{font-weight:700;font-size:13px;line-height:1.3;min-height:34px}.badge{font-size:10px;background:#f1f5f9;color:#475569;padding:3px 8px;border-radius:20px;width:fit-content;margin-bottom:4px;display:inline-block}.price{color:#16a34a;font-weight:900;font-size:16px}
+.sizeWrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}.sizeBtn{border:1.5px solid #cbd5e1;background:#fff;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer}.sizeBtn.active{background:#16a34a;color:#fff;border-color:#16a34a}
+.qtyRow{display:flex;justify-content:space-between;align-items:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:6px;margin-top:7px}.qtyRow button{width:32px;height:32px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font-weight:900;font-size:16px}.qtyRow input{width:34px;text-align:center;border:0;background:transparent;font-weight:900}
+.totalBox{margin-top:6px;background:#dcfce7;color:#166534;padding:6px;border-radius:8px;text-align:center;font-weight:800;font-size:11px}
+.cartBar{position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#fff;padding:11px 12px;display:flex;justify-content:space-between;align-items:center;z-index:50}.cartBar button{background:#22c55e;color:#0f172a;border:0;padding:11px 20px;border-radius:12px;font-weight:900}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:80;padding:12px;overflow:auto}.modalBox{background:#fff;border-radius:14px;max-width:480px;margin:15px auto;padding:14px}
+#adminPanel{display:none;position:fixed;inset:0;background:#f1f5f9;z-index:100;overflow:auto;padding:12px}
+.adminCard{background:#fff;padding:14px;border-radius:12px;margin:10px 0;border:1px solid #e2e8f0;box-shadow:0 2px 8px #0001}
+.adminCard input,.adminCard textarea{width:100%;padding:10px;margin:5px 0;border:1.5px solid #cbd5e1;border-radius:8px;font-family:inherit;font-size:13px}
+.btn{border:0;padding:11px;border-radius:9px;width:100%;font-weight:800;margin-top:6px;cursor:pointer}.btnG{background:#16a34a;color:#fff}.btnD{background:#0f172a;color:#fff}
+.payOpt{border:1.5px solid #e2e8f0;padding:9px;border-radius:10px;margin:6px 0;display:flex;align-items:center;gap:6px;cursor:pointer}.payOpt.active{border-color:#16a34a;background:#f0fdf4}
+.galleryBox{display:flex;gap:8px;margin:8px 0}
+.gBtn{flex:1;border:2px dashed #16a34a;background:#f0fdf4;padding:12px;text-align:center;border-radius:10px;cursor:pointer;font-weight:800;font-size:13px}
+.sizeEditRow{display:flex;gap:6px;margin:4px 0}.sizeEditRow input{flex:1}
 </style>
 </head>
 <body>
-<div id="announcementBar" class="announcementBar"></div>
-<div class="header"><div class="logo">ইনসাফ সুপার শপ <small>পাইকারি বাজার</small></div><div class="dateBadge" id="todayDate"></div></div>
-<div class="searchWrap"><div class="searchBox"><input id="search" oninput="render()" placeholder="সার্চ করুন..."><button>সার্চ</button></div></div>
+<div class="header">
+  <div class="h-top">
+    <span class="h-name">ইনসাফ সুপার শপ</span>
+    <div class="h-date" id="hDate"></div>
+  </div>
+  <span class="h-second">🌐 রকমারি বাজার <span>• ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি</span></span>
+</div>
+<div class="searchWrap"><div class="searchBox"><input id="search" oninput="render()" placeholder="বই, টুপি, গেঞ্জি, আতর সার্চ..."><button onclick="render()">সার্চ</button></div><div class="catWrap" id="catWrap"></div></div>
 <div class="grid" id="grid"></div>
-<div class="footer"><b>ইনসাফ সুপার শপ</b><br>চকবাজার, ঢাকা<br><b>01895280130</b><br><br><span onclick="openAdmin()" style="cursor:pointer;text-decoration:underline;font-weight:700">🔒 Admin Login</span></div>
+<div style="background:#fff;padding:18px;text-align:center;margin-bottom:75px"><b>ইনসাফ সুপার শপ - 🌐 রকমারি বাজার</b><br><span style="font-size:12px;color:#16a34a;font-weight:700">✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি</span><br>01895280130<br><br><span onclick="openAdmin()" style="text-decoration:underline;font-weight:700;cursor:pointer;font-size:13px">🔒 Admin Login</span></div>
 <div class="cartBar"><div>🛒 <span id="cartPcs">0</span> পিস | মোট: <span id="grandTotal">৳0</span></div><button onclick="checkout()">অর্ডার করুন</button></div>
+<div id="detailModal" class="modal" onclick="if(event.target==this)this.style.display='none'"><div class="modalBox"><span style="float:right;cursor:pointer" onclick="document.getElementById('detailModal').style.display='none'">❌</span><img id="dImg" style="width:100%;height:260px;object-fit:contain;background:#fff;border-radius:10px"><h3 id="dName"></h3><div id="dCat" style="font-size:11px;color:#64748b"></div><div id="dPrice" style="font-size:22px;font-weight:900;color:#16a34a;margin:6px 0"></div><div id="dSizeWrap" class="sizeWrap"></div><p id="dDesc" style="background:#f8fafc;padding:10px;border-radius:9px;font-size:12px;line-height:1.7;white-space:pre-wrap"></p><div class="qtyRow"><button onclick="changeDetailQty(-1)">-</button><input id="dQty" value="0" readonly><button onclick="changeDetailQty(1)">+</button></div><div id="dTotalBox" class="totalBox" style="margin-top:8px"></div><button class="btn btnG" onclick="document.getElementById('detailModal').style.display='none';render()">🛒 কার্টে যোগ</button></div></div>
+<div id="checkoutModal" class="modal"><div class="modalBox"><h3 style="margin:0">অর্ডার <span onclick="document.getElementById('checkoutModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3><div id="checkoutList" style="background:#f8fafc;padding:9px;border-radius:9px;margin:8px 0;font-size:12px"></div><h3 id="checkoutTotal"></h3><input id="cName" placeholder="আপনার নাম *" style="width:100%;padding:11px;margin:6px 0;border:1px solid #cbd5e1;border-radius:8px"><input id="cPhone" placeholder="মোবাইল *" style="width:100%;padding:11px;margin:6px 0;border:1px solid #cbd5e1;border-radius:8px"><textarea id="cAddr" placeholder="ঠিকানা *" style="width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:8px"></textarea><div style="background:#f0fdf4;border:1.5px dashed #16a34a;padding:10px;border-radius:10px;margin:8px 0"><b style="font-size:13px">💳 পেমেন্ট করুন</b><div class="payOpt active" id="pay_bkash" onclick="selectPay('bkash')"><input type="radio" name="pay" checked><b>বিকাশ</b> - <span id="showBkash"></span></div><div class="payOpt" id="pay_nagad" onclick="selectPay('nagad')"><input type="radio" name="pay"><b>নগদ</b> - <span id="showNagad"></span></div><div class="payOpt" id="pay_rocket" onclick="selectPay('rocket')"><input type="radio" name="pay"><b>রকেট</b> - <span id="showRocket"></span></div><div class="payOpt" id="pay_cod" onclick="selectPay('cod')"><input type="radio" name="pay"><b>ক্যাশ অন ডেলিভারি</b></div><input id="trxId" placeholder="ট্রানজেকশন আইডি (যদি বিকাশ করেন)" style="width:100%;padding:11px;margin-top:6px;border:1px solid #cbd5e1;border-radius:8px"></div><button class="btn btnG" onclick="placeOrder()">✅ অর্ডার সাবমিট - <span id="btnTotal"></span></button></div></div>
+<div id="successModal" class="modal"><div class="modalBox" style="text-align:center"><h1>🎉</h1><h2 style="color:#16a34a">অর্ডার সফল!</h2><p style="background:#f0fdf4;padding:12px;border-radius:10px;font-size:13px"><b>পেমেন্ট নিশ্চিত হওয়ার পর ডেলিভারি করা হবে।</b></p><p style="font-size:12px">আইডি: <b id="orderId"></b></p><button class="btn btnG" onclick="document.getElementById('successModal').style.display='none';products.forEach(p=>p.qty=0);render()">🏠 হোমে যান</button></div></div>
 
 <div id="adminPanel">
-<h2 style="display:flex;justify-content:space-between;margin:0 0 10px 0">Admin Panel <span onclick="saveAndHome()" style="cursor:pointer">❌</span></h2>
-<div class="adminCard" style="border:2px solid #facc15;background:#fefce8">
-<h3 style="margin:0 0 6px 0">📢 ঘোষণা / অফার (সবাই দেখবে)</h3>
-<textarea id="annText" rows="2" placeholder="যেমন: ৬০ পিস অর্ডার করলেই ৫০ টাকা ছাড়!"></textarea>
-<div style="display:flex;gap:6px">
-<button class="btn btnYellow" onclick="saveAnnouncement()">✅ চালু করুন</button>
-<button class="btn btnRed" onclick="clearAnnouncement()">❌ বন্ধ করুন</button>
+<h2 style="display:flex;justify-content:space-between;margin:0">⚙️ Admin - আইটেম যুক্ত <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2>
+
+<div class="adminCard">
+<h3 style="margin:0 0 8px">📸 নতুন আইটেম যুক্ত করুন</h3>
+<p style="font-size:11px;color:#64748b">ভাই এখানে আপনি আপনার গ্যালারি থেকে হুবহু ছবি দেবেন, আমার ছবি লাগবে না</p>
+<input id="pName" placeholder="নাম * যেমন: তুমি ফিরবে বলে">
+<textarea id="pDesc" placeholder="বিবরণ"></textarea>
+<div style="display:flex;gap:6px"><input id="pCat" placeholder="ক্যাটাগরি: 📚 দ্বীনি বই" style="flex:1"><input id="pStock" type="number" placeholder="স্টক" style="flex:1"></div>
+<div style="display:flex;gap:6px"><input id="pRetail" type="number" placeholder="দাম * 380" style="flex:1"><input id="pDiscount" type="number" placeholder="ছাড় 6 পিসে 30" style="flex:1"></div>
+<input id="pImg" placeholder="ছবি লিংক অটো আসবে">
+<div class="galleryBox">
+<div class="gBtn" onclick="document.getElementById('f1').click()">📁 গ্যালারি থেকে<input type="file" id="f1" accept="image/*" onchange="handleFile(this)" style="display:none"></div>
+<div class="gBtn" onclick="document.getElementById('f2').click()">📷 ক্যামেরা<input type="file" id="f2" accept="image/*" capture="environment" onchange="handleFile(this)" style="display:none"></div>
 </div>
-</div>
-<div class="adminCard"><h3>➕ নতুন পণ্য যোগ</h3>
-<input id="pName" placeholder="পণ্যের নাম"><div style="display:flex;gap:6px"><input id="pRetail" type="number" placeholder="খুচরা দাম"><input id="pWholesale" type="number" placeholder="পাইকারি দাম"></div>
-<div style="display:flex;gap:6px"><input id="pMin" type="number" value="12"><input id="pStock" type="number" placeholder="স্টক"></div>
-<input id="pSizes" placeholder="সাইজ: 52,54,56"><textarea id="pDetails" rows="2" placeholder="বিবরণ"></textarea><input id="pImg" placeholder="ছবির লিংক">
-<div style="display:flex;gap:8px"><div class="uploadBox" style="flex:1" onclick="document.getElementById('f1').click()">📁 গ্যালারি<input type="file" id="f1" accept="image/*" onchange="handleFile(this)" style="display:none"></div><div class="uploadBox" style="flex:1" onclick="document.getElementById('f2').click()">📷 ক্যামেরা<input type="file" id="f2" accept="image/*" capture="environment" onchange="handleFile(this)" style="display:none"></div></div>
-<img id="preview" style="width:100%;height:120px;object-fit:cover;border-radius:8px;display:none"><p id="fileName" style="font-size:12px;color:#16a34a;font-weight:700"></p>
-<button class="btn btnG" onclick="addProduct()">যোগ করুন - সবাই দেখবে</button></div>
-<div class="adminCard"><h3>📦 প্রোডাক্ট এডিট</h3><div id="adminList"></div></div>
-<div style="display:flex;gap:10px"><button class="btn btnG" onclick="saveAndHome()">💾 সেভ করে হোম</button><button class="btn btnRed" onclick="logoutAdmin()">🚪 লগআউট</button></div>
+<img id="preview" style="width:100%;height:140px;object-fit:contain;display:none;background:#fff;border-radius:10px;border:1px solid #e2e8f0">
+<p id="fileName" style="font-size:11px;color:#16a34a;font-weight:700"></p>
+
+<div style="background:#f8fafc;padding:10px;border-radius:10px;margin-top:10px;border:1px solid #e2e8f0">
+<b style="font-size:12px">👕 গেঞ্জি / 🧢 টুপি / 🌸 আতর এর সাইজ ও দাম</b>
+<p style="font-size:10px;color:#64748b;margin:4px 0">যেমন: M - 170, L - 180, XL - 190 বা 3ml - 250, 6ml - 450</p>
+<div id="sizeList"></div>
+<div class="sizeEditRow"><input id="newSize" placeholder="সাইজ M / L / 3ml"><input id="newPrice" type="number" placeholder="দাম"><button onclick="addSizeRow()" style="background:#16a34a;color:#fff;border:0;padding:8px 12px;border-radius:8px;font-weight:800">+</button></div>
 </div>
 
-<div id="checkoutModal" style="display:none;position:fixed;inset:0;background:#fff;z-index:60;padding:16px;overflow:auto">
-<h2>অর্ডার <span onclick="this.parentElement.parentElement.style.display='none'" style="float:right;cursor:pointer">❌</span></h2><div id="checkoutList" style="background:#f8fafc;padding:10px;border-radius:10px"></div><h3 id="checkoutTotal"></h3>
-<input id="cName" placeholder="নাম *" style="width:100%;padding:11px;margin:6px 0;border:1px solid #cbd5e1;border-radius:8px"><input id="cPhone" placeholder="মোবাইল *" style="width:100%;padding:11px;margin:6px 0;border:1px solid #cbd5e1;border-radius:8px"><textarea id="cAddr" style="width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:8px" placeholder="ঠিকানা *"></textarea><button class="btn btnG" style="margin-top:10px" onclick="placeOrder()">WhatsApp এ পাঠান - <span id="btnTotal"></span></button>
+<button class="btn btnG" onclick="addProduct()">✅ আইটেম যুক্ত করুন</button>
+</div>
+
+<div class="adminCard"><h3 style="margin:0 0 6px">🏪 দোকান এডিট</h3><input id="sShopName"><input id="sTagline"><input id="sSlogan"><input id="sPhone"><input id="sAddr"><button class="btn btnD" onclick="saveShop()">💾 সেভ</button></div>
+<div class="adminCard"><h3 style="margin:0 0 6px">💳 পেমেন্ট নাম্বার</h3><input id="sBkash"><input id="sNagad"><input id="sRocket"><button class="btn btnD" onclick="savePay()">💾 পেমেন্ট সেভ</button></div>
+<div class="adminCard"><h3>📦 সব পণ্য - ডিলিট করতে পারবেন</h3><div id="adminList"></div></div>
+<button class="btn btnG" onclick="saveAndClose()">💾 সেভ করে হোম</button>
 </div>
 
 <script>
-const API_URL = "https://api.npoint.io/a890db3c52aa86b09912";
+const API_URL="https://api.npoint.io/a890db3c52aa86b09912";
+let settings={shopName:"ইনসাফ সুপার শপ",tagline:"🌐 রকমারি বাজার",slogan:"✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি",phone:"01895280130",address:"খুচরা বিক্রয়",bkash:"01895280130",nagad:"01895280130",rocket:"01895280130",categories:["সব","📚 দ্বীনি বই","👕 গেঞ্জি","🧢 টুপি","🌸 আতর","✂️ অন্যান্য"]};
+// বোরকা আইটেম বাদ দেওয়া হলো
+const FULL_PRODUCTS=[
+{name:"নারীর ইসলামি জীবন",category:"📚 দ্বীনি বই",retailPrice:380,stock:100,discountPer6:30,img:"https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500",desc:"",sizes:[]},
+{name:"তুমি ফিরবে বলে",category:"📚 দ্বীনি বই",retailPrice:320,stock:100,discountPer6:30,img:"https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500",desc:"",sizes:[]}
+];
+let products=[],activeCat="সব",detailIndex=-1,selectedPay="bkash",tempImg="",uploading=false,tempSizes=[];
 
-let adminPass=localStorage.getItem("adminPass")||"1234";let tempImg="";let uploading=false;
-let products = [];
-let announcementText = "";
-
-async function syncFromCloud(){
- try{
-  let res = await fetch(API_URL);
-  let data = await res.json();
-  if(data.products && Array.isArray(data.products) && data.products.length>0){
-    products=data.products.map(p=>({...p,qty:0}));
-  } else {
-    products=[
-     {name:"পোলো গেঞ্জি - কালো",retailPrice:190,wholesalePrice:150,wholesaleMin:12,stock:120,img:"https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=500",qty:0,sizes:["M","L","XL"],selectedSize:"",details:"প্রিমিয়াম কটন"},
-     {name:"জুমা টুপি - সাদা",retailPrice:85,wholesalePrice:65,wholesaleMin:12,stock:300,img:"https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=500",qty:0,sizes:["52","54","56"],selectedSize:"",details:"আরামদায়ক"}
-    ];
-    syncToCloud();
-  }
-  if(data.announcement) announcementText=data.announcement;
-  render();loadAnnouncement();
- }catch(e){
-  products=[
-   {name:"পোলো গেঞ্জি - কালো",retailPrice:190,wholesalePrice:150,wholesaleMin:12,stock:120,img:"https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=500",qty:0,sizes:["M","L","XL"],selectedSize:"",details:"প্রিমিয়াম কটন"},
-   {name:"জুমা টুপি - সাদা",retailPrice:85,wholesalePrice:65,wholesaleMin:12,stock:300,img:"https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=500",qty:0,sizes:["52","54","56"],selectedSize:"",details:"আরামদায়ক"}
-  ];
-  render();loadAnnouncement();
- }
-}
-async function syncToCloud(){
- try{
-  await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products:products.map(p=>{let {qty,...rest}=p;return rest;}),announcement:announcementText})});
- }catch(e){console.log("sync fail");}
-}
-function loadAnnouncement(){
- let bar=document.getElementById("announcementBar");
- if(announcementText){bar.innerHTML="📢 "+announcementText;bar.style.display="block";document.getElementById("annText").value=announcementText;}
- else{bar.style.display="none";}
-}
-function saveAnnouncement(){let t=document.getElementById("annText").value.trim();if(!t){alert("লিখুন");return;}announcementText=t;loadAnnouncement();syncToCloud();alert("✅ ঘোষণা চালু, সবাই দেখবে!");}
-function clearAnnouncement(){announcementText="";document.getElementById("annText").value="";document.getElementById("announcementBar").style.display="none";syncToCloud();}
 function compress(file,w,q){return new Promise(r=>{let img=new Image();let fr=new FileReader();fr.onload=e=>{img.onload=()=>{let c=document.createElement('canvas');let sc=w/img.width;if(img.width<w)sc=1;c.width=img.width*sc;c.height=img.height*sc;c.getContext('2d').drawImage(img,0,0,c.width,c.height);c.toBlob(b=>r(b),'image/jpeg',q);};img.src=e.target.result;};fr.readAsDataURL(file);});}
-async function handleFile(inp){let f=inp.files[0];if(!f)return;uploading=true;document.getElementById("fileName").innerText="⏳ আপলোড...";let blob=await compress(f,600,0.7);let prev=document.getElementById("preview");let rd=new FileReader();rd.onload=e=>{prev.src=e.target.result;prev.style.display="block";};rd.readAsDataURL(blob);try{let fd=new FormData();fd.append("reqtype","fileupload");fd.append("fileToUpload",blob,"a.jpg");let res=await fetch("https://catbox.moe/user/api.php",{method:"POST",body:fd});let url=await res.text();if(url.startsWith("https://")){tempImg=url.trim();document.getElementById("pImg").value=url.trim();document.getElementById("fileName").innerText="✅ সবাই দেখতে পাবে!";}else throw 0;}catch{let r2=new FileReader();r2.onload=e=>{tempImg=e.target.result;document.getElementById("fileName").innerText="⚠️ লোকাল সেভ";};r2.readAsDataURL(blob);}uploading=false;}
-function nowStr(){return new Date().toLocaleString('bn-BD',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}document.getElementById("todayDate").innerText="📅 "+nowStr();
-function getPrice(p){return p.qty>=p.wholesaleMin?p.wholesalePrice:p.retailPrice;}function isW(p){return p.qty>=p.wholesaleMin;}
-function selectSize(i,s){products[i].selectedSize=s;render();}
-function render(){let q=document.getElementById("search").value.toLowerCase();let g=document.getElementById("grid");g.innerHTML="";products.forEach((p,i)=>{if(!p.name.toLowerCase().includes(q))return;let sc=p.stock==0?'outStock':(p.stock<20?'lowStock':'inStock');let st=p.stock==0?'স্টক শেষ':(p.stock<20?`স্টক কম: ${p.stock}`:`স্টকে আছে: ${p.stock}`);let cp=getPrice(p);let tot=cp*p.qty;let sz="";if(p.sizes&&p.sizes.length){sz='<div class="sizeWrap">';p.sizes.forEach(s=>{sz+=`<span class="sizeBtn ${p.selectedSize==s?'active':''}" onclick="selectSize(${i},'${s}')">${s}</span>`});sz+='</div>';}
-g.innerHTML+=`<div class="card"><img src="${p.img}"><div class="card-body"><div class="pName">${p.name}</div><div><span class="wholesalePrice">৳${p.wholesalePrice}</span><span style="font-size:11px"> (${p.wholesaleMin}+ পাইকারি)</span><br><span class="retailPrice">খুচরা ৳${p.retailPrice}</span></div><div class="wholesaleBadge">✅ ${p.wholesaleMin} পিস নিলেই পাইকারি</div><span class="stockLine ${sc}">${st}</span>${sz}${p.details?`<div class="detailsText">${p.details}</div>`:''}<div class="qtyRow"><button onclick="changeQty(${i},-1)">-</button><input value="${p.qty}" onchange="setQty(${i},this.value)"><button onclick="changeQty(${i},1)">+</button></div>${p.qty>0?`<div class="itemTotal ${isW(p)?'wholesaleActive':''}">${isW(p)?'✅ পাইকারি চালু! ':''}মোট: ৳${tot}</div>`:''}</div></div>`;});updateBar();renderAdmin();}
+async function handleFile(inp){let f=inp.files[0];if(!f)return;uploading=true;document.getElementById("fileName").innerText="⏳ আপলোড হচ্ছে...";let blob=await compress(f,800,0.8);let prev=document.getElementById("preview");let rd=new FileReader();rd.onload=e=>{prev.src=e.target.result;prev.style.display="block";};rd.readAsDataURL(blob);try{let fd=new FormData();fd.append("reqtype","fileupload");fd.append("fileToUpload",blob,"a.jpg");let res=await fetch("https://catbox.moe/user/api.php",{method:"POST",body:fd});let url=await res.text();if(url.startsWith("https://")){tempImg=url.trim();document.getElementById("pImg").value=url.trim();document.getElementById("fileName").innerText="✅ আপনার ছবি রেডি!";}else throw 0;}catch{let r2=new FileReader();r2.onload=e=>{tempImg=e.target.result;document.getElementById("fileName").innerText="⚠️ লোকাল ছবি, তবুও চলবে";};r2.readAsDataURL(blob);}uploading=false;}
+
+function addSizeRow(){let sz=document.getElementById("newSize").value.trim(),pr=parseInt(document.getElementById("newPrice").value);if(!sz||!pr){alert("সাইজ ও দাম দিন");return;}tempSizes.push({size:sz,price:pr});document.getElementById("newSize").value="";document.getElementById("newPrice").value="";renderSizeList();}
+function renderSizeList(){let h="";tempSizes.forEach((s,i)=>{h+=`<div style="display:flex;justify-content:space-between;background:#fff;padding:6px 10px;border-radius:8px;margin:4px 0;border:1px solid #e2e8f0;font-size:12px"><span><b>${s.size}</b> - ৳${s.price}</span><span onclick="tempSizes.splice(${i},1);renderSizeList()" style="color:#ef4444;cursor:pointer;font-weight:800">❌</span></div>`;});document.getElementById("sizeList").innerHTML=h||"<p style='font-size:11px;color:#94a3b8'>কোনো সাইজ নাই - বই হলে লাগবে না, গেঞ্জি/আতর হলে যুক্ত করুন</p>";}
+
+function fixSizes(p){if(!p.sizes)p.sizes=[];let has19=p.sizes.some(s=>String(s.size)=="19");if(has19){p.sizes=[{size:"M",price:p.retailPrice},{size:"L",price:p.retailPrice+10},{size:"XL",price:p.retailPrice+20}];}return p;}
+async function syncFromCloud(){try{let r=await fetch(API_URL);let d=await r.json();if(d.settings)settings={...settings,...d.settings};if(d.products&&d.products.length>0){products=d.products.map(p=>{p=fixSizes(p);return {...p,qty:0,selectedSize:p.selectedSize||(p.sizes&&p.sizes[0]?p.sizes[0].size:"")};});}else{products=FULL_PRODUCTS.map(p=>({...p,qty:0,selectedSize:""}));syncToCloud();}applySettings();render();}catch(e){products=FULL_PRODUCTS.map(p=>({...p,qty:0,selectedSize:""}));applySettings();render();}}
+async function syncToCloud(){try{await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products:products.map(p=>{let {qty,...rest}=p;return rest;}),settings})});}catch(e){}}
+function applySettings(){document.getElementById("sShopName").value=settings.shopName;document.getElementById("sTagline").value=settings.tagline;document.getElementById("sSlogan").value=settings.slogan;document.getElementById("sPhone").value=settings.phone;document.getElementById("sAddr").value=settings.address;document.getElementById("sBkash").value=settings.bkash;document.getElementById("sNagad").value=settings.nagad;document.getElementById("sRocket").value=settings.rocket;document.getElementById("showBkash").innerText=settings.bkash;document.getElementById("showNagad").innerText=settings.nagad;document.getElementById("showRocket").innerText=settings.rocket;document.getElementById("hDate").innerText=new Date().toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}
+function saveShop(){settings.shopName=document.getElementById("sShopName").value;settings.tagline=document.getElementById("sTagline").value;settings.slogan=document.getElementById("sSlogan").value;settings.phone=document.getElementById("sPhone").value;settings.address=document.getElementById("sAddr").value;applySettings();syncToCloud();alert("✅ সেভ!");}
+function savePay(){settings.bkash=document.getElementById("sBkash").value;settings.nagad=document.getElementById("sNagad").value;settings.rocket=document.getElementById("sRocket").value;applySettings();syncToCloud();alert("✅ পেমেন্ট নাম্বার সেভ!");}
+function getPrice(p){if(p.sizes&&p.sizes.length>0&&p.selectedSize){let f=p.sizes.find(s=>s.size==p.selectedSize);if(f)return f.price;}return p.retailPrice;}
+function calcTotal(p){let pr=getPrice(p);let base=pr*p.qty;let disc=Math.floor(p.qty/6)*(p.discountPer6||0);return {total:base-disc,discount:disc};}
+function filterCat(c){activeCat=c;render();}
+function renderCats(){let w=document.getElementById("catWrap");w.innerHTML="";settings.categories.forEach(c=>{w.innerHTML+=`<div class="chip ${activeCat==c?'active':''}" onclick="filterCat('${c}')">${c}</div>`;});}
+function openDetail(i){detailIndex=i;let p=products[i];document.getElementById("dImg").src=p.img;document.getElementById("dName").innerText=p.name;document.getElementById("dCat").innerText=p.category;document.getElementById("dPrice").innerText="৳"+getPrice(p);document.getElementById("dDesc").innerText=p.desc||"";document.getElementById("dQty").value=p.qty;let sw=document.getElementById("dSizeWrap");sw.innerHTML="";if(p.sizes&&p.sizes.length>0){p.sizes.forEach(s=>{sw.innerHTML+=`<div class="sizeBtn ${p.selectedSize==s.size?'active':''}" onclick="selectSize('${s.size}')">${s.size} - ৳${s.price}</div>`;});}let ct=calcTotal(p);document.getElementById("dTotalBox").innerHTML=p.qty>0?(ct.discount>0?`ছাড় ৳${ct.discount} | মোট: ৳${ct.total}`:`মোট: ৳${ct.total}`):"পিস সিলেক্ট করুন";document.getElementById("detailModal").style.display="block";}
+function selectSize(sz){if(detailIndex<0)return;products[detailIndex].selectedSize=sz;openDetail(detailIndex);render();}
+function changeDetailQty(d){if(detailIndex<0)return;let n=products[detailIndex].qty+d;if(n<0)n=0;if(n>products[detailIndex].stock)n=products[detailIndex].stock;products[detailIndex].qty=n;document.getElementById("dQty").value=n;let ct=calcTotal(products[detailIndex]);document.getElementById("dTotalBox").innerHTML=n>0?(ct.discount>0?`ছাড় ৳${ct.discount} | মোট: ৳${ct.total}`:`মোট: ৳${ct.total}`):"পিস সিলেক্ট করুন";render();}
+function render(){let q=document.getElementById("search").value.toLowerCase();let g=document.getElementById("grid");g.innerHTML="";products.forEach((p,i)=>{if(activeCat!="সব"){let clean=activeCat.replace(/^[^\w\u0980-\u09FF]+ /,"").toLowerCase();if(!p.category.toLowerCase().includes(clean)&&!p.name.toLowerCase().includes(clean))return;}if(q&&!p.name.toLowerCase().includes(q)&&!p.category.toLowerCase().includes(q))return;let ct=calcTotal(p);g.innerHTML+=`<div class="card"><div onclick="openDetail(${i})"><img src="${p.img}" loading="lazy"><div class="card-body"><span class="badge">${p.category}</span><div class="pName">${p.name}</div><div class="price">৳${getPrice(p)}</div></div></div><div style="padding:0 8px 8px">${p.sizes&&p.sizes.length>0?`<div class="sizeWrap">${p.sizes.map(s=>`<div class="sizeBtn ${p.selectedSize==s.size?'active':''}" onclick="event.stopPropagation();products[${i}].selectedSize='${s.size}';render()">${s.size}</div>`).join('')}</div>`:''}<div class="qtyRow"><button onclick="event.stopPropagation();changeQty(${i},-1)">-</button><input value="${p.qty}" readonly><button onclick="event.stopPropagation();changeQty(${i},1)">+</button></div>${p.qty>0?`<div class="totalBox">${ct.discount>0?`ছাড় ৳${ct.discount} | মোট: ৳${ct.total}`:`মোট: ৳${ct.total}`}</div>`:''}</div></div>`;});updateBar();renderCats();renderAdmin();}
 function changeQty(i,d){let n=products[i].qty+d;if(n<0)n=0;if(n>products[i].stock)n=products[i].stock;products[i].qty=n;render();}
-function setQty(i,v){let val=parseInt(v)||0;if(val>products[i].stock)val=products[i].stock;products[i].qty=Math.max(0,val);render();}
-function updateBar(){let pcs=0,total=0;products.forEach(p=>{if(p.qty>0){pcs+=p.qty;total+=getPrice(p)*p.qty;}});document.getElementById("cartPcs").innerText=pcs;document.getElementById("grandTotal").innerText="৳"+total;document.getElementById("btnTotal").innerText="৳"+total;}
-function openAdmin(){let pr=prompt("Password:");if(pr==adminPass)document.getElementById("adminPanel").style.display="block";else alert("ভুল");}
-function saveAndHome(){syncToCloud();document.getElementById("adminPanel").style.display="none";render();}
-function logoutAdmin(){syncToCloud();document.getElementById("adminPanel").style.display="none";render();}
-async function addProduct(){if(uploading){alert("ছবি আপলোড হচ্ছে...");return;}let nm=document.getElementById("pName").value,rt=parseInt(document.getElementById("pRetail").value),ws=parseInt(document.getElementById("pWholesale").value),mn=parseInt(document.getElementById("pMin").value)||12,st=parseInt(document.getElementById("pStock").value)||100,url=document.getElementById("pImg").value,sz=document.getElementById("pSizes").value,dt=document.getElementById("pDetails").value;if(!nm||!rt){alert("নাম ও খুচরা দিন");return;}if(!ws)ws=Math.round(rt*0.8);let img=tempImg||url||"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500";let arr=sz?sz.split(",").map(s=>s.trim()).filter(s=>s):[];products.push({name:nm,retailPrice:rt,wholesalePrice:ws,wholesaleMin:mn,stock:st,img:img,qty:0,sizes:arr,selectedSize:arr[0]||"",details:dt});await syncToCloud();render();tempImg="";document.getElementById("preview").style.display="none";["pName","pRetail","pWholesale","pImg","pSizes","pDetails"].forEach(id=>document.getElementById(id).value="");document.getElementById("pStock").value="";document.getElementById("fileName").innerText="";alert("✅ যোগ হয়েছে, এখন সবাই দেখবে!");}
-function renderAdmin(){let h="";products.forEach((p,i)=>{h+=`<div style="border:1px solid #eee;padding:8px;border-radius:8px;margin:6px 0"><input value="${p.name}" onchange="products[${i}].name=this.value;syncToCloud()"><div style="display:flex;gap:4px"><input type="number" value="${p.retailPrice}" onchange="products[${i}].retailPrice=parseInt(this.value);syncToCloud()"><input type="number" value="${p.wholesalePrice}" onchange="products[${i}].wholesalePrice=parseInt(this.value);syncToCloud()"><input type="number" value="${p.stock}" onchange="products[${i}].stock=parseInt(this.value);syncToCloud()"></div><button onclick="products.splice(${i},1);syncToCloud();render()" style="background:#fee2e2;border:0;padding:5px 8px;border-radius:5px;margin-top:4px">❌ ডিলিট</button></div>`});document.getElementById("adminList").innerHTML=h;}
-function checkout(){let sel=products.filter(p=>p.qty>0);if(!sel.length){alert("পিস সিলেক্ট করুন");return;}let html="",tot=0;sel.forEach(p=>{let cp=getPrice(p);let t=cp*p.qty;tot+=t;html+=`<div style="display:flex;justify-content:space-between"><span>${p.name} x${p.qty}</span><span>৳${t}</span></div>`});document.getElementById("checkoutList").innerHTML=html;document.getElementById("checkoutTotal").innerText="মোট: ৳"+tot;document.getElementById("checkoutModal").style.display="block";updateBar();}
-function placeOrder(){let n=document.getElementById("cName").value,ph=document.getElementById("cPhone").value,ad=document.getElementById("cAddr").value;if(!n||!ph||!ad){alert("নাম ফোন ঠিকানা দিন");return;}let sel=products.filter(p=>p.qty>0);let items=sel.map(p=>`${p.name} x${p.qty}=৳${getPrice(p)*p.qty}`).join("%0A");let tot=sel.reduce((s,p)=>s+getPrice(p)*p.qty,0);let msg=`*অর্ডার*%0A👤${n}%0A📞${ph}%0A🏠${ad}%0A%0A${items}%0A%0Aমোট: ৳${tot}`;window.open(`https://wa.me/8801895280130?text=${msg}`);document.getElementById('checkoutModal').style.display='none';products.forEach(p=>p.qty=0);render();}
-syncFromCloud();
-</script></body></html>
+function updateBar(){let pcs=0,tot=0;products.forEach(p=>{if(p.qty>0){let c=calcTotal(p);pcs+=p.qty;tot+=c.total;}});document.getElementById("cartPcs").innerText=pcs;document.getElementById("grandTotal").innerText="৳"+tot;document.getElementById("btnTotal").innerText="৳"+tot;document.getElementById("checkoutTotal").innerText="মোট: ৳"+tot;}
+function openAdmin(){let pr=prompt("Password:");if(pr=="1234")document.getElementById("adminPanel").style.display="block";else alert("ভুল");renderSizeList();}
+function saveAndClose(){syncToCloud();document.getElementById("adminPanel").style.display="none";render();}
+function selectPay(t){selectedPay=t;document.querySelectorAll(".payOpt").forEach(e=>e.classList.remove("active"));document.getElementById("pay_"+t).classList.add("active");document.getElementById("pay_"+t).querySelector("input").checked=true;document.getElementById("trxId").style.display=t=="cod"?"none":"block";}
+function renderAdmin(){let h="";products.forEach((p,i)=>{h+=`<div style="border:1px solid #ddd;padding:8px;border-radius:8px;margin:6px 0;background:#fff;display:flex;gap:8px;align-items:center"><img src="${p.img}" style="width:45px;height:55px;object-fit:contain;background:#fff;border:1px solid #eee"><div style="flex:1"><b style="font-size:12px">${p.name}</b><br><small>${p.category} ${p.sizes&&p.sizes.length?`• ${p.sizes.map(s=>s.size+':৳'+s.price).join(', ')}`:''}</small><br><button onclick="if(confirm('ডিলিট?')){products.splice(${i},1);syncToCloud();render()}" style="background:#fee2e2;border:1px solid #fecaca;padding:4px 8px;border-radius:6px;font-size:10px;color:#dc2626">❌ ডিলিট</button></div></div>`});document.getElementById("adminList").innerHTML=h;}
+function checkout(){let sel=products.filter(p=>p.qty>0);if(!sel.length){alert("পিস সিলেক্ট করুন");return;}let html="",tot=0;sel.forEach(p=>{let c=calcTotal(p);tot+=c.total;html+=`<div style="display:flex;justify-content:space-between;margin:4px 0"><span>${p.name}${p.selectedSize?' ('+p.selectedSize+')':''} x${p.qty}</span><span>৳${c.total}</span></div>`});document.getElementById("checkoutList").innerHTML=html;document.getElementById("checkoutTotal").innerText="মোট: ৳"+tot;document.getElementById("checkoutModal").style.display="block";}
+function placeOrder(){let n=document.getElementById("cName").value,ph=document.getElementById("cPhone").value,ad=document.getElementById("cAddr").value,trx=document.getElementById("trxId").value;if(!n||!ph||!ad){alert("নাম, ফোন, ঠিকানা দিন");return;}let sel=products.filter(p=>p.qty>0);let items=sel.map(p=>`${p.name}${p.selectedSize?' ('+p.selectedSize+')':''} x${p.qty}=৳${calcTotal(p).total}`).join("%0A");let tot=sel.reduce((s,p)=>s+calcTotal(p).total,0);let oid="ORD"+Date.now().toString().slice(-6);let payName={bkash:"বিকাশ",nagad:"নগদ",rocket:"রকেট",cod:"ক্যাশ"}[selectedPay];let msg=`*${settings.shopName}*%0A🆔 ${oid}%0A👤${n}%0A📞${ph}%0A🏠${ad}%0A💳 ${payName} ${trx?`Trx:${trx}`:''}%0A%0A${items}%0A%0Aমোট: ৳${tot}`;window.open(`https://wa.me/${settings.bkash.replace(/^0/,'880')}?text=${msg}`);document.getElementById('checkoutModal').style.display='none';document.getElementById('orderId').innerText=oid;document.getElementById('successModal').style.display='block';products.forEach(p=>p.qty=0);render();}
+async function addProduct(){if(uploading){alert("আপলোড হচ্ছে");return;}let nm=document.getElementById("pName").value,cat=document.getElementById("pCat").value||"📚 দ্বীনি বই",rt=parseInt(document.getElementById("pRetail").value),stk=parseInt(document.getElementById("pStock").value)||100,disc=parseInt(document.getElementById("pDiscount").value)||20,url=document.getElementById("pImg").value,desc=document.getElementById("pDesc").value;if(!nm||!rt){alert("নাম ও দাম দিন");return;}let img=tempImg||url;if(!img){alert("ছবি দিন - গ্যালারি বা ক্যামেরা থেকে");return;}products.push({name:nm,category:cat,retailPrice:rt,stock:stk,discountPer6:disc,img:img,desc:desc,sizes:[...tempSizes],selectedSize:tempSizes[0]?tempSizes[0].size:"",qty:0});await syncToCloud();render();tempImg="";tempSizes=[];document.getElementById("preview").style.display="none";["pName","pCat","pRetail","pStock","pDiscount","pImg","pDesc"].forEach(id=>document.getElementById(id).value="");document.getElementById("fileName").innerText="";renderSizeList();alert("✅ আপনার ছবি দিয়ে যোগ হয়েছে!");}
+syncFromCloud();renderSizeList();
+</script>
+</body>
+</html>
