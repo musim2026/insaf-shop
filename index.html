@@ -20,6 +20,8 @@
 .wholesaleBadge{font-size:10px;background:#f0fdf4;border:1px dashed #16a34a;color:#166534;padding:3px 8px;border-radius:20px;margin-top:5px;display:inline-block;font-weight:700}
 .stockLine{font-size:11px;margin-top:4px;padding:3px 8px;border-radius:20px;display:inline-block;width:fit-content}
 .inStock{background:#dcfce7;color:#166534}.lowStock{background:#fef9c3;color:#854d0e}.outStock{background:#fee2e2;color:#991b1b}
+.sizeWrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.sizeBtn{border:1px solid #cbd5e1;background:#fff;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer}
+.sizeBtn.active{background:#16a34a;color:#fff;border-color:#16a34a}.detailsText{font-size:11px;color:#475569;margin-top:6px;background:#f8fafc;padding:6px 8px;border-radius:6px}
 .qtyRow{display:flex;align-items:center;justify-content:space-between;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:6px;margin-top:10px}
 .qtyRow button{width:34px;height:34px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font-weight:bold;font-size:18px}
 .qtyRow input{width:60px;text-align:center;border:0;background:transparent;font-weight:900;font-size:17px}
@@ -31,203 +33,102 @@
 #adminPanel{display:none;position:fixed;inset:0;background:#f1f5f9;z-index:100;overflow:auto;padding:16px}
 .adminCard{background:#fff;padding:14px;border-radius:12px;margin:12px 0;box-shadow:0 2px 10px #0001}
 .adminCard input,.adminCard textarea{width:100%;padding:11px;margin:6px 0;border:1px solid #cbd5e1;border-radius:8px;font-family:inherit}
-.btn{border:0;padding:12px;border-radius:10px;width:100%;font-weight:800;margin-top:6px}.btnG{background:#16a34a;color:#fff}.btnDark{background:#0f172a;color:#fff}.btnRed{background:#ef4444;color:#fff}.btnYellow{background:#facc15;color:#422006}.btnBlue{background:#0ea5e9;color:#fff}
+.btn{border:0;padding:12px;border-radius:10px;width:100%;font-weight:800;margin-top:6px}.btnG{background:#16a34a;color:#fff}.btnDark{background:#0f172a;color:#fff}.btnRed{background:#ef4444;color:#fff}.btnYellow{background:#facc15;color:#422006}
 .uploadBox{border:2px dashed #16a34a;border-radius:12px;padding:12px;text-align:center;background:#f0fdf4;cursor:pointer;margin:8px 0}
-.globalBox{border:2px solid #0ea5e9;background:#e0f2fe}
 </style>
 </head>
 <body>
 <div id="announcementBar" class="announcementBar"></div>
-<div class="header"><div class="logo">ইনসাফ সুপার শপ <small>পাইকারি বাজার - GLOBAL</small></div><div class="dateBadge" id="todayDate"></div></div>
+<div class="header"><div class="logo">ইনসাফ সুপার শপ <small>পাইকারি বাজার</small></div><div class="dateBadge" id="todayDate"></div></div>
 <div class="searchWrap"><div class="searchBox"><input id="search" oninput="render()" placeholder="সার্চ করুন..."><button>সার্চ</button></div></div>
-<div id="syncStatus" style="text-align:center;font-size:11px;color:#16a34a;padding:4px"></div>
 <div class="grid" id="grid"></div>
 <div class="footer"><b>ইনসাফ সুপার শপ</b><br>চকবাজার, ঢাকা<br><b>01895280130</b><br><br><span onclick="openAdmin()" style="cursor:pointer;text-decoration:underline;font-weight:700">🔒 Admin Login</span></div>
 <div class="cartBar"><div>🛒 <span id="cartPcs">0</span> পিস | মোট: <span id="grandTotal">৳0</span></div><button onclick="checkout()">অর্ডার করুন</button></div>
 
 <div id="adminPanel">
 <h2 style="display:flex;justify-content:space-between;margin:0 0 10px 0">Admin Panel <span onclick="saveAndHome()" style="cursor:pointer">❌</span></h2>
-
-<div class="adminCard globalBox">
-<h3 style="margin:0 0 6px 0">🌐 গ্লোবাল সিস্টেম (১ বার সেটআপ)</h3>
-<p style="font-size:12px;margin:0 0 8px 0">আপনার Blob ID: <b id="currentBlobId">নাই</b></p>
-<input id="globalIdInput" placeholder="আপনার Blob ID এখানে পেস্ট করুন">
-<div style="display:flex;gap:6px">
-<button class="btn btnBlue" onclick="createGlobalDB()">🆕 নতুন গ্লোবাল ডাটাবেজ বানান (ফ্রি)</button>
-<button class="btn btnG" onclick="saveGlobalId()">💾 ID সেভ করুন</button>
-</div>
-<p style="font-size:11px;color:#0369a1;margin-top:6px">১. প্রথমে "নতুন বানান" ক্লিক করুন। ২. যে ID দেবে ওটা কপি করে নিচের কোডে বসিয়ে GitHub এ Commit দিন। তাহলেই সারা দুনিয়া দেখবে।</p>
-<div id="setupCode" style="display:none;background:#0f172a;color:#22c55e;padding:10px;border-radius:8px;font-size:11px;margin-top:8px;word-break:break-all"></div>
-</div>
-
 <div class="adminCard" style="border:2px solid #facc15;background:#fefce8">
-<h3 style="margin:0 0 6px 0">📢 ঘোষণা / অফার</h3>
-<textarea id="annText" rows="2" placeholder="৬০ পিস অর্ডার করলেই ৫০ টাকা ছাড়!"></textarea>
+<h3 style="margin:0 0 6px 0">📢 ঘোষণা / অফার (সবাই দেখবে)</h3>
+<textarea id="annText" rows="2" placeholder="যেমন: ৬০ পিস অর্ডার করলেই ৫০ টাকা ছাড়!"></textarea>
 <div style="display:flex;gap:6px">
-<button class="btn btnYellow" onclick="saveAnnouncement()">✅ ঘোষণা চালু - সবাই দেখবে</button>
-<button class="btn btnRed" onclick="clearAnnouncement()">❌ বন্ধ</button>
+<button class="btn btnYellow" onclick="saveAnnouncement()">✅ চালু করুন</button>
+<button class="btn btnRed" onclick="clearAnnouncement()">❌ বন্ধ করুন</button>
 </div>
 </div>
-
-<div class="adminCard"><h3>🔑 পাসওয়ার্ড</h3><input id="oldPass" type="password" placeholder="পুরাতন"><input id="newPass" type="password" placeholder="নতুন"><button class="btn btnDark" onclick="changePass()">আপডেট</button></div>
-<div class="adminCard"><h3>➕ নতুন পণ্য (গ্লোবাল হবে)</h3>
+<div class="adminCard"><h3>➕ নতুন পণ্য যোগ</h3>
 <input id="pName" placeholder="পণ্যের নাম"><div style="display:flex;gap:6px"><input id="pRetail" type="number" placeholder="খুচরা দাম"><input id="pWholesale" type="number" placeholder="পাইকারি দাম"></div>
 <div style="display:flex;gap:6px"><input id="pMin" type="number" value="12"><input id="pStock" type="number" placeholder="স্টক"></div>
 <input id="pSizes" placeholder="সাইজ: 52,54,56"><textarea id="pDetails" rows="2" placeholder="বিবরণ"></textarea><input id="pImg" placeholder="ছবির লিংক">
 <div style="display:flex;gap:8px"><div class="uploadBox" style="flex:1" onclick="document.getElementById('f1').click()">📁 গ্যালারি<input type="file" id="f1" accept="image/*" onchange="handleFile(this)" style="display:none"></div><div class="uploadBox" style="flex:1" onclick="document.getElementById('f2').click()">📷 ক্যামেরা<input type="file" id="f2" accept="image/*" capture="environment" onchange="handleFile(this)" style="display:none"></div></div>
 <img id="preview" style="width:100%;height:120px;object-fit:cover;border-radius:8px;display:none"><p id="fileName" style="font-size:12px;color:#16a34a;font-weight:700"></p>
-<button class="btn btnG" onclick="addProduct()">যোগ করুন + গ্লোবাল সেভ</button></div>
-<div class="adminCard"><h3>📦 এডিট (গ্লোবাল)</h3><div id="adminList"></div></div>
+<button class="btn btnG" onclick="addProduct()">যোগ করুন - সবাই দেখবে</button></div>
+<div class="adminCard"><h3>📦 প্রোডাক্ট এডিট</h3><div id="adminList"></div></div>
 <div style="display:flex;gap:10px"><button class="btn btnG" onclick="saveAndHome()">💾 সেভ করে হোম</button><button class="btn btnRed" onclick="logoutAdmin()">🚪 লগআউট</button></div>
 </div>
 
 <div id="checkoutModal" style="display:none;position:fixed;inset:0;background:#fff;z-index:60;padding:16px;overflow:auto">
 <h2>অর্ডার <span onclick="this.parentElement.parentElement.style.display='none'" style="float:right;cursor:pointer">❌</span></h2><div id="checkoutList" style="background:#f8fafc;padding:10px;border-radius:10px"></div><h3 id="checkoutTotal"></h3>
-<input id="cName" placeholder="নাম *"><input id="cPhone" placeholder="মোবাইল *"><textarea id="cAddr" placeholder="ঠিকানা *"></textarea><button class="btn btnG" style="margin-top:10px" onclick="placeOrder()">WhatsApp এ পাঠান - <span id="btnTotal"></span></button>
+<input id="cName" placeholder="নাম *" style="width:100%;padding:11px;margin:6px 0;border:1px solid #cbd5e1;border-radius:8px"><input id="cPhone" placeholder="মোবাইল *" style="width:100%;padding:11px;margin:6px 0;border:1px solid #cbd5e1;border-radius:8px"><textarea id="cAddr" style="width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:8px" placeholder="ঠিকানা *"></textarea><button class="btn btnG" style="margin-top:10px" onclick="placeOrder()">WhatsApp এ পাঠান - <span id="btnTotal"></span></button>
 </div>
 
 <script>
-// ========== গ্লোবাল সেটিংস ==========
-// এখানে আপনার Blob ID বসবে, প্রথমবার খালি থাকবে
-const DEFAULT_BLOB_ID = ""; // <-- ২য় ধাপে এখানে ID বসাবেন যেমন: "a1b2c3d4-...."
-let GLOBAL_BLOB_ID = localStorage.getItem("insafGlobalId") || DEFAULT_BLOB_ID;
+const API_URL = "https://api.npoint.io/a890db3c52aa86b09912";
 
 let adminPass=localStorage.getItem("adminPass")||"1234";let tempImg="";let uploading=false;
-let products = [
-{name:"পোলো গেঞ্জি - কালো",retailPrice:190,wholesalePrice:150,wholesaleMin:12,stock:120,img:"https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=500",qty:0,sizes:["M","L","XL"],selectedSize:"",details:"প্রিমিয়াম কটন"},
-{name:"জুমা টুপি - সাদা",retailPrice:85,wholesalePrice:65,wholesaleMin:12,stock:300,img:"https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=500",qty:0,sizes:["52","54","56"],selectedSize:"",details:"আরামদায়ক"}
-];
+let products = [];
 let announcementText = "";
 
 async function syncFromCloud(){
- if(!GLOBAL_BLOB_ID){document.getElementById("syncStatus").innerText="⚠️ লোকাল মোড - গ্লোবাল ID সেট করেন নাই";loadLocalFallback();return;}
- document.getElementById("syncStatus").innerText="⏳ গ্লোবাল ডাটা লোড হচ্ছে...";
  try{
-  let res = await fetch(`https://jsonblob.com/api/jsonBlob/${GLOBAL_BLOB_ID}`);
-  if(!res.ok) throw 0;
+  let res = await fetch(API_URL);
   let data = await res.json();
-  if(data.products){products=data.products.map(p=>({...p,qty:0}));}
-  if(data.announcement!==undefined){announcementText=data.announcement;localStorage.setItem("insafAnnouncement",announcementText);}
-  document.getElementById("syncStatus").innerText="✅ গ্লোবাল কানেক্টেড - সবাই একই ডাটা দেখছে";
+  if(data.products && Array.isArray(data.products) && data.products.length>0){
+    products=data.products.map(p=>({...p,qty:0}));
+  } else {
+    products=[
+     {name:"পোলো গেঞ্জি - কালো",retailPrice:190,wholesalePrice:150,wholesaleMin:12,stock:120,img:"https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=500",qty:0,sizes:["M","L","XL"],selectedSize:"",details:"প্রিমিয়াম কটন"},
+     {name:"জুমা টুপি - সাদা",retailPrice:85,wholesalePrice:65,wholesaleMin:12,stock:300,img:"https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=500",qty:0,sizes:["52","54","56"],selectedSize:"",details:"আরামদায়ক"}
+    ];
+    syncToCloud();
+  }
+  if(data.announcement) announcementText=data.announcement;
   render();loadAnnouncement();
  }catch(e){
-  document.getElementById("syncStatus").innerText="⚠️ নেট স্লো - লোকাল দেখানো হচ্ছে";
-  loadLocalFallback();
+  products=[
+   {name:"পোলো গেঞ্জি - কালো",retailPrice:190,wholesalePrice:150,wholesaleMin:12,stock:120,img:"https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=500",qty:0,sizes:["M","L","XL"],selectedSize:"",details:"প্রিমিয়াম কটন"},
+   {name:"জুমা টুপি - সাদা",retailPrice:85,wholesalePrice:65,wholesaleMin:12,stock:300,img:"https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=500",qty:0,sizes:["52","54","56"],selectedSize:"",details:"আরামদায়ক"}
+  ];
+  render();loadAnnouncement();
  }
-}
-function loadLocalFallback(){
- let local = JSON.parse(localStorage.getItem("insafFinalV7")||"null");
- if(local) products=local.map(p=>({...p,qty:0}));
- let ann=localStorage.getItem("insafAnnouncement")||"";announcementText=ann;
- render();loadAnnouncement();
 }
 async function syncToCloud(){
- if(!GLOBAL_BLOB_ID){save();alert("⚠️ এখনো গ্লোবাল ID বানান নাই! উপরের 'নতুন গ্লোবাল ডাটাবেজ বানান' এ ক্লিক করুন।");return false;}
- document.getElementById("syncStatus").innerText="⏳ গ্লোবালে সেভ হচ্ছে...";
  try{
-  await fetch(`https://jsonblob.com/api/jsonBlob/${GLOBAL_BLOB_ID}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({products:products.map(p=>({...p,qty:0})),announcement:announcementText})});
-  document.getElementById("syncStatus").innerText="✅ গ্লোবাল সেভ হয়েছে - সারা দুনিয়া দেখবে!";
-  save();return true;
- }catch(e){document.getElementById("syncStatus").innerText="❌ সেভ হয় নাই - নেট চেক করুন";return false;}
-}
-
-async function createGlobalDB(){
- document.getElementById("syncStatus").innerText="⏳ নতুন ডাটাবেজ বানানো হচ্ছে...";
- try{
-  let res = await fetch("https://jsonblob.com/api/jsonBlob",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products,announcement:announcementText})});
-  let id = res.headers.get("x-jsonblob") || res.headers.get("X-JsonBlob") || location.pathname.split("/").pop();
-  // jsonblob returns id in header or location
-  if(!id || id.length<10){
-   let loc = res.headers.get("Location")||"";
-   id = loc.split("/").pop();
-  }
-  if(!id){
-   let text = await res.text();
-   // fallback try parse
-  }
-  // Actually jsonblob returns id as last part of Location header
-  let locationHeader = res.headers.get("location") || res.headers.get("Location");
-  if(locationHeader){id = locationHeader.split("/").pop();}
-  // If still not, try to get from response url
-  if(!id || id.length<5){
-    // Try second method: the API returns json with id? No.
-    // Let's create via npoint alternative? Use jsonblob doc: returns id in x-jsonblob header
-    id = res.headers.get("x-jsonblob") || id;
-  }
-  if(!id || id.length<5){alert("ID পাওয়া যায় নাই, আবার চেষ্টা করুন।");return;}
-  // If fetch doesn't expose header due to CORS, try alternative: use jsonblob.com returns body with id? Let's try create again with easier API: https://api.npoint.io
-  // For now if id fails, try npoint
-  if(!id){
-    let r2 = await fetch("https://api.npoint.io",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products,announcement:announcementText})});
-    let j2 = await r2.json();
-    id = j2.id;
-    GLOBAL_BLOB_ID = id;
-    localStorage.setItem("insafGlobalId", id);
-    document.getElementById("currentBlobId").innerText=id;
-    document.getElementById("globalIdInput").value=id;
-    document.getElementById("setupCode").style.display="block";
-    document.getElementById("setupCode").innerHTML=`✅ বানানো হয়েছে!<br>আপনার ID: <b>${id}</b><br><br>এখন GitHub এ গিয়ে কোডের ১৩০ নাম্বার লাইনে<br>const DEFAULT_BLOB_ID = ""<br>এর ভিতরে এই ID টা বসান:<br><b>const DEFAULT_BLOB_ID = "${id}"</b><br>তারপর Commit দিন। ব্যাস গ্লোবাল!`;
-    return;
-  }
-  GLOBAL_BLOB_ID=id;
-  localStorage.setItem("insafGlobalId", id);
-  document.getElementById("currentBlobId").innerText=id;
-  document.getElementById("globalIdInput").value=id;
-  document.getElementById("setupCode").style.display="block";
-  document.getElementById("setupCode").innerHTML=`✅ বানানো হয়েছে!<br>আপনার ID: <b>${id}</b><br><br>এখন GitHub এ গিয়ে কোডের উপরে<br><b>const DEFAULT_BLOB_ID = "${id}"</b><br>এভাবে বসিয়ে Commit দিন। তাহলে সারা দুনিয়া দেখবে।`;
-  document.getElementById("syncStatus").innerText="✅ ID বানানো হয়েছে: "+id;
- }catch(e){
-  // Fallback to npoint.io which is more CORS friendly
-  try{
-    let r2 = await fetch("https://api.npoint.io",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products,announcement:announcementText})});
-    let j2 = await r2.json();
-    let id = j2.id;
-    GLOBAL_BLOB_ID=id;
-    localStorage.setItem("insafGlobalId", id);
-    document.getElementById("currentBlobId").innerText=id;
-    document.getElementById("globalIdInput").value=id;
-    document.getElementById("setupCode").style.display="block";
-    document.getElementById("setupCode").innerHTML=`✅ বানানো হয়েছে (npoint)!<br>ID: <b>${id}</b><br><br>কোডে বসান: <b>const DEFAULT_BLOB_ID = "${id}"</b> - এটা npoint এর জন্য আলাদা কোড লাগবে, আমাকে ID টা পাঠান আমি ফাইনাল কোড দিয়ে দেবো।`;
-  }catch(e2){alert("নেট সমস্যা, আবার চেষ্টা করুন ভাই।");}
- }
-}
-function saveGlobalId(){
- let id=document.getElementById("globalIdInput").value.trim();
- if(!id){alert("ID দিন");return;}
- GLOBAL_BLOB_ID=id;localStorage.setItem("insafGlobalId",id);
- document.getElementById("currentBlobId").innerText=id;
- alert("✅ ID সেভ হয়েছে! এখন পেজ রিলোড দিন।");
- location.reload();
+  await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products:products.map(p=>{let {qty,...rest}=p;return rest;}),announcement:announcementText})});
+ }catch(e){console.log("sync fail");}
 }
 function loadAnnouncement(){
  let bar=document.getElementById("announcementBar");
  if(announcementText){bar.innerHTML="📢 "+announcementText;bar.style.display="block";document.getElementById("annText").value=announcementText;}
  else{bar.style.display="none";}
 }
-function saveAnnouncement(){
- let t=document.getElementById("annText").value.trim();
- if(!t){alert("লিখুন");return;}
- announcementText=t;localStorage.setItem("insafAnnouncement",t);loadAnnouncement();syncToCloud();
-}
-function clearAnnouncement(){announcementText="";localStorage.removeItem("insafAnnouncement");document.getElementById("annText").value="";document.getElementById("announcementBar").style.display="none";syncToCloud();}
-
+function saveAnnouncement(){let t=document.getElementById("annText").value.trim();if(!t){alert("লিখুন");return;}announcementText=t;loadAnnouncement();syncToCloud();alert("✅ ঘোষণা চালু, সবাই দেখবে!");}
+function clearAnnouncement(){announcementText="";document.getElementById("annText").value="";document.getElementById("announcementBar").style.display="none";syncToCloud();}
 function compress(file,w,q){return new Promise(r=>{let img=new Image();let fr=new FileReader();fr.onload=e=>{img.onload=()=>{let c=document.createElement('canvas');let sc=w/img.width;if(img.width<w)sc=1;c.width=img.width*sc;c.height=img.height*sc;c.getContext('2d').drawImage(img,0,0,c.width,c.height);c.toBlob(b=>r(b),'image/jpeg',q);};img.src=e.target.result;};fr.readAsDataURL(file);});}
-async function handleFile(inp){let f=inp.files[0];if(!f)return;uploading=true;document.getElementById("fileName").innerText="⏳ আপলোড...";let blob=await compress(f,600,0.7);let prev=document.getElementById("preview");let rd=new FileReader();rd.onload=e=>{prev.src=e.target.result;prev.style.display="block";};rd.readAsDataURL(blob);try{let fd=new FormData();fd.append("reqtype","fileupload");fd.append("fileToUpload",blob,"a.jpg");let res=await fetch("https://catbox.moe/user/api.php",{method:"POST",body:fd});let url=await res.text();if(url.startsWith("https://")){tempImg=url.trim();document.getElementById("pImg").value=url.trim();document.getElementById("fileName").innerText="✅ সবাই দেখবে!";}else throw 0;}catch{let r2=new FileReader();r2.onload=e=>{tempImg=e.target.result;document.getElementById("fileName").innerText="⚠️ লোকাল সেভ";};r2.readAsDataURL(blob);}uploading=false;}
-function save(){localStorage.setItem("insafFinalV7",JSON.stringify(products));}
+async function handleFile(inp){let f=inp.files[0];if(!f)return;uploading=true;document.getElementById("fileName").innerText="⏳ আপলোড...";let blob=await compress(f,600,0.7);let prev=document.getElementById("preview");let rd=new FileReader();rd.onload=e=>{prev.src=e.target.result;prev.style.display="block";};rd.readAsDataURL(blob);try{let fd=new FormData();fd.append("reqtype","fileupload");fd.append("fileToUpload",blob,"a.jpg");let res=await fetch("https://catbox.moe/user/api.php",{method:"POST",body:fd});let url=await res.text();if(url.startsWith("https://")){tempImg=url.trim();document.getElementById("pImg").value=url.trim();document.getElementById("fileName").innerText="✅ সবাই দেখতে পাবে!";}else throw 0;}catch{let r2=new FileReader();r2.onload=e=>{tempImg=e.target.result;document.getElementById("fileName").innerText="⚠️ লোকাল সেভ";};r2.readAsDataURL(blob);}uploading=false;}
 function nowStr(){return new Date().toLocaleString('bn-BD',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}document.getElementById("todayDate").innerText="📅 "+nowStr();
 function getPrice(p){return p.qty>=p.wholesaleMin?p.wholesalePrice:p.retailPrice;}function isW(p){return p.qty>=p.wholesaleMin;}
 function selectSize(i,s){products[i].selectedSize=s;render();}
 function render(){let q=document.getElementById("search").value.toLowerCase();let g=document.getElementById("grid");g.innerHTML="";products.forEach((p,i)=>{if(!p.name.toLowerCase().includes(q))return;let sc=p.stock==0?'outStock':(p.stock<20?'lowStock':'inStock');let st=p.stock==0?'স্টক শেষ':(p.stock<20?`স্টক কম: ${p.stock}`:`স্টকে আছে: ${p.stock}`);let cp=getPrice(p);let tot=cp*p.qty;let sz="";if(p.sizes&&p.sizes.length){sz='<div class="sizeWrap">';p.sizes.forEach(s=>{sz+=`<span class="sizeBtn ${p.selectedSize==s?'active':''}" onclick="selectSize(${i},'${s}')">${s}</span>`});sz+='</div>';}
-g.innerHTML+=`<div class="card"><img src="${p.img}"><div class="card-body"><div class="pName">${p.name}</div><div><span class="wholesalePrice">৳${p.wholesalePrice}</span><span style="font-size:11px"> (${p.wholesaleMin}+ পাইকারি)</span><br><span class="retailPrice">খুচরা ৳${p.retailPrice}</span></div><div class="wholesaleBadge">✅ ${p.wholesaleMin} পিস নিলেই পাইকারি</div><span class="stockLine ${sc}">${st}</span>${sz}${p.details?`<div class="detailsText">${p.details}</div>`:''}<div class="qtyRow"><button onclick="changeQty(${i},-1)">-</button><input value="${p.qty}" onchange="setQty(${i},this.value)"><button onclick="changeQty(${i},1)">+</button></div>${p.qty>0?`<div class="itemTotal ${isW(p)?'wholesaleActive':''}">${isW(p)?'✅ পাইকারি চালু! ':''}মোট: ৳${tot}</div>`:''}</div></div>`;});updateBar();renderAdmin();if(GLOBAL_BLOB_ID){document.getElementById("currentBlobId").innerText=GLOBAL_BLOB_ID;document.getElementById("globalIdInput").value=GLOBAL_BLOB_ID;}}
+g.innerHTML+=`<div class="card"><img src="${p.img}"><div class="card-body"><div class="pName">${p.name}</div><div><span class="wholesalePrice">৳${p.wholesalePrice}</span><span style="font-size:11px"> (${p.wholesaleMin}+ পাইকারি)</span><br><span class="retailPrice">খুচরা ৳${p.retailPrice}</span></div><div class="wholesaleBadge">✅ ${p.wholesaleMin} পিস নিলেই পাইকারি</div><span class="stockLine ${sc}">${st}</span>${sz}${p.details?`<div class="detailsText">${p.details}</div>`:''}<div class="qtyRow"><button onclick="changeQty(${i},-1)">-</button><input value="${p.qty}" onchange="setQty(${i},this.value)"><button onclick="changeQty(${i},1)">+</button></div>${p.qty>0?`<div class="itemTotal ${isW(p)?'wholesaleActive':''}">${isW(p)?'✅ পাইকারি চালু! ':''}মোট: ৳${tot}</div>`:''}</div></div>`;});updateBar();renderAdmin();}
 function changeQty(i,d){let n=products[i].qty+d;if(n<0)n=0;if(n>products[i].stock)n=products[i].stock;products[i].qty=n;render();}
 function setQty(i,v){let val=parseInt(v)||0;if(val>products[i].stock)val=products[i].stock;products[i].qty=Math.max(0,val);render();}
 function updateBar(){let pcs=0,total=0;products.forEach(p=>{if(p.qty>0){pcs+=p.qty;total+=getPrice(p)*p.qty;}});document.getElementById("cartPcs").innerText=pcs;document.getElementById("grandTotal").innerText="৳"+total;document.getElementById("btnTotal").innerText="৳"+total;}
-function openAdmin(){let pr=prompt("Password:");if(pr==adminPass)document.getElementById("adminPanel").style.display="block";else alert("ভুল");}function saveAndHome(){syncToCloud();document.getElementById("adminPanel").style.display="none";render();}function logoutAdmin(){syncToCloud();document.getElementById("adminPanel").style.display="none";render();}
-function changePass(){let o=document.getElementById("oldPass").value,n=document.getElementById("newPass").value;if(o!=adminPass){alert("পুরানো ভুল");return;}adminPass=n;localStorage.setItem("adminPass",n);alert("OK: "+n);}
-async function addProduct(){if(uploading){alert("ছবি আপলোড হচ্ছে...");return;}let nm=document.getElementById("pName").value,rt=parseInt(document.getElementById("pRetail").value),ws=parseInt(document.getElementById("pWholesale").value),mn=parseInt(document.getElementById("pMin").value)||12,st=parseInt(document.getElementById("pStock").value)||100,url=document.getElementById("pImg").value,sz=document.getElementById("pSizes").value,dt=document.getElementById("pDetails").value;if(!nm||!rt){alert("নাম ও খুচরা দিন");return;}if(!ws)ws=Math.round(rt*0.8);let img=tempImg||url||"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500";let arr=sz?sz.split(",").map(s=>s.trim()).filter(s=>s):[];products.push({name:nm,retailPrice:rt,wholesalePrice:ws,wholesaleMin:mn,stock:st,img:img,qty:0,sizes:arr,selectedSize:arr[0]||"",details:dt});await syncToCloud();render();tempImg="";document.getElementById("preview").style.display="none";["pName","pRetail","pWholesale","pImg","pSizes","pDetails"].forEach(id=>document.getElementById(id).value="");document.getElementById("pStock").value="";document.getElementById("fileName").innerText="";alert("✅ গ্লোবাল যোগ হয়েছে!");}
-function renderAdmin(){let h="";products.forEach((p,i)=>{h+=`<div style="border:1px solid #eee;padding:8px;border-radius:8px;margin:6px 0"><input value="${p.name}" onchange="products[${i}].name=this.value;syncToCloud()"><div style="display:flex;gap:4px"><input type="number" value="${p.retailPrice}" onchange="products[${i}].retailPrice=parseInt(this.value);syncToCloud()"><input type="number" value="${p.wholesalePrice}" onchange="products[${i}].wholesalePrice=parseInt(this.value);syncToCloud()"><input type="number" value="${p.stock}" onchange="products[${i}].stock=parseInt(this.value);syncToCloud()"></div><button onclick="products.splice(${i},1);syncToCloud();render()" style="background:#fee2e2;border:0;padding:5px 8px;border-radius:5px;margin-top:4px">❌ ডিলিট + গ্লোবাল আপডেট</button></div>`});document.getElementById("adminList").innerHTML=h;}
+function openAdmin(){let pr=prompt("Password:");if(pr==adminPass)document.getElementById("adminPanel").style.display="block";else alert("ভুল");}
+function saveAndHome(){syncToCloud();document.getElementById("adminPanel").style.display="none";render();}
+function logoutAdmin(){syncToCloud();document.getElementById("adminPanel").style.display="none";render();}
+async function addProduct(){if(uploading){alert("ছবি আপলোড হচ্ছে...");return;}let nm=document.getElementById("pName").value,rt=parseInt(document.getElementById("pRetail").value),ws=parseInt(document.getElementById("pWholesale").value),mn=parseInt(document.getElementById("pMin").value)||12,st=parseInt(document.getElementById("pStock").value)||100,url=document.getElementById("pImg").value,sz=document.getElementById("pSizes").value,dt=document.getElementById("pDetails").value;if(!nm||!rt){alert("নাম ও খুচরা দিন");return;}if(!ws)ws=Math.round(rt*0.8);let img=tempImg||url||"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500";let arr=sz?sz.split(",").map(s=>s.trim()).filter(s=>s):[];products.push({name:nm,retailPrice:rt,wholesalePrice:ws,wholesaleMin:mn,stock:st,img:img,qty:0,sizes:arr,selectedSize:arr[0]||"",details:dt});await syncToCloud();render();tempImg="";document.getElementById("preview").style.display="none";["pName","pRetail","pWholesale","pImg","pSizes","pDetails"].forEach(id=>document.getElementById(id).value="");document.getElementById("pStock").value="";document.getElementById("fileName").innerText="";alert("✅ যোগ হয়েছে, এখন সবাই দেখবে!");}
+function renderAdmin(){let h="";products.forEach((p,i)=>{h+=`<div style="border:1px solid #eee;padding:8px;border-radius:8px;margin:6px 0"><input value="${p.name}" onchange="products[${i}].name=this.value;syncToCloud()"><div style="display:flex;gap:4px"><input type="number" value="${p.retailPrice}" onchange="products[${i}].retailPrice=parseInt(this.value);syncToCloud()"><input type="number" value="${p.wholesalePrice}" onchange="products[${i}].wholesalePrice=parseInt(this.value);syncToCloud()"><input type="number" value="${p.stock}" onchange="products[${i}].stock=parseInt(this.value);syncToCloud()"></div><button onclick="products.splice(${i},1);syncToCloud();render()" style="background:#fee2e2;border:0;padding:5px 8px;border-radius:5px;margin-top:4px">❌ ডিলিট</button></div>`});document.getElementById("adminList").innerHTML=h;}
 function checkout(){let sel=products.filter(p=>p.qty>0);if(!sel.length){alert("পিস সিলেক্ট করুন");return;}let html="",tot=0;sel.forEach(p=>{let cp=getPrice(p);let t=cp*p.qty;tot+=t;html+=`<div style="display:flex;justify-content:space-between"><span>${p.name} x${p.qty}</span><span>৳${t}</span></div>`});document.getElementById("checkoutList").innerHTML=html;document.getElementById("checkoutTotal").innerText="মোট: ৳"+tot;document.getElementById("checkoutModal").style.display="block";updateBar();}
 function placeOrder(){let n=document.getElementById("cName").value,ph=document.getElementById("cPhone").value,ad=document.getElementById("cAddr").value;if(!n||!ph||!ad){alert("নাম ফোন ঠিকানা দিন");return;}let sel=products.filter(p=>p.qty>0);let items=sel.map(p=>`${p.name} x${p.qty}=৳${getPrice(p)*p.qty}`).join("%0A");let tot=sel.reduce((s,p)=>s+getPrice(p)*p.qty,0);let msg=`*অর্ডার*%0A👤${n}%0A📞${ph}%0A🏠${ad}%0A%0A${items}%0A%0Aমোট: ৳${tot}`;window.open(`https://wa.me/8801895280130?text=${msg}`);document.getElementById('checkoutModal').style.display='none';products.forEach(p=>p.qty=0);render();}
-
 syncFromCloud();
 </script></body></html>
