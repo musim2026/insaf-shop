@@ -120,7 +120,7 @@ if(p.sizes && p.sizes.length>0){
  sizeHtml+=`</div>`;
 }
 let detailsHtml = p.details? `<div class="detailsText">📝 ${p.details}</div>` : "";
-let priceHtml = `<div class="priceWrap"><span class="wholesalePrice">৳${p.wholesalePrice} <span style="font-size:11px;font-weight:600">(${p.wholesaleMin}+ পাইকারি)</span></span><br><span class="retailPrice">খুচরা ৳${p.retailPrice}</span></div><div class="wholesaleBadge">🔥 ${p.wholesaleMin} পিস নিলেই পাইকারি!</div>`;
+let priceHtml = `<div class="priceWrap"><span class="wholesalePrice">৳${p.wholesalePrice} <span style="font-size:11px;font-weight:600">(${p.wholesaleMin}+ পাইকারি)</span></span><br><span class="retailPrice">খুচরা ৳${p.retailPrice}</span></div><div class="wholesaleBadge">${p.wholesaleMin} পিস নিলেই পাইকারি!</div>`;
 
 g.innerHTML+=`<div class="card" style="${p.stock==0?'opacity:.7':''}"><img src="${p.img}"><div class="card-body">
 <div class="pName">${p.name}</div>${priceHtml}
