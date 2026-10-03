@@ -88,12 +88,13 @@
 <button class="btn btnG" onclick="saveAndClose()">💾 সেভ করে হোম</button>
 </div>
 <script>
-// === YOUR FINAL EMAILJS CONFIG ===
+// === YOUR FINAL EMAILJS CONFIG - FIXED ===
 const EMAILJS_SERVICE = "service_4mv2qxq";
 const EMAILJS_TEMPLATE = "template_w3l8ct7";
 const EMAILJS_PUBLIC = "CvIMoz2LCj_qR1N_v";
 const API_URL="https://api.npoint.io/a890db3c52aa86b09912";
-let settings={shopName:"ইনসাফ সুপার শপ",tagline:"🌐 রকমারি বাজার",slogan:"✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি",phone:"01895280130",address:"খুচরা বিক্রয়",bkash:"01895280130",nagad:"01895280130",rocket:"01895280130",offerBanner:"💝 অফার! ৬ পিসে ছাড় + ১০০০ টাকায় ডেলিভারি ফ্রি!",adminPass:"1234",categories:["সব","📚 দ্বীনি বই","👕 গেঞ্জি","🧢 টুপি","🌸 আতর","✂️ অন্যান্য"],userDiscounts:{},blockedEmails:[],notifications:[]};
+// FIXED: Super বাদ দেওয়া হয়েছে
+let settings={shopName:"ইনসাফ শপ",tagline:"🌐 রকমারি বাজার",slogan:"✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি",phone:"01895280130",address:"খুচরা বিক্রয়",bkash:"01895280130",nagad:"01895280130",rocket:"01895280130",offerBanner:"💝 অফার! ৬ পিসে ছাড় + ১০০০ টাকায় ডেলিভারি ফ্রি!",adminPass:"1234",categories:["সব","📚 দ্বীনি বই","👕 গেঞ্জি","🧢 টুপি","🌸 আতর","✂️ অন্যান্য"],userDiscounts:{},blockedEmails:[],notifications:[]};
 const FULL_PRODUCTS=[{name:"নারীর ইসলামি জীবন",category:"📚 দ্বীনি বই",retailPrice:380,stock:100,discountPer6:30,img:"https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500",desc:"",sizes:[]}];
 let products=[],activeCat="সব",detailIndex=-1,selectedPay="bkash",tempImg="",uploading=false,tempSizes=[],cart=[],editingIndex=-1;
 let priceClickCount=0,priceClickTimer=null;
@@ -111,7 +112,7 @@ async function handleFile(inp){let f=inp.files[0];if(!f)return;uploading=true;do
 function addSizeRow(){let sz=document.getElementById("newSize").value.trim(),pr=parseInt(document.getElementById("newPrice").value);if(!sz||!pr){alert("সাইজ ও দাম দিন");return;}tempSizes.push({size:sz,price:pr});document.getElementById("newSize").value="";document.getElementById("newPrice").value="";renderSizeList();}
 function addBulkSizes(){let bulk=document.getElementById("bulkSize").value.trim();let base=parseInt(document.getElementById("pRetail").value)||300;if(!bulk){alert("19,19.5,20 লিখুন");return;}bulk.split(",").forEach(s=>{s=s.trim();if(s)tempSizes.push({size:s,price:base});});document.getElementById("bulkSize").value="";renderSizeList();}
 function renderSizeList(){let h="";tempSizes.forEach((s,i)=>{h+=`<div style="display:flex;justify-content:space-between;background:#fff;padding:5px 8px;border-radius:6px;margin:3px 0;border:1px solid #e2e8f0;font-size:11px"><span><b>${s.size}</b> - ৳${s.price}</span><span onclick="tempSizes.splice(${i},1);renderSizeList()" style="color:#ef4444;cursor:pointer">❌</span></div>`;});document.getElementById("sizeList").innerHTML=h||"<p style='font-size:10px;color:#94a3b8'>বই হলে সাইজ লাগবে না</p>";}
-async function syncFromCloud(){try{let r=await fetch(API_URL);let d=await r.json();if(d.settings){settings={...settings,...d.settings};if(!settings.userDiscounts)settings.userDiscounts={};if(!settings.blockedEmails)settings.blockedEmails=[];if(!settings.notifications)settings.notifications=[];}if(d.products&&d.products.length>0){products=d.products.map(p=>{if(!p.sizes)p.sizes=[];if(p.stock==undefined)p.stock=100;return {...p,selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:"")};});}else{products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));syncToCloud();}applySettings();render();}catch(e){products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));applySettings();render();}}
+async function syncFromCloud(){try{let r=await fetch(API_URL);let d=await r.json();if(d.settings){settings={...settings,...d.settings};if(!settings.userDiscounts)settings.userDiscounts={};if(!settings.blockedEmails)settings.blockedEmails=[];if(!settings.notifications)settings.notifications=[];if(settings.shopName.includes("সুপার")) settings.shopName="ইনসাফ শপ";}if(d.products&&d.products.length>0){products=d.products.map(p=>{if(!p.sizes)p.sizes=[];if(p.stock==undefined)p.stock=100;return {...p,selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:"")};});}else{products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));syncToCloud();}applySettings();render();}catch(e){products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));applySettings();render();}}
 async function syncToCloud(){try{await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products:products.map(p=>{let {selectedSize,...rest}=p;return {...rest,selectedSize:p.selectedSize};}),settings})});}catch(e){}}
 function applySettings(){document.getElementById("sShopName").value=settings.shopName;document.getElementById("sTagline").value=settings.tagline;document.getElementById("sSlogan").value=settings.slogan;document.getElementById("sPhone").value=settings.phone;document.getElementById("sAddr").value=settings.address;document.getElementById("sBkash").value=settings.bkash;document.getElementById("sNagad").value=settings.nagad;document.getElementById("sRocket").value=settings.rocket;document.getElementById("sOffer").value=settings.offerBanner||"";document.getElementById("sAdminPass").value=settings.adminPass||"1234";document.getElementById("showBkash").innerText=settings.bkash;document.getElementById("showNagad").innerText=settings.nagad;document.getElementById("showRocket").innerText=settings.rocket;document.getElementById("hDate").innerText=new Date().toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long',year:'numeric'});let banner=document.getElementById("offerBanner");let searchWrap=document.getElementById("searchWrap");if(settings.offerBanner && settings.offerBanner.trim()!=""){banner.innerText=settings.offerBanner;banner.style.display="block";searchWrap.classList.add("hasOffer");}else{banner.style.display="none";searchWrap.classList.remove("hasOffer");}updateUserTopBar();updateBell();}
 function saveOffer(){settings.offerBanner=document.getElementById("sOffer").value;applySettings();syncToCloud();alert("✅ অফার সেভ!");}
@@ -170,19 +171,21 @@ async function addProduct(){
  try{sendEmailToAll(nm,rt,img);}catch(e){}
  doRender();tempImg="";tempSizes=[];document.getElementById("preview").style.display="none";["pName","pCat","pRetail","pStock","pDiscount","pImg","pDesc","bulkSize"].forEach(id=>{let el=document.getElementById(id);if(el)el.value="";});document.getElementById("fileName").innerText="";renderSizeList();alert("✅ যোগ হয়েছে! 🔔 ঘণ্টায় + Gmail এ মেইল গেছে");
 }
+// FIXED: Email function - ager code thik rekhe sudhu delay add kora holo
 async function sendEmailToAll(prodName, prodPrice, prodImg){
  emailjs.init(EMAILJS_PUBLIC);
  for(let u of allUsers){
   if(settings.blockedEmails && settings.blockedEmails.includes(u.email)) continue;
   try{
    await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
-     to_name: u.email,
+     to_name: u.email.split('@')[0],
      to_email: u.email,
      product_name: prodName,
      product_price: "৳"+prodPrice,
      product_link: location.href,
-     shop_name: settings.shopName
+     shop_name: "ইনসাফ শপ"
    });
+   await new Promise(r => setTimeout(r, 1500));
   }catch(e){console.log("email fail",u.email,e);}
  }
 }
