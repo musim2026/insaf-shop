@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ইনসাফ শপ - V33 FINAL</title>
+<title>ইনসাফ শপ - রকমারি বাজার</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700;900&display=swap" rel="stylesheet">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
@@ -47,7 +47,6 @@
 .sizeEditRow{display:flex;gap:6px;margin:4px 0}.sizeEditRow input{flex:1}
 #secretAdminDot{display:none;position:absolute;top:6px;right:72px;background:#0f172a;color:#fff;width:24px;height:24px;border-radius:50%;align-items:center;justify-content:center;font-size:13px;font-weight:900;cursor:pointer;z-index:90}
 .stockToast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f172a;color:#fff;padding:12px 18px;border-radius:10px;font-weight:900;z-index:200}
-.userBar{background:#fff;padding:4px 10px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e2e8f0;font-size:11px;font-weight:700}
 </style>
 </head>
 <body>
@@ -63,23 +62,26 @@
   <span class="h-second" id="secretTrigger">🌐 রকমারি বাজার <span>• ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি</span></span>
 </div>
 <div id="offerBanner" class="offerBanner" style="display:none"></div>
-<div id="userTopBar" class="userBar" style="display:none"><span id="userEmailShow"></span><span id="userDiscountShow" style="color:#16a34a"></span><button onclick="logoutUser()" style="background:#fee2e2;border:1px solid #fecaca;padding:3px 8px;border-radius:20px;font-size:10px">লগআউট</button></div>
 <div class="searchWrap" id="searchWrap"><div class="searchBox"><input id="search" placeholder="বই, টুপি, গেঞ্জি সার্চ..."><button onclick="render()">সার্চ</button></div><div class="catWrap" id="catWrap"></div></div>
 <div class="grid" id="grid"></div>
-<div id="bottomUserArea" style="background:#fff;padding:14px;text-align:center;margin-bottom:110px">
-  <div id="loggedOutView">
-    <b style="font-size:13px">ইনসাফ শপ</b><br>
-    <span style="font-size:11px;color:#16a34a;font-weight:700">✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি</span><br>
-    <span style="font-size:11px">01895280130</span><br><br>
-    <button onclick="openUserLogin()" style="background:#f0fdf4;border:1.5px solid #16a34a;color:#166534;padding:6px 14px;border-radius:20px;font-weight:800;font-size:11px">👤 User Login / লগইন</button>
-  </div>
-  <div id="loggedInView" style="display:none;background:#f0fdf4;border:1.5px solid #16a34a;padding:12px;border-radius:12px;max-width:400px;margin:0 auto">
-    <div style="font-size:13px;font-weight:900;color:#166534">✅ <span id="bottomEmailShow"></span></div>
-    <div style="font-size:11px;font-weight:700;margin-top:4px">এই জিমেইল দিয়ে লগইন হয়েছে</div>
-    <div style="font-size:12px;font-weight:800;color:#16a34a;margin-top:4px">🎉 আপনি <span id="bottomDiscountShow"></span>% ছাড় পাবেন</div>
-    <button onclick="logoutUser()" style="background:#fee2e2;border:1.5px solid #fecaca;padding:6px 16px;border-radius:20px;font-size:11px;margin-top:8px;font-weight:800;color:#dc2626">🚪 লগআউট</button>
+
+<div id="bottomArea" style="background:#fff;padding:16px 12px;text-align:center;margin-bottom:110px;border-top:1px solid #e2e8f0">
+  <b style="font-size:14px;color:#0f172a">ইনসাফ শপ</b><br>
+  <span style="font-size:11px;color:#16a34a;font-weight:700">🌐 রকমারি বাজার • ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি</span><br>
+  <span style="font-size:11px;color:#475569">📞 01895280130 • খুচরা বিক্রয়</span>
+  <div style="margin-top:10px" id="loginArea">
+    <div id="loggedOutView">
+      <button onclick="openUserLogin()" style="background:#f0fdf4;border:1.5px solid #16a34a;color:#166534;padding:7px 16px;border-radius:20px;font-weight:800;font-size:11px">👤 User Login / লগইন করে ছাড় নিন</button>
+    </div>
+    <div id="loggedInView" style="display:none">
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;padding:8px 12px;border-radius:20px;display:inline-block;font-size:11px;font-weight:800">
+        ✅ আপনি লগ ইন সম্পূর্ণ করেছেন, আপনি <span id="percShow"></span>% ছাড়ে পণ্য পাবেন
+      </div>
+      <div style="margin-top:8px"><button onclick="logoutUser()" style="background:#fff;border:1px solid #fecaca;color:#dc2626;padding:5px 14px;border-radius:20px;font-size:10px;font-weight:800">🚪 লগআউট</button></div>
+    </div>
   </div>
 </div>
+
 <div class="cartBar"><div id="cartProgress" class="cartProgress" style="display:none"></div><div class="cartBarMain"><div>🛒 <span id="cartPcs">0</span> পিস | মোট: <span id="grandTotal">৳0</span></div><button onclick="checkout()">অর্ডার করুন</button></div></div>
 <div id="detailModal" class="modal" onclick="if(event.target==this)this.style.display='none'"><div class="modalBox"><span style="float:right;cursor:pointer" onclick="document.getElementById('detailModal').style.display='none'">❌</span><img id="dImg" style="width:100%;height:220px;object-fit:contain;background:#fff;border-radius:10px"><h3 id="dName" style="font-size:14px"></h3><div id="dCat" style="font-size:10px;color:#64748b"></div><div id="dPrice" style="font-size:20px;font-weight:900;color:#16a34a;margin:4px 0" onclick="handlePriceClick()"></div><div id="dOffer" class="discountTag" style="display:none"></div><div id="dSizeWrap" class="sizeWrap"></div><p id="dDesc" style="background:#f8fafc;padding:8px;border-radius:8px;font-size:11px;line-height:1.6;white-space:pre-wrap"></p><div class="qtyRow"><button onclick="changeDetailQty(-1)">-</button><input id="dQty" value="0" readonly><button onclick="changeDetailQty(1)">+</button></div><div id="dTotalBox" class="totalBox"></div><button class="btn btnG" onclick="addDetailToCart()">🛒 কার্টে যোগ</button></div></div>
 <div id="checkoutModal" class="modal"><div class="modalBox"><h3 style="margin:0;font-size:14px">অর্ডার <span onclick="document.getElementById('checkoutModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3><div id="checkoutList" style="background:#f8fafc;padding:8px;border-radius:8px;margin:6px 0;font-size:11px"></div><div id="checkoutDiscountInfo" style="display:none;background:#dcfce7;color:#166534;padding:6px;border-radius:6px;font-weight:800;font-size:11px;margin:5px 0"></div><h3 id="checkoutTotal" style="font-size:14px"></h3><input id="cName" placeholder="নাম *" style="width:100%;padding:9px;margin:4px 0;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"><input id="cPhone" placeholder="মোবাইল *" style="width:100%;padding:9px;margin:4px 0;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"><textarea id="cAddr" placeholder="ঠিকানা *" style="width:100%;padding:9px;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"></textarea><div style="background:#f0fdf4;border:1.5px dashed #16a34a;padding:8px;border-radius:8px;margin:6px 0"><b style="font-size:11px">💳 পেমেন্ট</b><div class="payOpt active" id="pay_bkash" onclick="selectPay('bkash')"><input type="radio" name="pay" checked><b>বিকাশ</b> - <span id="showBkash"></span></div><div class="payOpt" id="pay_nagad" onclick="selectPay('nagad')"><input type="radio" name="pay"><b>নগদ</b> - <span id="showNagad"></span></div><div class="payOpt" id="pay_rocket" onclick="selectPay('rocket')"><input type="radio" name="pay"><b>রকেট</b> - <span id="showRocket"></span></div><div class="payOpt" id="pay_cod" onclick="selectPay('cod')"><input type="radio" name="pay"><b>ক্যাশ</b></div><input id="trxId" placeholder="Trx ID" style="width:100%;padding:9px;margin-top:5px;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"></div><button class="btn btnG" onclick="placeOrder()">✅ সাবমিট - <span id="btnTotal"></span></button></div></div>
@@ -87,11 +89,8 @@
 <div id="userModal" class="modal"><div class="modalBox" style="text-align:center"><h3>👤 User Login</h3><p style="font-size:11px;color:#64748b">Gmail দিলে ছাড় পাবেন</p><input id="uEmail" placeholder="example@gmail.com" style="width:100%;padding:10px;border:1.5px solid #cbd5e1;border-radius:8px;font-size:12px"><button class="btn btnG" onclick="doUserLogin()">🔐 লগইন</button><button class="btn" style="background:#f1f5f9" onclick="document.getElementById('userModal').style.display='none'">বন্ধ</button></div></div>
 <div id="notifModal" class="modal"><div class="modalBox"><h3 style="margin:0">🔔 নতুন পণ্য <span onclick="document.getElementById('notifModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3><div id="notifList" style="margin-top:8px"></div><button class="btn" style="background:#f1f5f9" onclick="clearNotif()">✅ সব পড়েছি</button></div></div>
 <div id="adminPanel">
-<h2 style="display:flex;justify-content:space-between;margin:0;font-size:16px">⚙️ Admin V33 FINAL <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2>
-<div class="adminCard" style="border:2px solid #16a34a;background:#f0fdf4">
-<h3 style="margin:0 0 6px;font-size:13px">👥 ইউজার তালিকা + ব্লক/রিমুভ</h3>
-<div id="userListAdmin" style="max-height:280px;overflow:auto"></div>
-</div>
+<h2 style="display:flex;justify-content:space-between;margin:0;font-size:16px">⚙️ Admin V34 <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2>
+<div class="adminCard" style="border:2px solid #16a34a;background:#f0fdf4"><h3 style="margin:0 0 6px;font-size:13px">👥 ইউজার তালিকা + ব্লক/রিমুভ</h3><div id="userListAdmin" style="max-height:280px;overflow:auto"></div></div>
 <div class="adminCard" style="border:2px solid #B91C1C;background:#fef2f2"><h3 style="margin:0 0 6px;color:#B91C1C;font-size:13px">💝 অফার</h3><input id="sOffer"><button class="btn" style="background:#B91C1C;color:#fff" onclick="saveOffer()">💾 সেভ</button></div>
 <div class="adminCard" style="border:2px solid #16a34a"><h3 style="margin:0 0 6px;font-size:13px">🔑 পাসওয়ার্ড</h3><input id="sAdminPass"><button class="btn btnG" onclick="saveAdminPass()">🔒 চেঞ্জ</button></div>
 <div class="adminCard"><h3 style="margin:0 0 6px;font-size:13px">📸 আইটেম <span id="editModeTag" style="display:none;background:#f59e0b;color:#fff;padding:3px 10px;border-radius:10px;font-size:11px">✏️ EDIT MODE</span></h3><input id="pName" placeholder="নাম *"><textarea id="pDesc" placeholder="বিবরণ"></textarea><div style="display:flex;gap:6px"><input id="pCat" placeholder="ক্যাটাগরি" style="flex:1"><input id="pStock" type="number" placeholder="স্টক" style="flex:1"></div><div style="display:flex;gap:6px"><input id="pRetail" type="number" placeholder="দাম *" style="flex:1"><input id="pDiscount" type="number" placeholder="ছাড় 6 পিসে" style="flex:1"></div><input id="pImg" placeholder="ছবি লিংক"><div class="galleryBox"><div class="gBtn" onclick="document.getElementById('f1').click()">📁 গ্যালারি<input type="file" id="f1" accept="image/*" onchange="handleFile(this)" style="display:none"></div><div class="gBtn" onclick="document.getElementById('f2').click()">📷 ক্যামেরা<input type="file" id="f2" accept="image/*" capture="environment" onchange="handleFile(this)" style="display:none"></div></div><img id="preview" style="width:100%;height:120px;object-fit:contain;display:none;background:#fff;border-radius:8px;border:1px solid #e2e8f0"><p id="fileName" style="font-size:10px;color:#16a34a;font-weight:700"></p><div style="background:#f8fafc;padding:8px;border-radius:8px;margin-top:6px;border:1px solid #e2e8f0"><b style="font-size:11px">👕 সাইজ</b><div id="sizeList"></div><div class="sizeEditRow"><input id="newSize" placeholder="সাইজ"><input id="newPrice" type="number" placeholder="দাম"><button onclick="addSizeRow()" style="background:#16a34a;color:#fff;border:0;padding:6px 10px;border-radius:6px;font-weight:800">+</button></div><div style="margin-top:6px"><input id="bulkSize" placeholder="19,19.5,20"><button onclick="addBulkSizes()" class="btn" style="background:#0f172a;color:#fff;font-size:10px;padding:5px">⚡ সব যোগ</button></div></div><button id="addBtn" class="btn btnG" onclick="addProduct()">✅ যুক্ত করুন</button><button id="updateBtn" class="btn" style="display:none;background:#f59e0b;color:#fff" onclick="updateProduct()">💾 আপডেট করুন</button><button id="cancelEditBtn" class="btn" style="display:none;background:#e2e8f0" onclick="cancelEdit()">❌ ক্যানসেল</button></div>
@@ -125,7 +124,7 @@ function addBulkSizes(){let bulk=document.getElementById("bulkSize").value.trim(
 function renderSizeList(){let h="";tempSizes.forEach((s,i)=>{h+=`<div style="display:flex;justify-content:space-between;background:#fff;padding:5px 8px;border-radius:6px;margin:3px 0;border:1px solid #e2e8f0;font-size:11px"><span><b>${s.size}</b> - ৳${s.price}</span><span onclick="tempSizes.splice(${i},1);renderSizeList()" style="color:#ef4444;cursor:pointer">❌</span></div>`;});document.getElementById("sizeList").innerHTML=h||"<p style='font-size:10px;color:#94a3b8'>বই হলে সাইজ লাগবে না</p>";}
 async function syncFromCloud(){try{let r=await fetch(API_URL);let d=await r.json();if(d.settings){settings={...settings,...d.settings};if(!settings.userDiscounts)settings.userDiscounts={};if(!settings.blockedEmails)settings.blockedEmails=[];if(!settings.notifications)settings.notifications=[];if(!settings.allUsersCloud)settings.allUsersCloud=[];if(settings.orderCount==undefined)settings.orderCount=0; if(settings.shopName && settings.shopName.includes("সুপার")) settings.shopName="ইনসাফ শপ"; if(settings.allUsersCloud && settings.allUsersCloud.length>0){ let merged=[...allUsers,...settings.allUsersCloud]; allUsers=[...new Map(merged.map(m=>[m.email,m])).values()]; localStorage.setItem('insaf_all_users',JSON.stringify(allUsers)); }}if(d.products&&d.products.length>0){products=d.products.map(p=>{if(!p.sizes)p.sizes=[];if(p.stock==undefined)p.stock=100;return {...p,selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:"")};});}else{products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));syncToCloud();}applySettings();render();}catch(e){products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));applySettings();render();}}
 async function syncToCloud(){try{await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products:products.map(p=>{let {selectedSize,...rest}=p;return {...rest,selectedSize:p.selectedSize};}),settings})});}catch(e){}}
-function applySettings(){document.getElementById("sShopName").value=settings.shopName;document.getElementById("sTagline").value=settings.tagline;document.getElementById("sSlogan").value=settings.slogan;document.getElementById("sPhone").value=settings.phone;document.getElementById("sAddr").value=settings.address;document.getElementById("sBkash").value=settings.bkash;document.getElementById("sNagad").value=settings.nagad;document.getElementById("sRocket").value=settings.rocket;document.getElementById("sOffer").value=settings.offerBanner||"";document.getElementById("sAdminPass").value=settings.adminPass||"1234";document.getElementById("showBkash").innerText=settings.bkash;document.getElementById("showNagad").innerText=settings.nagad;document.getElementById("showRocket").innerText=settings.rocket;document.getElementById("hDate").innerText=new Date().toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long',year:'numeric'});let banner=document.getElementById("offerBanner");let searchWrap=document.getElementById("searchWrap");if(settings.offerBanner && settings.offerBanner.trim()!=""){banner.innerText=settings.offerBanner;banner.style.display="block";searchWrap.classList.add("hasOffer");}else{banner.style.display="none";searchWrap.classList.remove("hasOffer");}updateUserTopBar();updateBell();}
+function applySettings(){document.getElementById("sShopName").value=settings.shopName;document.getElementById("sTagline").value=settings.tagline;document.getElementById("sSlogan").value=settings.slogan;document.getElementById("sPhone").value=settings.phone;document.getElementById("sAddr").value=settings.address;document.getElementById("sBkash").value=settings.bkash;document.getElementById("sNagad").value=settings.nagad;document.getElementById("sRocket").value=settings.rocket;document.getElementById("sOffer").value=settings.offerBanner||"";document.getElementById("sAdminPass").value=settings.adminPass||"1234";document.getElementById("showBkash").innerText=settings.bkash;document.getElementById("showNagad").innerText=settings.nagad;document.getElementById("showRocket").innerText=settings.rocket;document.getElementById("hDate").innerText=new Date().toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long',year:'numeric'});let banner=document.getElementById("offerBanner");let searchWrap=document.getElementById("searchWrap");if(settings.offerBanner && settings.offerBanner.trim()!=""){banner.innerText=settings.offerBanner;banner.style.display="block";searchWrap.classList.add("hasOffer");}else{banner.style.display="none";searchWrap.classList.remove("hasOffer");}updateUserUI();updateBell();}
 function saveOffer(){settings.offerBanner=document.getElementById("sOffer").value;applySettings();syncToCloud();alert("✅ অফার সেভ!");}
 function saveAdminPass(){let np=document.getElementById("sAdminPass").value.trim();if(!np){alert("পাসওয়ার্ড দিন");return;}settings.adminPass=np;syncToCloud();alert("✅ চেঞ্জ!");}
 function saveShop(){settings.shopName=document.getElementById("sShopName").value;settings.tagline=document.getElementById("sTagline").value;settings.slogan=document.getElementById("sSlogan").value;settings.phone=document.getElementById("sPhone").value;settings.address=document.getElementById("sAddr").value;applySettings();syncToCloud();alert("✅ সেভ!");}
@@ -169,28 +168,22 @@ function doUserLogin(){
     settings.allUsersCloud.push({email:email,date:new Date().toLocaleString('bn-BD')});
   }
   document.getElementById("userModal").style.display="none";
-  updateUserTopBar();
+  updateUserUI();
   renderUserListAdmin();
   syncToCloud();
-  alert("✅ লগইন সফল! "+(settings.userDiscounts[email]||2)+"% ছাড় পাবেন");
+  alert("✅ লগইন সফল!");
   render();
 }
-function logoutUser(){localStorage.removeItem('insaf_user');currentUser=null;updateUserTopBar();render();}
-function updateUserTopBar(){
-  let topBar=document.getElementById("userTopBar");
+function logoutUser(){localStorage.removeItem('insaf_user');currentUser=null;updateUserUI();render();}
+function updateUserUI(){
   let outView=document.getElementById("loggedOutView");
   let inView=document.getElementById("loggedInView");
   if(currentUser){
-    topBar.style.display="flex";
-    document.getElementById("userEmailShow").innerText="👤 "+currentUser.email;
-    let perc=getCurrentUserDiscount();
-    document.getElementById("userDiscountShow").innerText=perc>0?`🎉 ${perc}% ছাড়`:"";
     outView.style.display="none";
     inView.style.display="block";
-    document.getElementById("bottomEmailShow").innerText=currentUser.email;
-    document.getElementById("bottomDiscountShow").innerText=perc;
+    let perc=getCurrentUserDiscount();
+    document.getElementById("percShow").innerText=perc;
   }else{
-    topBar.style.display="none";
     outView.style.display="block";
     inView.style.display="none";
   }
@@ -205,36 +198,21 @@ function openNotif(){let list=document.getElementById("notifList");if(!settings.
 function clearNotif(){localStorage.setItem('notif_seen', (settings.notifications?settings.notifications.length:0));document.getElementById("notifModal").style.display="none";updateBell();}
 function orderFromNotif(name){let idx=products.findIndex(p=>p.name==name);if(idx>=0){document.getElementById("notifModal").style.display="none";openDetail(idx);}}
 function checkout(){if(!cart.length){alert("পিস সিলেক্ট করুন");return;}let html="",baseTot=0;cart.forEach(it=>{let p=products[it.prodIdx];let c=calcTotalForItem(it);baseTot+=c.total;html+=`<div style="display:flex;justify-content:space-between;margin:3px 0"><span>${p.name}${it.size?' ('+it.size+')':''} x${it.qty}</span><span>৳${c.total}</span></div>`;});let perc=getCurrentUserDiscount();let finalTot=baseTot;let discInfo=document.getElementById("checkoutDiscountInfo");if(perc>0 && currentUser){let off=Math.round(baseTot*perc/100);finalTot=baseTot-off;discInfo.style.display="block";discInfo.innerText=`🎉 ${perc}% ছাড়: -৳${off} | মোট ৳${finalTot}`;}else{discInfo.style.display="none";}document.getElementById("checkoutList").innerHTML=html;document.getElementById("checkoutTotal").innerText="মোট: ৳"+finalTot;document.getElementById("btnTotal").innerText="৳"+finalTot;document.getElementById("checkoutModal").style.display="block";}
-
 function placeOrder(){
   let n=document.getElementById("cName").value,ph=document.getElementById("cPhone").value,ad=document.getElementById("cAddr").value,trx=document.getElementById("trxId").value;
   if(!n||!ph||!ad){alert("নাম, ফোন, ঠিকানা দিন");return;}
-
   if(!settings.orderCount) settings.orderCount=0;
   settings.orderCount++;
   let oid = String(settings.orderCount).padStart(3, '0');
-
-  cart.forEach(it=>{
-    let p=products[it.prodIdx];
-    if(p.stock!=undefined){p.stock=Math.max(0,(p.stock||0)-it.qty);}
-  });
-
-  let items=cart.map(it=>{
-    let p=products[it.prodIdx];
-    let c=calcTotalForItem(it);
-    return `${p.name}${it.size?' ('+it.size+')':''} x${it.qty}=৳${c.total}`;
-  }).join("%0A");
-
+  cart.forEach(it=>{let p=products[it.prodIdx];if(p.stock!=undefined){p.stock=Math.max(0,(p.stock||0)-it.qty);}});
+  let items=cart.map(it=>{let p=products[it.prodIdx];let c=calcTotalForItem(it);return `${p.name}${it.size?' ('+it.size+')':''} x${it.qty}=৳${c.total}`;}).join("%0A");
   let base=cart.reduce((s,it)=>s+calcTotalForItem(it).total,0);
   let perc=getCurrentUserDiscount();
   let finalTot=perc>0?Math.round(base - base*perc/100):base;
-
   if(settings.shopName.includes("সুপার")) settings.shopName="ইনসাফ শপ";
   let payName={bkash:"বিকাশ",nagad:"নগদ",rocket:"রকেট",cod:"ক্যাশ"}[selectedPay];
   let userInfo=currentUser?`👤 ${currentUser.email} (${perc}% ছাড়)`:"Guest";
-
   let msg=`*${settings.shopName}*%0A📦 অর্ডার নাম্বার: ${oid}%0A${userInfo}%0A👤${n}%0A📞${ph}%0A🏠${ad}%0A💳 ${payName} ${trx?`Trx:${trx}`:''}%0A%0A${items}%0A%0Aমোট: ৳${finalTot}`;
-
   syncToCloud();
   window.open(`https://wa.me/${settings.bkash.replace(/^0/,'880')}?text=${msg}`);
   document.getElementById('checkoutModal').style.display='none';
@@ -242,7 +220,6 @@ function placeOrder(){
   document.getElementById('successModal').style.display='block';
   cart=[];doRender();
 }
-
 async function addProduct(){
  if(uploading){alert("আপলোড হচ্ছে");return;}
  let nm=document.getElementById("pName").value,cat=document.getElementById("pCat").value||"📚 দ্বীনি বই",rt=parseInt(document.getElementById("pRetail").value),stk=parseInt(document.getElementById("pStock").value)||100,disc=parseInt(document.getElementById("pDiscount").value)||20,url=document.getElementById("pImg").value,desc=document.getElementById("pDesc").value;
@@ -254,8 +231,8 @@ async function addProduct(){
  settings.notifications.push({name:nm,price:rt,date:new Date().toLocaleString('bn-BD'),time:Date.now()});
  if(settings.notifications.length>20) settings.notifications=settings.notifications.slice(-20);
  await syncToCloud();
- try{sendEmailToAll(nm,rt,img);}catch(e){console.log(e);}
- doRender();tempImg="";tempSizes=[];document.getElementById("preview").style.display="none";["pName","pCat","pRetail","pStock","pDiscount","pImg","pDesc","bulkSize"].forEach(id=>{let el=document.getElementById(id);if(el)el.value="";});document.getElementById("fileName").innerText="";renderSizeList();alert("✅ যোগ হয়েছে! 🔔 ঘণ্টায় + Gmail এ মেইল গেছে");
+ try{sendEmailToAll(nm,rt,img);}catch(e){}
+ doRender();tempImg="";tempSizes=[];document.getElementById("preview").style.display="none";["pName","pCat","pRetail","pStock","pDiscount","pImg","pDesc","bulkSize"].forEach(id=>{let el=document.getElementById(id);if(el)el.value="";});document.getElementById("fileName").innerText="";renderSizeList();alert("✅ যোগ হয়েছে!");
 }
 async function sendEmailToAll(prodName, prodPrice, prodImg){
  emailjs.init(EMAILJS_PUBLIC);
@@ -273,7 +250,7 @@ async function sendEmailToAll(prodName, prodPrice, prodImg){
      shop_name: "ইনসাফ শপ"
    });
    await new Promise(r => setTimeout(r, 1200));
-  }catch(e){console.log("email fail",u.email,e);}
+  }catch(e){}
  }
 }
 let searchTimer=null;
