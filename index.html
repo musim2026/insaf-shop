@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ইনসাফ শপ - V31 FINAL</title>
+<title>ইনসাফ শপ - V32 FINAL FIXED</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700;900&display=swap" rel="stylesheet">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
@@ -66,7 +66,22 @@
 <div id="userTopBar" class="userBar" style="display:none"><span id="userEmailShow"></span><span id="userDiscountShow" style="color:#16a34a"></span><button onclick="logoutUser()" style="background:#fee2e2;border:1px solid #fecaca;padding:3px 8px;border-radius:20px;font-size:10px">লগআউট</button></div>
 <div class="searchWrap" id="searchWrap"><div class="searchBox"><input id="search" placeholder="বই, টুপি, গেঞ্জি সার্চ..."><button onclick="render()">সার্চ</button></div><div class="catWrap" id="catWrap"></div></div>
 <div class="grid" id="grid"></div>
-<div style="background:#fff;padding:14px;text-align:center;margin-bottom:110px"><b style="font-size:13px">ইনসাফ শপ</b><br><span style="font-size:11px;color:#16a34a;font-weight:700">✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি</span><br><span style="font-size:11px">01895280130</span><br><br><button onclick="openUserLogin()" style="background:#f0fdf4;border:1.5px solid #16a34a;color:#166534;padding:6px 14px;border-radius:20px;font-weight:800;font-size:11px">👤 User Login / লগইন</button></div>
+
+<div id="bottomUserArea" style="background:#fff;padding:14px;text-align:center;margin-bottom:110px">
+  <div id="loggedOutView">
+    <b style="font-size:13px">ইনসাফ শপ</b><br>
+    <span style="font-size:11px;color:#16a34a;font-weight:700">✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি</span><br>
+    <span style="font-size:11px">01895280130</span><br><br>
+    <button onclick="openUserLogin()" style="background:#f0fdf4;border:1.5px solid #16a34a;color:#166534;padding:6px 14px;border-radius:20px;font-weight:800;font-size:11px">👤 User Login / লগইন</button>
+  </div>
+  <div id="loggedInView" style="display:none;background:#f0fdf4;border:1.5px solid #16a34a;padding:12px;border-radius:12px;max-width:400px;margin:0 auto">
+    <div style="font-size:13px;font-weight:900;color:#166534">✅ <span id="bottomEmailShow"></span></div>
+    <div style="font-size:11px;font-weight:700;margin-top:4px">এই জিমেইল দিয়ে লগইন হয়েছে</div>
+    <div style="font-size:12px;font-weight:800;color:#16a34a;margin-top:4px">🎉 আপনি <span id="bottomDiscountShow"></span>% ছাড় পাবেন</div>
+    <button onclick="logoutUser()" style="background:#fee2e2;border:1.5px solid #fecaca;padding:6px 16px;border-radius:20px;font-size:11px;margin-top:8px;font-weight:800;color:#dc2626">🚪 লগআউট</button>
+  </div>
+</div>
+
 <div class="cartBar"><div id="cartProgress" class="cartProgress" style="display:none"></div><div class="cartBarMain"><div>🛒 <span id="cartPcs">0</span> পিস | মোট: <span id="grandTotal">৳0</span></div><button onclick="checkout()">অর্ডার করুন</button></div></div>
 <div id="detailModal" class="modal" onclick="if(event.target==this)this.style.display='none'"><div class="modalBox"><span style="float:right;cursor:pointer" onclick="document.getElementById('detailModal').style.display='none'">❌</span><img id="dImg" style="width:100%;height:220px;object-fit:contain;background:#fff;border-radius:10px"><h3 id="dName" style="font-size:14px"></h3><div id="dCat" style="font-size:10px;color:#64748b"></div><div id="dPrice" style="font-size:20px;font-weight:900;color:#16a34a;margin:4px 0" onclick="handlePriceClick()"></div><div id="dOffer" class="discountTag" style="display:none"></div><div id="dSizeWrap" class="sizeWrap"></div><p id="dDesc" style="background:#f8fafc;padding:8px;border-radius:8px;font-size:11px;line-height:1.6;white-space:pre-wrap"></p><div class="qtyRow"><button onclick="changeDetailQty(-1)">-</button><input id="dQty" value="0" readonly><button onclick="changeDetailQty(1)">+</button></div><div id="dTotalBox" class="totalBox"></div><button class="btn btnG" onclick="addDetailToCart()">🛒 কার্টে যোগ</button></div></div>
 <div id="checkoutModal" class="modal"><div class="modalBox"><h3 style="margin:0;font-size:14px">অর্ডার <span onclick="document.getElementById('checkoutModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3><div id="checkoutList" style="background:#f8fafc;padding:8px;border-radius:8px;margin:6px 0;font-size:11px"></div><div id="checkoutDiscountInfo" style="display:none;background:#dcfce7;color:#166534;padding:6px;border-radius:6px;font-weight:800;font-size:11px;margin:5px 0"></div><h3 id="checkoutTotal" style="font-size:14px"></h3><input id="cName" placeholder="নাম *" style="width:100%;padding:9px;margin:4px 0;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"><input id="cPhone" placeholder="মোবাইল *" style="width:100%;padding:9px;margin:4px 0;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"><textarea id="cAddr" placeholder="ঠিকানা *" style="width:100%;padding:9px;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"></textarea><div style="background:#f0fdf4;border:1.5px dashed #16a34a;padding:8px;border-radius:8px;margin:6px 0"><b style="font-size:11px">💳 পেমেন্ট</b><div class="payOpt active" id="pay_bkash" onclick="selectPay('bkash')"><input type="radio" name="pay" checked><b>বিকাশ</b> - <span id="showBkash"></span></div><div class="payOpt" id="pay_nagad" onclick="selectPay('nagad')"><input type="radio" name="pay"><b>নগদ</b> - <span id="showNagad"></span></div><div class="payOpt" id="pay_rocket" onclick="selectPay('rocket')"><input type="radio" name="pay"><b>রকেট</b> - <span id="showRocket"></span></div><div class="payOpt" id="pay_cod" onclick="selectPay('cod')"><input type="radio" name="pay"><b>ক্যাশ</b></div><input id="trxId" placeholder="Trx ID" style="width:100%;padding:9px;margin-top:5px;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"></div><button class="btn btnG" onclick="placeOrder()">✅ সাবমিট - <span id="btnTotal"></span></button></div></div>
@@ -74,7 +89,7 @@
 <div id="userModal" class="modal"><div class="modalBox" style="text-align:center"><h3>👤 User Login</h3><p style="font-size:11px;color:#64748b">Gmail দিলে ছাড় পাবেন</p><input id="uEmail" placeholder="example@gmail.com" style="width:100%;padding:10px;border:1.5px solid #cbd5e1;border-radius:8px;font-size:12px"><button class="btn btnG" onclick="doUserLogin()">🔐 লগইন</button><button class="btn" style="background:#f1f5f9" onclick="document.getElementById('userModal').style.display='none'">বন্ধ</button></div></div>
 <div id="notifModal" class="modal"><div class="modalBox"><h3 style="margin:0">🔔 নতুন পণ্য <span onclick="document.getElementById('notifModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3><div id="notifList" style="margin-top:8px"></div><button class="btn" style="background:#f1f5f9" onclick="clearNotif()">✅ সব পড়েছি</button></div></div>
 <div id="adminPanel">
-<h2 style="display:flex;justify-content:space-between;margin:0;font-size:16px">⚙️ Admin V31 FINAL <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2>
+<h2 style="display:flex;justify-content:space-between;margin:0;font-size:16px">⚙️ Admin V32 FINAL <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2>
 <div class="adminCard" style="border:2px solid #16a34a;background:#f0fdf4">
 <h3 style="margin:0 0 6px;font-size:13px">👥 ইউজার তালিকা + ব্লক/রিমুভ</h3>
 <div id="userListAdmin" style="max-height:280px;overflow:auto"></div>
@@ -88,13 +103,11 @@
 <button class="btn btnG" onclick="saveAndClose()">💾 সেভ করে হোম</button>
 </div>
 <script>
-// === YOUR FINAL EMAILJS CONFIG - FIXED ===
 const EMAILJS_SERVICE = "service_4mv2qxq";
 const EMAILJS_TEMPLATE = "template_w3l8ct7";
 const EMAILJS_PUBLIC = "CvIMoz2LCj_qR1N_v";
 const API_URL="https://api.npoint.io/a890db3c52aa86b09912";
-// FIXED: Super বাদ দেওয়া হয়েছে
-let settings={shopName:"ইনসাফ শপ",tagline:"🌐 রকমারি বাজার",slogan:"✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি",phone:"01895280130",address:"খুচরা বিক্রয়",bkash:"01895280130",nagad:"01895280130",rocket:"01895280130",offerBanner:"💝 অফার! ৬ পিসে ছাড় + ১০০০ টাকায় ডেলিভারি ফ্রি!",adminPass:"1234",categories:["সব","📚 দ্বীনি বই","👕 গেঞ্জি","🧢 টুপি","🌸 আতর","✂️ অন্যান্য"],userDiscounts:{},blockedEmails:[],notifications:[]};
+let settings={shopName:"ইনসাফ শপ",tagline:"🌐 রকমারি বাজার",slogan:"✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি",phone:"01895280130",address:"খুচরা বিক্রয়",bkash:"01895280130",nagad:"01895280130",rocket:"01895280130",offerBanner:"💝 অফার! ৬ পিসে ছাড় + ১০০০ টাকায় ডেলিভারি ফ্রি!",adminPass:"1234",categories:["সব","📚 দ্বীনি বই","👕 গেঞ্জি","🧢 টুপি","🌸 আতর","✂️ অন্যান্য"],userDiscounts:{},blockedEmails:[],notifications:[],allUsersCloud:[]};
 const FULL_PRODUCTS=[{name:"নারীর ইসলামি জীবন",category:"📚 দ্বীনি বই",retailPrice:380,stock:100,discountPer6:30,img:"https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500",desc:"",sizes:[]}];
 let products=[],activeCat="সব",detailIndex=-1,selectedPay="bkash",tempImg="",uploading=false,tempSizes=[],cart=[],editingIndex=-1;
 let priceClickCount=0,priceClickTimer=null;
@@ -112,7 +125,7 @@ async function handleFile(inp){let f=inp.files[0];if(!f)return;uploading=true;do
 function addSizeRow(){let sz=document.getElementById("newSize").value.trim(),pr=parseInt(document.getElementById("newPrice").value);if(!sz||!pr){alert("সাইজ ও দাম দিন");return;}tempSizes.push({size:sz,price:pr});document.getElementById("newSize").value="";document.getElementById("newPrice").value="";renderSizeList();}
 function addBulkSizes(){let bulk=document.getElementById("bulkSize").value.trim();let base=parseInt(document.getElementById("pRetail").value)||300;if(!bulk){alert("19,19.5,20 লিখুন");return;}bulk.split(",").forEach(s=>{s=s.trim();if(s)tempSizes.push({size:s,price:base});});document.getElementById("bulkSize").value="";renderSizeList();}
 function renderSizeList(){let h="";tempSizes.forEach((s,i)=>{h+=`<div style="display:flex;justify-content:space-between;background:#fff;padding:5px 8px;border-radius:6px;margin:3px 0;border:1px solid #e2e8f0;font-size:11px"><span><b>${s.size}</b> - ৳${s.price}</span><span onclick="tempSizes.splice(${i},1);renderSizeList()" style="color:#ef4444;cursor:pointer">❌</span></div>`;});document.getElementById("sizeList").innerHTML=h||"<p style='font-size:10px;color:#94a3b8'>বই হলে সাইজ লাগবে না</p>";}
-async function syncFromCloud(){try{let r=await fetch(API_URL);let d=await r.json();if(d.settings){settings={...settings,...d.settings};if(!settings.userDiscounts)settings.userDiscounts={};if(!settings.blockedEmails)settings.blockedEmails=[];if(!settings.notifications)settings.notifications=[];if(settings.shopName.includes("সুপার")) settings.shopName="ইনসাফ শপ";}if(d.products&&d.products.length>0){products=d.products.map(p=>{if(!p.sizes)p.sizes=[];if(p.stock==undefined)p.stock=100;return {...p,selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:"")};});}else{products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));syncToCloud();}applySettings();render();}catch(e){products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));applySettings();render();}}
+async function syncFromCloud(){try{let r=await fetch(API_URL);let d=await r.json();if(d.settings){settings={...settings,...d.settings};if(!settings.userDiscounts)settings.userDiscounts={};if(!settings.blockedEmails)settings.blockedEmails=[];if(!settings.notifications)settings.notifications=[];if(!settings.allUsersCloud)settings.allUsersCloud=[];if(settings.shopName && settings.shopName.includes("সুপার")) settings.shopName="ইনসাফ শপ"; if(settings.allUsersCloud && settings.allUsersCloud.length>0){ let merged=[...allUsers,...settings.allUsersCloud]; allUsers=[...new Map(merged.map(m=>[m.email,m])).values()]; localStorage.setItem('insaf_all_users',JSON.stringify(allUsers)); }}if(d.products&&d.products.length>0){products=d.products.map(p=>{if(!p.sizes)p.sizes=[];if(p.stock==undefined)p.stock=100;return {...p,selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:"")};});}else{products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));syncToCloud();}applySettings();render();}catch(e){products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));applySettings();render();}}
 async function syncToCloud(){try{await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products:products.map(p=>{let {selectedSize,...rest}=p;return {...rest,selectedSize:p.selectedSize};}),settings})});}catch(e){}}
 function applySettings(){document.getElementById("sShopName").value=settings.shopName;document.getElementById("sTagline").value=settings.tagline;document.getElementById("sSlogan").value=settings.slogan;document.getElementById("sPhone").value=settings.phone;document.getElementById("sAddr").value=settings.address;document.getElementById("sBkash").value=settings.bkash;document.getElementById("sNagad").value=settings.nagad;document.getElementById("sRocket").value=settings.rocket;document.getElementById("sOffer").value=settings.offerBanner||"";document.getElementById("sAdminPass").value=settings.adminPass||"1234";document.getElementById("showBkash").innerText=settings.bkash;document.getElementById("showNagad").innerText=settings.nagad;document.getElementById("showRocket").innerText=settings.rocket;document.getElementById("hDate").innerText=new Date().toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long',year:'numeric'});let banner=document.getElementById("offerBanner");let searchWrap=document.getElementById("searchWrap");if(settings.offerBanner && settings.offerBanner.trim()!=""){banner.innerText=settings.offerBanner;banner.style.display="block";searchWrap.classList.add("hasOffer");}else{banner.style.display="none";searchWrap.classList.remove("hasOffer");}updateUserTopBar();updateBell();}
 function saveOffer(){settings.offerBanner=document.getElementById("sOffer").value;applySettings();syncToCloud();alert("✅ অফার সেভ!");}
@@ -143,13 +156,52 @@ function updateProduct(){if(editingIndex<0) return;let nm=document.getElementByI
 function cancelEdit(){editingIndex=-1;tempSizes=[];tempImg="";document.getElementById("editModeTag").style.display="none";document.getElementById("addBtn").style.display="block";document.getElementById("updateBtn").style.display="none";document.getElementById("cancelEditBtn").style.display="none";["pName","pCat","pRetail","pStock","pDiscount","pImg","pDesc","bulkSize"].forEach(id=>{let el=document.getElementById(id);if(el)el.value="";});document.getElementById("preview").style.display="none";document.getElementById("fileName").innerText="";renderSizeList();}
 function renderAdmin(){let h="";products.forEach((p,i)=>{h+=`<div style="border:1px solid #ddd;padding:6px;border-radius:6px;margin:5px 0;background:#fff;display:flex;gap:6px;align-items:center"><img src="${p.img}" style="width:40px;height:50px;object-fit:contain"><div style="flex:1"><b style="font-size:11px">${p.name}</b><br><small style="font-size:10px">${p.category} • স্টক:${p.stock} • ৳${p.retailPrice}</small><br><div style="display:flex;gap:4px;margin-top:3px"><button onclick="editProduct(${i})" style="background:#fef3c7;border:1px solid #fcd34d;padding:3px 6px;border-radius:5px;font-size:9px">✏️ এডিট</button><button onclick="if(confirm('ডিলিট?')){products.splice(${i},1);cart=cart.filter(c=>c.prodIdx!=${i});syncToCloud();doRender()}" style="background:#fee2e2;border:1px solid #fecaca;padding:3px 6px;border-radius:5px;font-size:9px;color:#dc2626">❌</button></div></div></div>`});document.getElementById("adminList").innerHTML=h;}
 function openUserLogin(){document.getElementById("userModal").style.display="block";}
-function doUserLogin(){let email=document.getElementById("uEmail").value.trim().toLowerCase();if(!email.includes("@")){alert("Gmail দিন");return;}if(settings.blockedEmails && settings.blockedEmails.includes(email)){alert("🚫 আপনি ব্লকড");return;}currentUser={email:email,loginAt:new Date().toISOString()};localStorage.setItem('insaf_user',JSON.stringify(currentUser));if(!allUsers.find(u=>u.email==email)){allUsers.push({email:email,date:new Date().toLocaleString('bn-BD')});localStorage.setItem('insaf_all_users',JSON.stringify(allUsers));}document.getElementById("userModal").style.display="none";updateUserTopBar();renderUserListAdmin();alert("✅ লগইন সফল! "+(settings.userDiscounts[email]||2)+"% ছাড়");render();}
+function doUserLogin(){
+  let email=document.getElementById("uEmail").value.trim().toLowerCase();
+  if(!email.includes("@")){alert("Gmail দিন");return;}
+  if(settings.blockedEmails && settings.blockedEmails.includes(email)){alert("🚫 আপনি ব্লকড");return;}
+  currentUser={email:email,loginAt:new Date().toISOString()};
+  localStorage.setItem('insaf_user',JSON.stringify(currentUser));
+  if(!allUsers.find(u=>u.email==email)){
+    allUsers.push({email:email,date:new Date().toLocaleString('bn-BD')});
+    localStorage.setItem('insaf_all_users',JSON.stringify(allUsers));
+  }
+  if(!settings.allUsersCloud) settings.allUsersCloud=[];
+  if(!settings.allUsersCloud.find(u=>u.email==email)){
+    settings.allUsersCloud.push({email:email,date:new Date().toLocaleString('bn-BD')});
+  }
+  document.getElementById("userModal").style.display="none";
+  updateUserTopBar();
+  renderUserListAdmin();
+  syncToCloud();
+  alert("✅ লগইন সফল! "+(settings.userDiscounts[email]||2)+"% ছাড় পাবেন");
+  render();
+}
 function logoutUser(){localStorage.removeItem('insaf_user');currentUser=null;updateUserTopBar();render();}
-function updateUserTopBar(){let bar=document.getElementById("userTopBar");if(currentUser){bar.style.display="flex";document.getElementById("userEmailShow").innerText="👤 "+currentUser.email;let perc=getCurrentUserDiscount();document.getElementById("userDiscountShow").innerText=perc>0?`🎉 ${perc}% ছাড়`:"";}else{bar.style.display="none";}}
+function updateUserTopBar(){
+  let topBar=document.getElementById("userTopBar");
+  let outView=document.getElementById("loggedOutView");
+  let inView=document.getElementById("loggedInView");
+  if(currentUser){
+    topBar.style.display="flex";
+    document.getElementById("userEmailShow").innerText="👤 "+currentUser.email;
+    let perc=getCurrentUserDiscount();
+    document.getElementById("userDiscountShow").innerText=perc>0?`🎉 ${perc}% ছাড়`:"";
+    // নিচের এরিয়া
+    outView.style.display="none";
+    inView.style.display="block";
+    document.getElementById("bottomEmailShow").innerText=currentUser.email;
+    document.getElementById("bottomDiscountShow").innerText=perc;
+  }else{
+    topBar.style.display="none";
+    outView.style.display="block";
+    inView.style.display="none";
+  }
+}
 function getCurrentUserDiscount(){if(!currentUser) return 0;return settings.userDiscounts[currentUser.email]||2;}
 function renderUserListAdmin(){let div=document.getElementById("userListAdmin");if(allUsers.length==0){div.innerHTML="<p style='font-size:11px;color:#94a3b8'>কেউ লগইন করেনি</p>";return;}let h="";allUsers.forEach((u,i)=>{let disc=settings.userDiscounts[u.email]||2;let isBlocked=settings.blockedEmails && settings.blockedEmails.includes(u.email);h+=`<div style="border:1px solid ${isBlocked?'#ef4444':'#e2e8f0'};padding:6px 8px;border-radius:8px;margin:4px 0;font-size:11px;background:${isBlocked?'#fef2f2':'#fff'}"><div style="display:flex;justify-content:space-between"><div><b>${u.email}</b> ${isBlocked?'<span style="color:#ef4444">🚫 BLOCKED</span>':''}<br><small>${u.date}</small></div><div style="display:flex;gap:4px;align-items:center"><input id="disc_${i}" type="number" value="${disc}" style="width:40px;padding:3px;border:1px solid #cbd5e1;border-radius:5px">%<button onclick="saveUserDiscount('${u.email}',${i})" style="background:#16a34a;color:#fff;border:0;padding:3px 6px;border-radius:5px;font-size:9px">সেভ</button></div></div><div style="display:flex;gap:4px;margin-top:4px"><button onclick="removeUser('${u.email}')" style="background:#fef3c7;border:1px solid #fcd34d;padding:3px 8px;border-radius:5px;font-size:9px">❌ রিমুভ</button><button onclick="blockUser('${u.email}')" style="background:${isBlocked?'#22c55e':'#fee2e2'};border:1px solid ${isBlocked?'#86efac':'#fecaca'};padding:3px 8px;border-radius:5px;font-size:9px;color:${isBlocked?'#166534':'#dc2626'}">${isBlocked?'✅ আনব্লক':'🚫 ব্লক'}</button></div></div>`;});div.innerHTML=h;}
 function saveUserDiscount(email,idx){let v=parseInt(document.getElementById("disc_"+idx).value)||0;settings.userDiscounts[email]=v;syncToCloud();alert("✅ "+v+"% ছাড়");render();}
-function removeUser(email){if(!confirm(email+" কে রিমুভ করবেন?")) return;allUsers=allUsers.filter(u=>u.email!=email);localStorage.setItem('insaf_all_users',JSON.stringify(allUsers));delete settings.userDiscounts[email];if(currentUser && currentUser.email==email){logoutUser();}syncToCloud();renderUserListAdmin();}
+function removeUser(email){if(!confirm(email+" কে রিমুভ করবেন?")) return;allUsers=allUsers.filter(u=>u.email!=email);localStorage.setItem('insaf_all_users',JSON.stringify(allUsers));if(settings.allUsersCloud) settings.allUsersCloud=settings.allUsersCloud.filter(u=>u.email!=email); delete settings.userDiscounts[email];if(currentUser && currentUser.email==email){logoutUser();}syncToCloud();renderUserListAdmin();}
 function blockUser(email){if(!settings.blockedEmails) settings.blockedEmails=[];if(settings.blockedEmails.includes(email)){settings.blockedEmails=settings.blockedEmails.filter(e=>e!=email);}else{settings.blockedEmails.push(email);if(currentUser && currentUser.email==email){logoutUser();}}syncToCloud();renderUserListAdmin();}
 function updateBell(){let unread = settings.notifications? settings.notifications.length : 0;let localSeen = parseInt(localStorage.getItem('notif_seen')||'0');let newCount = unread - localSeen;let el=document.getElementById("bellCount");if(newCount>0){el.style.display="flex";el.innerText=newCount>9?"9+":newCount;}else{el.style.display="none";}}
 function openNotif(){let list=document.getElementById("notifList");if(!settings.notifications || settings.notifications.length==0){list.innerHTML="<p style='font-size:11px;color:#94a3b8'>কোনো নতুন পণ্য নেই</p>";}else{let h="";settings.notifications.slice().reverse().forEach((n,i)=>{h+=`<div style="border:1px solid #e2e8f0;padding:8px;border-radius:8px;margin:6px 0;background:#f0fdf4"><b>🔔 ${n.name}</b><br><small>দাম: ৳${n.price} | ${n.date}</small><br><button onclick="orderFromNotif('${n.name}')" style="background:#16a34a;color:#fff;border:0;padding:5px 10px;border-radius:6px;font-size:11px;margin-top:4px">🛒 অর্ডার</button></div>`;});list.innerHTML=h;}document.getElementById("notifModal").style.display="block";localStorage.setItem('notif_seen', (settings.notifications?settings.notifications.length:0));updateBell();}
@@ -168,13 +220,14 @@ async function addProduct(){
  settings.notifications.push({name:nm,price:rt,date:new Date().toLocaleString('bn-BD'),time:Date.now()});
  if(settings.notifications.length>20) settings.notifications=settings.notifications.slice(-20);
  await syncToCloud();
- try{sendEmailToAll(nm,rt,img);}catch(e){}
+ try{sendEmailToAll(nm,rt,img);}catch(e){console.log(e);}
  doRender();tempImg="";tempSizes=[];document.getElementById("preview").style.display="none";["pName","pCat","pRetail","pStock","pDiscount","pImg","pDesc","bulkSize"].forEach(id=>{let el=document.getElementById(id);if(el)el.value="";});document.getElementById("fileName").innerText="";renderSizeList();alert("✅ যোগ হয়েছে! 🔔 ঘণ্টায় + Gmail এ মেইল গেছে");
 }
-// FIXED: Email function - ager code thik rekhe sudhu delay add kora holo
 async function sendEmailToAll(prodName, prodPrice, prodImg){
  emailjs.init(EMAILJS_PUBLIC);
- for(let u of allUsers){
+ let combined=[...allUsers,...(settings.allUsersCloud||[])];
+ let unique=[...new Map(combined.map(m=>[m.email,m])).values()];
+ for(let u of unique){
   if(settings.blockedEmails && settings.blockedEmails.includes(u.email)) continue;
   try{
    await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
@@ -185,7 +238,7 @@ async function sendEmailToAll(prodName, prodPrice, prodImg){
      product_link: location.href,
      shop_name: "ইনসাফ শপ"
    });
-   await new Promise(r => setTimeout(r, 1500));
+   await new Promise(r => setTimeout(r, 1200));
   }catch(e){console.log("email fail",u.email,e);}
  }
 }
