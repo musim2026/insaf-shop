@@ -2,7 +2,19 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ইনসাফ শপ - রকমারি বাজার</title>
+
+<title>ইনসাফ সুপার শপ - রকমারি বাজার</title>
+<meta name="title" content="ইনসাফ সুপার শপ - রকমারি বাজার">
+<meta name="description" content="🌐 রকমারি বাজার • ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি - দ্বীনি বই, গেঞ্জি, টুপি, আতর">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://musim2026.github.io/insaf-shop/">
+<meta property="og:title" content="ইনসাফ সুপার শপ - রকমারি বাজার">
+<meta property="og:description" content="🌐 রকমারি বাজার • ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি - দ্বীনি বই, গেঞ্জি, টুপি, আতর">
+<meta property="og:image" content="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="ইনসাফ সুপার শপ - রকমারি বাজার">
+<meta property="twitter:description" content="🌐 রকমারি বাজার • ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি - দ্বীনি বই, গেঞ্জি, টুপি, আতর">
+
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700;900&display=swap" rel="stylesheet">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
@@ -64,7 +76,6 @@
 <div id="offerBanner" class="offerBanner" style="display:none"></div>
 <div class="searchWrap" id="searchWrap"><div class="searchBox"><input id="search" placeholder="বই, টুপি, গেঞ্জি সার্চ..."><button onclick="render()">সার্চ</button></div><div class="catWrap" id="catWrap"></div></div>
 <div class="grid" id="grid"></div>
-
 <div id="bottomArea" style="background:#fff;padding:16px 12px;text-align:center;margin-bottom:110px;border-top:1px solid #e2e8f0">
   <b style="font-size:14px;color:#0f172a">ইনসাফ শপ</b><br>
   <span style="font-size:11px;color:#16a34a;font-weight:700">🌐 রকমারি বাজার • ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি</span><br>
@@ -81,7 +92,6 @@
     </div>
   </div>
 </div>
-
 <div class="cartBar"><div id="cartProgress" class="cartProgress" style="display:none"></div><div class="cartBarMain"><div>🛒 <span id="cartPcs">0</span> পিস | মোট: <span id="grandTotal">৳0</span></div><button onclick="checkout()">অর্ডার করুন</button></div></div>
 <div id="detailModal" class="modal" onclick="if(event.target==this)this.style.display='none'"><div class="modalBox"><span style="float:right;cursor:pointer" onclick="document.getElementById('detailModal').style.display='none'">❌</span><img id="dImg" style="width:100%;height:220px;object-fit:contain;background:#fff;border-radius:10px"><h3 id="dName" style="font-size:14px"></h3><div id="dCat" style="font-size:10px;color:#64748b"></div><div id="dPrice" style="font-size:20px;font-weight:900;color:#16a34a;margin:4px 0" onclick="handlePriceClick()"></div><div id="dOffer" class="discountTag" style="display:none"></div><div id="dSizeWrap" class="sizeWrap"></div><p id="dDesc" style="background:#f8fafc;padding:8px;border-radius:8px;font-size:11px;line-height:1.6;white-space:pre-wrap"></p><div class="qtyRow"><button onclick="changeDetailQty(-1)">-</button><input id="dQty" value="0" readonly><button onclick="changeDetailQty(1)">+</button></div><div id="dTotalBox" class="totalBox"></div><button class="btn btnG" onclick="addDetailToCart()">🛒 কার্টে যোগ</button></div></div>
 <div id="checkoutModal" class="modal"><div class="modalBox"><h3 style="margin:0;font-size:14px">অর্ডার <span onclick="document.getElementById('checkoutModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3><div id="checkoutList" style="background:#f8fafc;padding:8px;border-radius:8px;margin:6px 0;font-size:11px"></div><div id="checkoutDiscountInfo" style="display:none;background:#dcfce7;color:#166534;padding:6px;border-radius:6px;font-weight:800;font-size:11px;margin:5px 0"></div><h3 id="checkoutTotal" style="font-size:14px"></h3><input id="cName" placeholder="নাম *" style="width:100%;padding:9px;margin:4px 0;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"><input id="cPhone" placeholder="মোবাইল *" style="width:100%;padding:9px;margin:4px 0;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"><textarea id="cAddr" placeholder="ঠিকানা *" style="width:100%;padding:9px;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"></textarea><div style="background:#f0fdf4;border:1.5px dashed #16a34a;padding:8px;border-radius:8px;margin:6px 0"><b style="font-size:11px">💳 পেমেন্ট</b><div class="payOpt active" id="pay_bkash" onclick="selectPay('bkash')"><input type="radio" name="pay" checked><b>বিকাশ</b> - <span id="showBkash"></span></div><div class="payOpt" id="pay_nagad" onclick="selectPay('nagad')"><input type="radio" name="pay"><b>নগদ</b> - <span id="showNagad"></span></div><div class="payOpt" id="pay_rocket" onclick="selectPay('rocket')"><input type="radio" name="pay"><b>রকেট</b> - <span id="showRocket"></span></div><div class="payOpt" id="pay_cod" onclick="selectPay('cod')"><input type="radio" name="pay"><b>ক্যাশ</b></div><input id="trxId" placeholder="Trx ID" style="width:100%;padding:9px;margin-top:5px;border:1px solid #cbd5e1;border-radius:7px;font-size:12px"></div><button class="btn btnG" onclick="placeOrder()">✅ সাবমিট - <span id="btnTotal"></span></button></div></div>
@@ -89,7 +99,7 @@
 <div id="userModal" class="modal"><div class="modalBox" style="text-align:center"><h3>👤 User Login</h3><p style="font-size:11px;color:#64748b">Gmail দিলে ছাড় পাবেন</p><input id="uEmail" placeholder="example@gmail.com" style="width:100%;padding:10px;border:1.5px solid #cbd5e1;border-radius:8px;font-size:12px"><button class="btn btnG" onclick="doUserLogin()">🔐 লগইন</button><button class="btn" style="background:#f1f5f9" onclick="document.getElementById('userModal').style.display='none'">বন্ধ</button></div></div>
 <div id="notifModal" class="modal"><div class="modalBox"><h3 style="margin:0">🔔 নতুন পণ্য <span onclick="document.getElementById('notifModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3><div id="notifList" style="margin-top:8px"></div><button class="btn" style="background:#f1f5f9" onclick="clearNotif()">✅ সব পড়েছি</button></div></div>
 <div id="adminPanel">
-<h2 style="display:flex;justify-content:space-between;margin:0;font-size:16px">⚙️ Admin V34 <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2>
+<h2 style="display:flex;justify-content:space-between;margin:0;font-size:16px">⚙️ Admin V36 <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2>
 <div class="adminCard" style="border:2px solid #16a34a;background:#f0fdf4"><h3 style="margin:0 0 6px;font-size:13px">👥 ইউজার তালিকা + ব্লক/রিমুভ</h3><div id="userListAdmin" style="max-height:280px;overflow:auto"></div></div>
 <div class="adminCard" style="border:2px solid #B91C1C;background:#fef2f2"><h3 style="margin:0 0 6px;color:#B91C1C;font-size:13px">💝 অফার</h3><input id="sOffer"><button class="btn" style="background:#B91C1C;color:#fff" onclick="saveOffer()">💾 সেভ</button></div>
 <div class="adminCard" style="border:2px solid #16a34a"><h3 style="margin:0 0 6px;font-size:13px">🔑 পাসওয়ার্ড</h3><input id="sAdminPass"><button class="btn btnG" onclick="saveAdminPass()">🔒 চেঞ্জ</button></div>
@@ -194,7 +204,29 @@ function saveUserDiscount(email,idx){let v=parseInt(document.getElementById("dis
 function removeUser(email){if(!confirm(email+" কে রিমুভ করবেন?")) return;allUsers=allUsers.filter(u=>u.email!=email);localStorage.setItem('insaf_all_users',JSON.stringify(allUsers));if(settings.allUsersCloud) settings.allUsersCloud=settings.allUsersCloud.filter(u=>u.email!=email); delete settings.userDiscounts[email];if(currentUser && currentUser.email==email){logoutUser();}syncToCloud();renderUserListAdmin();}
 function blockUser(email){if(!settings.blockedEmails) settings.blockedEmails=[];if(settings.blockedEmails.includes(email)){settings.blockedEmails=settings.blockedEmails.filter(e=>e!=email);}else{settings.blockedEmails.push(email);if(currentUser && currentUser.email==email){logoutUser();}}syncToCloud();renderUserListAdmin();}
 function updateBell(){let unread = settings.notifications? settings.notifications.length : 0;let localSeen = parseInt(localStorage.getItem('notif_seen')||'0');let newCount = unread - localSeen;let el=document.getElementById("bellCount");if(newCount>0){el.style.display="flex";el.innerText=newCount>9?"9+":newCount;}else{el.style.display="none";}}
-function openNotif(){let list=document.getElementById("notifList");if(!settings.notifications || settings.notifications.length==0){list.innerHTML="<p style='font-size:11px;color:#94a3b8'>কোনো নতুন পণ্য নেই</p>";}else{let h="";settings.notifications.slice().reverse().forEach((n,i)=>{h+=`<div style="border:1px solid #e2e8f0;padding:8px;border-radius:8px;margin:6px 0;background:#f0fdf4"><b>🔔 ${n.name}</b><br><small>দাম: ৳${n.price} | ${n.date}</small><br><button onclick="orderFromNotif('${n.name}')" style="background:#16a34a;color:#fff;border:0;padding:5px 10px;border-radius:6px;font-size:11px;margin-top:4px">🛒 অর্ডার</button></div>`;});list.innerHTML=h;}document.getElementById("notifModal").style.display="block";localStorage.setItem('notif_seen', (settings.notifications?settings.notifications.length:0));updateBell();}
+function openNotif(){
+  let list=document.getElementById("notifList");
+  if(!settings.notifications || settings.notifications.length==0){
+    list.innerHTML="<p style='font-size:11px;color:#94a3b8'>কোনো নতুন পণ্য নেই</p>";
+  }else{
+    let h="";
+    settings.notifications.slice().reverse().forEach((n,revIdx)=>{
+      let realIdx = settings.notifications.length - 1 - revIdx;
+      h+=`<div style="border:1px solid #e2e8f0;padding:8px;border-radius:8px;margin:6px 0;background:#f0fdf4;position:relative"><span onclick="deleteNotif(${realIdx})" style="position:absolute;top:4px;right:6px;background:#fee2e2;border:1px solid #fecaca;color:#dc2626;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:10px;font-weight:900">❌</span><b>🔔 ${n.name}</b><br><small>দাম: ৳${n.price} | ${n.date}</small><br><button onclick="orderFromNotif('${n.name}')" style="background:#16a34a;color:#fff;border:0;padding:5px 10px;border-radius:6px;font-size:11px;margin-top:4px">🛒 অর্ডার</button></div>`;
+    });
+    list.innerHTML=h;
+  }
+  document.getElementById("notifModal").style.display="block";
+  localStorage.setItem('notif_seen', (settings.notifications?settings.notifications.length:0));
+  updateBell();
+}
+function deleteNotif(idx){
+  if(!confirm("এই নোটিফিকেশন ডিলিট করবেন?")) return;
+  settings.notifications.splice(idx,1);
+  syncToCloud();
+  openNotif();
+  updateBell();
+}
 function clearNotif(){localStorage.setItem('notif_seen', (settings.notifications?settings.notifications.length:0));document.getElementById("notifModal").style.display="none";updateBell();}
 function orderFromNotif(name){let idx=products.findIndex(p=>p.name==name);if(idx>=0){document.getElementById("notifModal").style.display="none";openDetail(idx);}}
 function checkout(){if(!cart.length){alert("পিস সিলেক্ট করুন");return;}let html="",baseTot=0;cart.forEach(it=>{let p=products[it.prodIdx];let c=calcTotalForItem(it);baseTot+=c.total;html+=`<div style="display:flex;justify-content:space-between;margin:3px 0"><span>${p.name}${it.size?' ('+it.size+')':''} x${it.qty}</span><span>৳${c.total}</span></div>`;});let perc=getCurrentUserDiscount();let finalTot=baseTot;let discInfo=document.getElementById("checkoutDiscountInfo");if(perc>0 && currentUser){let off=Math.round(baseTot*perc/100);finalTot=baseTot-off;discInfo.style.display="block";discInfo.innerText=`🎉 ${perc}% ছাড়: -৳${off} | মোট ৳${finalTot}`;}else{discInfo.style.display="none";}document.getElementById("checkoutList").innerHTML=html;document.getElementById("checkoutTotal").innerText="মোট: ৳"+finalTot;document.getElementById("btnTotal").innerText="৳"+finalTot;document.getElementById("checkoutModal").style.display="block";}
