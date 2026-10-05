@@ -2,22 +2,37 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ইনসাফ শপ - রকমারি বাজার</title>
-<meta name="description" content="🌐 রকমারি বাজার • ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি - দ্বীনি বই, গজল, টুপি, আতর">
+<title>ইনসাফ শপ - রকমারি বাজার | দ্বীনি বই, আতর, টুপি, গেঞ্জি</title>
+<meta name="description" content="ইনসাফ শপ - রকমারি বাজার। ইসলামিক বই, প্রিমিয়াম আতর, টুপি, গেঞ্জি। ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি - 01895280130">
 <link id="canonicalLink" rel="canonical" href="https://insafshop.net/">
 <link rel="icon" type="image/jpeg" href="https://insafshop.net/logo.jpg">
 <link rel="apple-touch-icon" href="https://insafshop.net/logo.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://insafshop.net/">
-<meta property="og:title" content="ইনসাফ শপ - রকমারি বাজার">
-<meta property="og:description" content="🌐 রকমারি বাজার • ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি">
+<meta property="og:title" content="ইনসাফ শপ - রকমারি বাজার | বই, আতর, টুপি">
+<meta property="og:description" content="🌐 রকমারি বাজার • ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি -ইসলামিক বই">
 <meta property="og:image" content="https://insafshop.net/logo.jpg">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://insafshop.net/logo.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ইনসাফ শপ","url":"https://insafshop.net/","logo":"https://insafshop.net/logo.jpg"}</script>
+
+<!-- ✅ FIX 1: GOOGLE KE BOLBE ETA GENERAL SHOP, DEMO NA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "ইনসাফ শপ - রকমারি বাজার",
+  "url": "https://insafshop.net/",
+  "logo": "https://insafshop.net/logo.jpg",
+  "image": "https://insafshop.net/logo.jpg",
+  "description": "ইনসাফ শপ একটি অনলাইন রকমারি বাজার। এখানে ইসলামিক বই, আতর, টুপি, গেঞ্জি পাওয়া যায়। পেমেন্ট কনফার্ম হলেই ডেলিভারি।",
+  "telephone": "+8801895280130",
+  "address": {"@type": "PostalAddress", "addressCountry": "BD"}
+}
+</script>
 <script type="application/ld+json" id="seoSchema"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
@@ -113,23 +128,24 @@ let products=[],activeCat="সব",detailIndex=-1,selectedPay="bkash",tempImg=""
 const trigger=document.getElementById('secretTrigger');const secretDot=document.getElementById('secretAdminDot');
 trigger.addEventListener('click',()=>{secretClicks++;clearTimeout(secretTimer);if(secretClicks>=10){secretDot.style.display='flex';setTimeout(()=>{secretDot.style.display='none';secretClicks=0;},5000);}else{secretTimer=setTimeout(()=>{secretClicks=0;},2000);}});
 
-// SEO + AUTO OPEN LOGIC - FINAL FIX
 function makeSlug(s){return s.toLowerCase().trim().replace(/[^a-z0-9\u0980-\u09FF]+/g,'-').replace(/^-|-$/g,'').replace(/-+/g,'-');}
 function getBookFromUrl(){let u=new URLSearchParams(location.search);return u.get('book');}
-function clearBookFilter(){history.pushState({},'',location.pathname);document.title="ইনসাফ শপ - রকমারি বাজার";let schemaEl=document.getElementById('seoSchema');if(schemaEl) schemaEl.textContent=""; doRender();}
+function clearBookFilter(){
+  history.pushState({},'',location.pathname);
+  document.title="ইনসাফ শপ - রকমারি বাজার | বই, আতর, টুপি, গেঞ্জি";
+  document.getElementById('canonicalLink').href="https://insafshop.net/";
+  let schemaEl=document.getElementById('seoSchema'); if(schemaEl) schemaEl.textContent="";
+  doRender();
+}
 function findProductIndexBySlug(slug){
  if(!slug) return -1;
  slug=decodeURIComponent(slug).toLowerCase().trim();
- // 1. Direct match with makeSlug
  let idx=products.findIndex(p=>makeSlug(p.name).toLowerCase()==slug);
  if(idx>=0) return idx;
- // 2. English roman mapping for common books
- const romanMap={"tumi-firbe-bole":"তুমি ফিরবে বলে","tumi firbe bole":"তুমি ফিরবে বলে","bela-furabar-age":"বেলা ফুরাবার আগে","paradoxical-sajid":"প্যারাডক্সিকাল সাজিদ"};
+ const romanMap={"tumi-firbe-bole":"তুমি ফিরবে বলে","bela-furabar-age":"বেলা ফুরাবার আগে","paradoxical-sajid":"প্যারাডক্সিকাল সাজিদ"};
  if(romanMap[slug]){let bn=romanMap[slug]; let i2=products.findIndex(p=>p.name.includes(bn)); if(i2>=0) return i2;}
- // 3. Loose contains check - if slug contains "tumi" match "তুমি ফিরবে"
- if(slug.includes("tumi") || slug.includes("তুমি")){let i3=products.findIndex(p=>p.name.includes("তুমি ফিরবে")); if(i3>=0) return i3;}
- // 4. Last try: check if product name includes slug text
- let loose=products.findIndex(p=>p.name.toLowerCase().includes(slug) || slug.includes(p.name.toLowerCase().substring(0,4)));
+ if(slug.includes("tumi")){let i3=products.findIndex(p=>p.name.includes("তুমি ফিরবে")); if(i3>=0) return i3;}
+ let loose=products.findIndex(p=>p.name.toLowerCase().includes(slug));
  return loose;
 }
 function updateSEOForProduct(p){
@@ -138,7 +154,7 @@ function updateSEOForProduct(p){
  let url="https://insafshop.net/?book="+encodeURIComponent(slug);
  document.title=p.name+" - ইনসাফ শপ | রকমারি বাজার";
  let metaDesc=document.querySelector('meta[name="description"]');
- if(metaDesc) metaDesc.setAttribute('content', p.name+" - "+(p.desc||"").slice(0,120)+" | ইনসাফ শপ - অরিজিনাল বই, দ্রুত ডেলিভারি");
+ if(metaDesc) metaDesc.setAttribute('content', p.name+" - "+(p.desc||"").slice(0,120)+" | ইনসাফ শপ - অরিজিনাল বই, আতর, টুপি, দ্রুত ডেলিভারি");
  let ogTitle=document.querySelector('meta[property="og:title"]'); if(ogTitle) ogTitle.setAttribute('content', p.name+" | ইনসাফ শপ");
  let ogUrl=document.querySelector('meta[property="og:url"]'); if(ogUrl) ogUrl.setAttribute('content', url);
  document.getElementById('canonicalLink').href=url;
@@ -154,10 +170,15 @@ async function handleFile(inp){let f=inp.files[0];if(!f)return;uploading=true;do
 function addSizeRow(){let sz=document.getElementById("newSize").value.trim(),pr=parseInt(document.getElementById("newPrice").value);if(!sz||!pr){alert("সাইজ ও দাম দিন");return;}tempSizes.push({size:sz,price:pr});document.getElementById("newSize").value="";document.getElementById("newPrice").value="";renderSizeList();}
 function addBulkSizes(){let bulk=document.getElementById("bulkSize").value.trim();let base=parseInt(document.getElementById("pRetail").value)||300;if(!bulk){alert("19,19.5,20 লিখুন");return;}bulk.split(",").forEach(s=>{s=s.trim();if(s)tempSizes.push({size:s,price:base});});document.getElementById("bulkSize").value="";renderSizeList();}
 function renderSizeList(){let h="";tempSizes.forEach((s,i)=>{h+=`<div style="display:flex;justify-content:space-between;background:#fff;padding:5px 8px;border-radius:6px;margin:3px 0;border:1px solid #e2e8f0;font-size:11px"><span><b>${s.size}</b> - ৳${s.price}</span><span onclick="tempSizes.splice(${i},1);renderSizeList()" style="color:#ef4444;cursor:pointer">❌</span></div>`;});document.getElementById("sizeList").innerHTML=h||"<p style='font-size:10px;color:#94a3b8'>বই হলে সাইজ লাগবে না</p>";}
-async function syncFromCloud(){try{let r=await fetch(API_URL);let d=await r.json();if(d.settings){settings={...settings,...d.settings};if(!settings.userDiscounts)settings.userDiscounts={};if(!settings.blockedEmails)settings.blockedEmails=[];if(!settings.notifications)settings.notifications=[];if(!settings.allUsersCloud)settings.allUsersCloud=[];if(!settings.whatsapp)settings.whatsapp=settings.bkash;if(settings.orderCount==undefined)settings.orderCount=0; if(settings.shopName && settings.shopName.includes("সুপার")) settings.shopName="ইনসাফ শপ"; if(settings.allUsersCloud && settings.allUsersCloud.length>0){ let merged=[...allUsers,...settings.allUsersCloud]; allUsers=[...new Map(merged.map(m=>[m.email,m])).values()]; localStorage.setItem('insaf_all_users',JSON.stringify(allUsers)); }}if(d.products&&d.products.length>0){products=d.products.map(p=>{if(!p.sizes)p.sizes=[];if(p.stock==undefined)p.stock=100;return {...p,selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:"")};});}else{products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));syncToCloud();}applySettings();render();
-// AUTO OPEN IF?book= in url
-setTimeout(()=>{let slug=getBookFromUrl(); if(slug){let idx=findProductIndexBySlug(slug); if(idx>=0){openDetail(idx, false);} }}, 800);
-}catch(e){products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));applySettings();render();}}
+async function syncFromCloud(){
+  try{
+    let r=await fetch(API_URL);let d=await r.json();
+    if(d.settings){settings={...settings,...d.settings};if(!settings.userDiscounts)settings.userDiscounts={};if(!settings.blockedEmails)settings.blockedEmails=[];if(!settings.notifications)settings.notifications=[];if(!settings.allUsersCloud)settings.allUsersCloud=[];if(!settings.whatsapp)settings.whatsapp=settings.bkash;if(settings.orderCount==undefined)settings.orderCount=0; if(settings.shopName && settings.shopName.includes("সুপার")) settings.shopName="ইনসাফ শপ"; if(settings.allUsersCloud && settings.allUsersCloud.length>0){ let merged=[...allUsers,...settings.allUsersCloud]; allUsers=[...new Map(merged.map(m=>[m.email,m])).values()]; localStorage.setItem('insaf_all_users',JSON.stringify(allUsers)); }}
+    if(d.products&&d.products.length>0){products=d.products.map(p=>{if(!p.sizes)p.sizes=[];if(p.stock==undefined)p.stock=100;return {...p,selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:"")};});}else{products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));syncToCloud();}
+    applySettings();render();
+    setTimeout(()=>{let slug=getBookFromUrl(); if(slug){let idx=findProductIndexBySlug(slug); if(idx>=0){openDetail(idx, true);} }}, 900);
+  }catch(e){products=FULL_PRODUCTS.map(p=>({...p,selectedSize:""}));applySettings();render();}
+}
 async function syncToCloud(){try{await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products:products.map(p=>{let {selectedSize,...rest}=p;return {...rest,selectedSize:p.selectedSize};}),settings})});}catch(e){}}
 function applySettings(){document.getElementById("sShopName").value=settings.shopName;document.getElementById("sTagline").value=settings.tagline;document.getElementById("sSlogan").value=settings.slogan;document.getElementById("sPhone").value=settings.phone;document.getElementById("sAddr").value=settings.address;document.getElementById("sWhatsapp").value=settings.whatsapp||settings.bkash;document.getElementById("sBkash").value=settings.bkash;document.getElementById("sNagad").value=settings.nagad;document.getElementById("sRocket").value=settings.rocket;document.getElementById("sGmail").value=settings.gmail||"";document.getElementById("sMessenger").value=settings.messenger||"";document.getElementById("sOffer").value=settings.offerBanner||"";document.getElementById("sAdminPass").value=settings.adminPass||"1234";document.getElementById("showBkash").innerText=settings.bkash;document.getElementById("showNagad").innerText=settings.nagad;document.getElementById("showRocket").innerText=settings.rocket;document.getElementById("hDate").innerText=new Date().toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long',year:'numeric'});let banner=document.getElementById("offerBanner");let searchWrap=document.getElementById("searchWrap");if(settings.offerBanner && settings.offerBanner.trim()!=""){banner.innerText=settings.offerBanner;banner.style.display="block";searchWrap.classList.add("hasOffer");}else{banner.style.display="none";searchWrap.classList.remove("hasOffer");}updateUserUI();updateBell();}
 function saveOffer(){settings.offerBanner=document.getElementById("sOffer").value;applySettings();syncToCloud();alert("✅ অফার সেভ!");}
@@ -170,8 +191,22 @@ function addToCart(prodIdx,size,qtyDelta){let p=products[prodIdx];if(!size&&p.si
 function calcTotalForItem(item){let p=products[item.prodIdx];let pr=getPrice(p,item.size);let base=pr*item.qty;let disc=Math.floor(item.qty/6)*(p.discountPer6||0);return {total:base-disc,discount:disc,unit:pr};}
 function filterCat(c){activeCat=c;render();}
 function renderCats(){let chips=settings.categories.map(c=>`<div class="chip ${activeCat==c?'active':''}" onclick="filterCat('${c}')">${c}</div>`).join('');document.getElementById("catWrap").innerHTML=chips;}
-function openDetail(i, pushUrl=true){detailIndex=i;let p=products[i];document.getElementById("dImg").src=p.img;document.getElementById("dName").innerText=p.name;document.getElementById("dCat").innerText=p.category;let curSize=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");document.getElementById("dPrice").innerText="৳"+getPrice(p,curSize);document.getElementById("dDesc").innerText=p.desc||"";document.getElementById("dQty").value=getCartQty(i,curSize);let dOffer=document.getElementById("dOffer");if(p.discountPer6>0){dOffer.innerText=`💝 ৬ পিসে ৳${p.discountPer6} ছাড়!`;dOffer.style.display="inline-block";}else{dOffer.style.display="none";}let sw=document.getElementById("dSizeWrap");sw.innerHTML="";if(p.sizes&&p.sizes.length>0){sw.innerHTML=p.sizes.map(s=>`<div class="sizeBtn ${ (p.selectedSize==s.size||(!p.selectedSize&&curSize==s.size))?'active':''}" onclick="selectSize('${s.size}')">${s.size} - ৳${s.price}</div>`).join('');}updateDetailTotal();document.getElementById("detailModal").style.display="block";
- if(pushUrl){ let slug=makeSlug(p.name); let newUrl=location.pathname+"?book="+encodeURIComponent(slug); history.pushState({},'',newUrl); updateSEOForProduct(p); } else { updateSEOForProduct(p); }
+function openDetail(i, pushUrl=true){
+  detailIndex=i;let p=products[i];
+  document.getElementById("dImg").src=p.img;
+  document.getElementById("dName").innerText=p.name;
+  document.getElementById("dCat").innerText=p.category;
+  let curSize=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");
+  document.getElementById("dPrice").innerText="৳"+getPrice(p,curSize);
+  document.getElementById("dDesc").innerText=p.desc||"";
+  document.getElementById("dQty").value=getCartQty(i,curSize);
+  let dOffer=document.getElementById("dOffer");
+  if(p.discountPer6>0){dOffer.innerText=`💝 ৬ পিসে ৳${p.discountPer6} ছাড়!`;dOffer.style.display="inline-block";}else{dOffer.style.display="none";}
+  let sw=document.getElementById("dSizeWrap");sw.innerHTML="";
+  if(p.sizes&&p.sizes.length>0){sw.innerHTML=p.sizes.map(s=>`<div class="sizeBtn ${ (p.selectedSize==s.size||(!p.selectedSize&&curSize==s.size))?'active':''}" onclick="selectSize('${s.size}')">${s.size} - ৳${s.price}</div>`).join('');}
+  updateDetailTotal();
+  document.getElementById("detailModal").style.display="block";
+  if(pushUrl){ let slug=makeSlug(p.name); let newUrl=location.pathname+"?book="+encodeURIComponent(slug); history.pushState({},'',newUrl); updateSEOForProduct(p); } else { updateSEOForProduct(p); }
 }
 function selectSize(sz){if(detailIndex<0)return;products[detailIndex].selectedSize=sz;document.getElementById("dQty").value=getCartQty(detailIndex,sz);document.getElementById("dPrice").innerText="৳"+getPrice(products[detailIndex],sz);openDetail(detailIndex);}
 function updateDetailTotal(){if(detailIndex<0)return;let p=products[detailIndex];let sz=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");let q=getCartQty(detailIndex,sz);let pr=getPrice(p,sz);let base=pr*q;let disc=Math.floor(q/6)*(p.discountPer6||0);document.getElementById("dTotalBox").innerHTML=q>0?(disc>0?`ছাড় ৳${disc} | মোট: ৳${base-disc}`:`মোট: ৳${base-disc}`):"পিস সিলেক্ট করুন";}
