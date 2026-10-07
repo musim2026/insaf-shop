@@ -99,8 +99,11 @@ body{margin:0;font-family:'Hind Siliguri',sans-serif;background:#f6f7fb}
 <div id="bottomArea" style="background:#fff;padding:16px 12px;text-align:center;margin-bottom:110px;border-top:1px solid #e2e8f0">
   <b style="font-size:14px;color:#0f172a" id="footerShopName">ইনসাফ শপ</b><br>
   <span style="font-size:11px;color:#16a34a;font-weight:700" id="footerTagline">🌐 রকমারি বাজার • ✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি</span><br>
-  <div style="margin:8px 0;display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap">
-    <span style="font-size:12px">📞 <b id="footerPhone">01895280130</b> • <span id="footerExtra">https://insafshop.net</span></span>
+  <div style="margin:10px 0;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap">
+    <a id="footerPhoneLink" href="tel:01895280130" style="text-decoration:none;color:#0f172a;font-size:13px;font-weight:800">📞 <span id="footerPhone">01895280130</span></a>
+    <a id="footerWaIcon" href="https://wa.me/8801895280130" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#dcfce7;border-radius:50%;text-decoration:none;font-size:14px">💬</a>
+    <span style="color:#94a3b8">•</span>
+    <a id="footerExtraLink" href="https://insafshop.net" target="_blank" style="font-size:12px;color:#16a34a;font-weight:700;text-decoration:none">insafshop.net</a>
   </div>
   <div id="footerSocial" style="margin-top:10px;display:flex;justify-content:center;gap:6px;flex-wrap:wrap"></div>
   <div style="margin-top:12px" id="loginArea">
@@ -160,7 +163,7 @@ body{margin:0;font-family:'Hind Siliguri',sans-serif;background:#f6f7fb}
 <div id="userModal" class="modal"><div class="modalBox" style="text-align:center"><h3>👤 User Login</h3><input id="uEmail" placeholder="example@gmail.com" style="width:100%;padding:10px;border:1.5px solid #cbd5e1;border-radius:8px;font-size:12px"><button class="btn btnG" onclick="doUserLogin()">🔐 লগইন</button><button class="btn" style="background:#f1f5f9" onclick="document.getElementById('userModal').style.display='none'">বন্ধ</button></div></div>
 <div id="notifModal" class="modal"><div class="modalBox"><h3 style="margin:0">🔔 নোটিফিকেশন <span onclick="document.getElementById('notifModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3><div id="notifList" style="margin-top:8px"></div><button class="btn" style="background:#f1f5f9" onclick="clearNotif()">✅ সব পড়েছি / সব কাটুন</button></div></div>
 <div id="adminPanel">
-<h2 style="display:flex;justify-content:space-between;margin:0 0 8px;font-size:15px">⚙️ System V49 Secure <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2>
+<h2 style="display:flex;justify-content:space-between;margin:0 0 8px;font-size:15px">⚙️ System V50 CLEAN <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2>
 <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap">
 <button class="adminTabBtn active" id="tabBtn_order" onclick="switchAdminSection('order')">📦 অর্ডার</button>
 <button class="adminTabBtn" id="tabBtn_user" onclick="switchAdminSection('user')">👥 ইউজার</button>
@@ -222,13 +225,23 @@ body{margin:0;font-family:'Hind Siliguri',sans-serif;background:#f6f7fb}
 <button id="cancelEditBtn" class="btn" style="display:none;background:#e2e8f0" onclick="cancelEdit()">❌ ক্যানসেল</button>
 <button class="btn" style="background:#dc2626;color:#fff;margin-top:8px" onclick="fixAllOldLinks()">🔧 পুরান সব বইয়ের লিংক এক ক্লিকে ঠিক করুন</button>
 </div>
-<div class="adminCard"><h3 style="font-size:13px">📦 সব পণ্য - লিংক অটো কপি</h3><div id="adminList"></div></div>
+<div class="adminCard"><h3 style="font-size:13px">📦 সব পণ্য</h3><div id="adminList"></div></div>
 </div>
 <div id="sec_setting" class="adminSec" style="display:none">
 <div class="adminCard" style="border:2px solid #B91C1C;background:#fef2f2"><h3 style="margin:0 0 6px;color:#B91C1C;font-size:13px">💝 অফার ব্যানার</h3><input id="sOffer"><button class="btn" style="background:#B91C1C;color:#fff" onclick="saveOffer()">💾 সেভ</button></div>
-<div class="adminCard" style="border:2px solid #16a34a"><h3 style="margin:0 0 6px;font-size:13px">🔑 পাসওয়ার্ড + WhatsApp সুইচ</h3><input id="sAdminPass" placeholder="Admin Pass"><div style="display:flex;align-items:center;gap:8px;margin:8px 0;background:#f0fdf4;padding:8px;border-radius:8px"><input id="sEnableWA" type="checkbox" style="width:20px;height:20px" checked><label for="sEnableWA" style="font-size:12px;font-weight:800">💬 WhatsApp অর্ডার চালু রাখুন (আনচেক করলে শুধু সাইটে জমা হবে)</label></div><button class="btn btnG" onclick="saveAdminPass()">🔒 সেভ</button></div>
-<div class="adminCard"><h3 style="margin:0 0 4px;font-size:13px">🏪 দোকান তথ্য + ফুটার</h3><input id="sShopName" placeholder="Shop Name"><input id="sTagline" placeholder="Tagline"><input id="sSlogan" placeholder="Slogan"><input id="sPhone" placeholder="Phone"><input id="sExtra" placeholder="ফোনের পাশে লেখা - যেমন খুচরা বিক্রয়"><input id="sAddr" placeholder="Address"><button class="btn btnD" onclick="saveShop()">💾 সেভ</button></div>
-<div class="adminCard" style="border:2px solid #0f172a;background:#fff"><h3 style="margin:0 0 6px;font-size:13px">🔗 সোশ্যাল লিংক</h3><input id="sFacebook" placeholder="Facebook Page Link"><input id="sWhatsappChannel" placeholder="WhatsApp Channel Link"><input id="sYoutube" placeholder="YouTube Link"><input id="sInstagram" placeholder="Instagram/TikTok"><button class="btn btnD" onclick="saveSocial()">💾 সোশ্যাল সেভ</button></div>
+
+<div class="adminCard" style="border:2px solid #16a34a">
+<h3 style="margin:0 0 6px;font-size:13px">🔑 পাসওয়ার্ড + WhatsApp সুইচ</h3>
+<div style="position:relative;display:flex;align-items:center">
+<input id="sAdminPass" type="password" placeholder="নতুন পাসওয়ার্ড (খালি রাখলে আগেরটা থাকবে)" style="padding-right:40px">
+<span onclick="togglePass()" style="position:absolute;right:10px;cursor:pointer;font-size:18px;user-select:none">👁️</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;margin:8px 0;background:#f0fdf4;padding:8px;border-radius:8px"><input id="sEnableWA" type="checkbox" style="width:20px;height:20px" checked><label for="sEnableWA" style="font-size:12px;font-weight:800">💬 WhatsApp অর্ডার চালু রাখুন (আনচেক করলে শুধু সাইটে জমা হবে)</label></div>
+<button class="btn btnG" onclick="saveAdminPass()">🔒 সেভ</button>
+</div>
+
+<div class="adminCard"><h3 style="margin:0 0 4px;font-size:13px">🏪 দোকান তথ্য + ফুটার লিংক</h3><input id="sShopName" placeholder="Shop Name"><input id="sTagline" placeholder="Tagline"><input id="sSlogan" placeholder="Slogan"><input id="sPhone" placeholder="Phone - যেমন 01895280130"><input id="sExtra" placeholder="ফোনের পাশের লিংক - যেমন insafshop.net বা https://facebook.com/..."><input id="sAddr" placeholder="Address"><button class="btn btnD" onclick="saveShop()">💾 সেভ</button></div>
+<div class="adminCard" style="border:2px solid #0f172a;background:#fff"><h3 style="margin:0 0 6px;font-size:13px">🔗 সোশ্যাল লিংক (লিংক দিলে তবেই আইকন আসবে)</h3><input id="sFacebook" placeholder="Facebook Page Link https://..."><input id="sWhatsappChannel" placeholder="WhatsApp Channel Link https://..."><input id="sYoutube" placeholder="YouTube Link https://..."><input id="sInstagram" placeholder="Instagram/TikTok https://..."><button class="btn btnD" onclick="saveSocial()">💾 সোশ্যাল সেভ</button></div>
 <div class="adminCard" style="border:2px solid #16a34a"><h3 style="margin:0 0 4px;font-size:13px">💳 পেমেন্ট নাম্বার</h3><input id="sWhatsapp" placeholder="WhatsApp Number"><input id="sBkash" placeholder="bKash"><input id="sNagad" placeholder="Nagad"><input id="sRocket" placeholder="Rocket"><input id="sGmail" placeholder="Admin Gmail"><input id="sMessenger" placeholder="Messenger"><button class="btn btnD" onclick="savePay()">💾 সেভ</button></div>
 <button class="btn btnG" onclick="saveAndClose()">💾 সব সেভ করে হোম</button>
 </div>
@@ -242,7 +255,7 @@ let settings = {
   shopName:"ইনসাফ শপ",orderCount:0,
   tagline:"🌐 রকমারি বাজার",
   slogan:"✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি",
-  phone:"01895280130",extra:"খুচরা বিক্রয়",address:"খুচরা বিক্রয়",
+  phone:"01895280130",extra:"insafshop.net",address:"খুচরা বিক্রয়",
   whatsapp:"01895280130",bkash:"01895280130",nagad:"01895280130",rocket:"01895280130",
   gmail:"",messenger:"",facebook:"",whatsappChannel:"",youtube:"",instagram:"",
   offerBanner:"💝 অফার! ৬ পিসে ছাড় + ১০০০ টাকায় ডেলিভারি ফ্রি!",
@@ -300,7 +313,7 @@ async function syncFromCloud(){
    if(!settings.oldOrders) settings.oldOrders=[];
    if(!settings.forceLogout) settings.forceLogout=[];
    if(settings.enableWA==undefined) settings.enableWA=true;
-   if(settings.extra==undefined) settings.extra="খুচরা বিক্রয়";
+   if(settings.extra==undefined) settings.extra="insafshop.net";
    if(currentUser && settings.forceLogout.includes(currentUser.email)){localStorage.removeItem('insaf_user');currentUser=null;alert("🔴 এডমিন আপনাকে লগআউট করেছে");}
   }
   if(d.products&&d.products.length>0){
@@ -317,7 +330,7 @@ function applySettings(){
  document.getElementById("sTagline").value=settings.tagline;
  document.getElementById("sSlogan").value=settings.slogan;
  document.getElementById("sPhone").value=settings.phone;
- document.getElementById("sExtra").value=settings.extra||"খুচরা বিক্রয়";
+ document.getElementById("sExtra").value=settings.extra||"insafshop.net";
  document.getElementById("sAddr").value=settings.address;
  document.getElementById("sWhatsapp").value=settings.whatsapp||settings.bkash;
  document.getElementById("sBkash").value=settings.bkash;
@@ -330,7 +343,6 @@ function applySettings(){
  document.getElementById("sYoutube").value=settings.youtube||"";
  document.getElementById("sInstagram").value=settings.instagram||"";
  document.getElementById("sOffer").value=settings.offerBanner||"";
- document.getElementById("sAdminPass").value=settings.adminPass||"1234";
  document.getElementById("sEnableWA").checked=settings.enableWA!=false;
  document.getElementById("showBkash").innerText=settings.bkash;
  document.getElementById("showNagad").innerText=settings.nagad;
@@ -338,24 +350,50 @@ function applySettings(){
  document.getElementById("hDate").innerText=new Date().toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
  document.getElementById("footerShopName").innerText=settings.shopName;
  document.getElementById("footerTagline").innerText=(settings.tagline+" • "+settings.slogan);
- document.getElementById("footerPhone").innerText=settings.phone;
- document.getElementById("footerExtra").innerText=settings.extra||"খুচরা বিক্রয়";
+
+ // --- FOOTER V50 FINAL - PHONE + WA ICON + LINK ---
+ let rawWa = (settings.whatsapp||settings.phone).toString().replace(/[^0-9]/g,'').replace(/^88/,'');
+ document.getElementById("footerPhone").innerText = settings.phone;
+ document.getElementById("footerPhoneLink").href = "tel:"+settings.phone;
+ document.getElementById("footerWaIcon").href = "https://wa.me/88"+rawWa;
+ let extraText = settings.extra || "insafshop.net";
+ let extraEl = document.getElementById("footerExtraLink");
+ if(extraText.startsWith("http")){
+   extraEl.innerText = extraText.replace("https://","").replace("http://","").replace("www.","");
+   extraEl.href = extraText;
+ } else {
+   extraEl.innerText = extraText;
+   extraEl.href = extraText.includes(".")? "https://"+extraText : "#";
+ }
+
+ // SOCIAL ONLY IF LINK GIVEN
  let socialHtml="";
- if(settings.phone) socialHtml+=`<a href="tel:${settings.phone}" class="socialLink">📞</a>`;
- if(settings.whatsapp) socialHtml+=`<a href="https://wa.me/88${settings.whatsapp.replace(/[^0-9]/g,'').replace(/^88/,'')}" target="_blank" class="socialLink" style="background:#dcfce7">💬</a>`;
- if(settings.facebook) socialHtml+=`<a href="${settings.facebook}" target="_blank" class="socialLink" style="background:#dbeafe">📘</a>`;
- if(settings.whatsappChannel) socialHtml+=`<a href="${settings.whatsappChannel}" target="_blank" class="socialLink" style="background:#dcfce7">📢</a>`;
- if(settings.youtube) socialHtml+=`<a href="${settings.youtube}" target="_blank" class="socialLink" style="background:#fee2e2">▶️</a>`;
- if(settings.instagram) socialHtml+=`<a href="${settings.instagram}" target="_blank" class="socialLink" style="background:#fce7f3">📸</a>`;
+ if(settings.facebook && settings.facebook.startsWith("http")) socialHtml+=`<a href="${settings.facebook}" target="_blank" class="socialLink" style="background:#dbeafe">📘</a>`;
+ if(settings.whatsappChannel && settings.whatsappChannel.startsWith("http")) socialHtml+=`<a href="${settings.whatsappChannel}" target="_blank" class="socialLink" style="background:#dcfce7">📢</a>`;
+ if(settings.youtube && settings.youtube.startsWith("http")) socialHtml+=`<a href="${settings.youtube}" target="_blank" class="socialLink" style="background:#fee2e2">▶️</a>`;
+ if(settings.instagram && settings.instagram.startsWith("http")) socialHtml+=`<a href="${settings.instagram}" target="_blank" class="socialLink" style="background:#fce7f3">📸</a>`;
  document.getElementById("footerSocial").innerHTML=socialHtml;
+
  let banner=document.getElementById("offerBanner");
  let searchWrap=document.getElementById("searchWrap");
  if(settings.offerBanner&&settings.offerBanner.trim()!=""){banner.innerText=settings.offerBanner;banner.style.display="block";searchWrap.classList.add("hasOffer");} else {banner.style.display="none";searchWrap.classList.remove("hasOffer");}
  updateUserUI();updateBell();renderOrders();renderUsers();
 }
 function saveOffer(){settings.offerBanner=document.getElementById("sOffer").value;applySettings();syncToCloud();alert("✅ অফার সেভ!");}
-function saveAdminPass(){let np=document.getElementById("sAdminPass").value.trim();if(!np){alert("পাসওয়ার্ড দিন");return;}settings.adminPass=np;settings.enableWA=document.getElementById("sEnableWA").checked;syncToCloud();alert(settings.enableWA?"✅ WhatsApp চালু":"✅ WhatsApp বন্ধ - এখন শুধু সাইটে জমা হবে");}
-function saveShop(){settings.shopName=document.getElementById("sShopName").value;settings.tagline=document.getElementById("sTagline").value;settings.slogan=document.getElementById("sSlogan").value;settings.phone=document.getElementById("sPhone").value;settings.extra=document.getElementById("sExtra").value||"খুচরা বিক্রয়";settings.address=document.getElementById("sAddr").value;applySettings();syncToCloud();alert("✅ সেভ!");}
+function togglePass(){let p=document.getElementById("sAdminPass");p.type = p.type=="password"?"text":"password";}
+function saveAdminPass(){
+  let np=document.getElementById("sAdminPass").value.trim();
+  if(np!=""){
+    settings.adminPass=np;
+    alert("✅ নতুন পাসওয়ার্ড সেভ: "+np);
+  } else {
+    alert("✅ পাসওয়ার্ড আগেরটাই থাকলো");
+  }
+  settings.enableWA=document.getElementById("sEnableWA").checked;
+  document.getElementById("sAdminPass").value="";
+  syncToCloud();
+}
+function saveShop(){settings.shopName=document.getElementById("sShopName").value;settings.tagline=document.getElementById("sTagline").value;settings.slogan=document.getElementById("sSlogan").value;settings.phone=document.getElementById("sPhone").value;settings.extra=document.getElementById("sExtra").value||"insafshop.net";settings.address=document.getElementById("sAddr").value;applySettings();syncToCloud();alert("✅ সেভ!");}
 function savePay(){settings.whatsapp=document.getElementById("sWhatsapp").value.trim()||settings.bkash;settings.bkash=document.getElementById("sBkash").value;settings.nagad=document.getElementById("sNagad").value;settings.rocket=document.getElementById("sRocket").value;settings.gmail=document.getElementById("sGmail").value.trim();settings.messenger=document.getElementById("sMessenger").value.trim();applySettings();syncToCloud();alert("✅ পেমেন্ট সেভ!");}
 function saveSocial(){settings.facebook=document.getElementById("sFacebook").value.trim();settings.whatsappChannel=document.getElementById("sWhatsappChannel").value.trim();settings.youtube=document.getElementById("sYoutube").value.trim();settings.instagram=document.getElementById("sInstagram").value.trim();applySettings();syncToCloud();alert("✅ সোশ্যাল সেভ!");}
 function getPrice(p,size){if(p.sizes&&p.sizes.length>0&&size){let f=p.sizes.find(s=>s.size==size);if(f) return f.price;}return p.retailPrice;}
