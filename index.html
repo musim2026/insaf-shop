@@ -5,9 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ইনসাফ শপ - রকমারি বাজার</title>
 <link id="canonicalLink" rel="canonical" href="https://insafshop.net/">
-<link rel="icon" type="image/jpeg" href="https://insafshop.net/logo.jpg?v=3">
-<meta property="og:title" content="ইনসাফ শপ">
-<meta property="og:image" content="https://insafshop.net/logo.jpg?v=3">
+<link rel="icon" type="image/jpeg" href="https://insafshop.net/logo.jpg?v=6">
+<link rel="apple-touch-icon" href="https://insafshop.net/logo.jpg?v=6">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ইনসাফ শপ">
+<meta property="og:title" id="ogTitle" content="ইনসাফ শপ - রকমারি বাজার">
+<meta property="og:description" id="ogDesc" content="🌐 রকমারি বাজার">
+<meta property="og:image" id="ogImage" content="https://insafshop.net/logo.jpg?v=6">
+<meta property="og:url" id="ogUrl" content="https://insafshop.net/">
+<meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
@@ -36,12 +42,11 @@ position:sticky;top:44px;z-index:30;box-shadow:0 2px 8px #0001}
 .searchWrap.hasOffer{top:70px}
 .searchBox{display:flex;background:#f1f5f9;border-radius:30px;
 border:1px solid #e2e8f0;overflow:hidden;max-width:720px;margin:0 auto}
-.searchBox input{flex:1;border:0;padding:8px 12px;outline:none;
-font-family:inherit;font-size:13px}
+.searchBox input{flex:1;border:0;padding:8px 12px;outline:none;font-size:13px}
 .searchBox button{background:#16a34a;color:#fff;border:0;
 padding:0 18px;font-weight:800;font-size:13px}
-.catWrap{display:flex;gap:6px;overflow-x:auto;margin-top:6px;
-max-width:720px;margin:auto;padding-bottom:4px}
+.catWrap{display:flex;gap:6px;overflow-x:auto;max-width:720px;margin:auto;
+padding:6px 0 4px}
 .chip{background:#fff;border:1.5px solid #cbd5e1;padding:5px 12px;
 border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
 .chip.active{background:#16a34a;color:#fff;border-color:#16a34a}
@@ -49,7 +54,7 @@ border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;white-space:now
 max-width:720px;margin:0 auto}
 .card{background:#fff;border-radius:16px;overflow:hidden;
 border:1px solid #e5e7eb;box-shadow:0 3px 10px #0001;
-display:flex;flex-direction:column;cursor:pointer}
+display:flex;flex-direction:column;cursor:pointer;will-change:transform}
 .card img{width:100%;height:320px;object-fit:contain;background:#fff;padding:6px}
 .card-body{padding:8px 10px;flex:1}
 .pName{font-weight:700;font-size:14px;min-height:32px}
@@ -59,8 +64,8 @@ padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:4px}
 .mrp{color:#888;text-decoration:line-through;font-size:12px;margin-left:6px}
 .discountStar{position:absolute;top:8px;right:8px;background:#16a34a;color:#fff;
 width:44px;height:44px;border-radius:50%;display:flex;align-items:center;
-justify-content:center;font-weight:900;font-size:12px;
-clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);z-index:2}
+justify-content:center;font-weight:900;font-size:12px;z-index:2;
+clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
 .discountTag{color:#B91C1C;background:#fef2f2;border:1px dashed #fecaca;
 padding:4px 8px;border-radius:6px;font-size:11px;font-weight:800;
 margin-top:4px;display:inline-block}
@@ -78,19 +83,18 @@ background:linear-gradient(90deg,#16a34a,#22c55e);color:#fff;
 padding:8px 12px;display:flex;flex-direction:column;gap:4px;z-index:95}
 .cartProgress{font-size:11px;background:#fff;color:#166534;
 padding:5px 10px;border-radius:20px;text-align:center;font-weight:900}
-.cartBarMain{display:flex;justify-content:space-between;align-items:center;width:100%}
+.cartBarMain{display:flex;justify-content:space-between;align-items:center}
 .cartBar button{background:#fff;color:#16a34a;border:0;
-padding:9px 16px;border-radius:10px;font-weight:900}
+padding:9px 16px;border-radius:10px;font-weight:900;font-size:13px}
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);
 z-index:80;padding:12px;overflow:auto}
 .modalBox{background:#fff;border-radius:14px;max-width:480px;margin:15px auto;padding:14px}
 #adminPanel{display:none;position:fixed;inset:0;background:#f1f5f9;z-index:100;overflow:auto;padding:12px}
 .adminCard{background:#fff;padding:12px;border-radius:12px;margin:8px 0;border:1px solid #e2e8f0}
 .adminCard input,.adminCard textarea,.adminCard select{
-width:100%;padding:8px;margin:4px 0;border:1.5px solid #cbd5e1;border-radius:8px;
-font-family:inherit;font-size:12px}
+width:100%;padding:8px;margin:4px 0;border:1.5px solid #cbd5e1;border-radius:8px;font-size:12px}
 #cName,#cPhone,#cAddr,#trxId{width:100%;padding:12px;margin:6px 0;
-border:2px solid #16a34a;border-radius:10px;font-size:14px;background:#fff}
+border:2px solid #16a34a;border-radius:10px;font-size:14px}
 #cAddr{min-height:90px}
 .btn{border:0;padding:10px;border-radius:8px;width:100%;font-weight:800;margin-top:5px;cursor:pointer}
 .btnG{background:#16a34a;color:#fff}
@@ -108,7 +112,8 @@ align-items:center;justify-content:center;font-weight:900;cursor:pointer;z-index
 border:1.5px solid #e2e8f0;background:#fff;font-weight:900;font-size:11px;cursor:pointer}
 .adminTabBtn.active{background:#0f172a;color:#fff;border-color:#0f172a}
 .whBtn{width:92%;max-width:720px;margin:14px auto;display:block;
-background:#111827;color:#fff;padding:14px;border-radius:14px;font-weight:800;border:none}
+background:#111827;color:#fff;padding:14px;border-radius:14px;
+font-weight:800;border:none;font-size:14px}
 @media(min-width:600px){.grid{grid-template-columns:1fr 1fr;max-width:1000px}}
 @media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr;max-width:1100px}}
 </style>
@@ -167,113 +172,736 @@ background:#111827;color:#fff;padding:14px;border-radius:14px;font-weight:800;bo
 <p id="dDesc" style="background:#f8fafc;padding:8px;border-radius:8px;font-size:11px;white-space:pre-wrap"></p>
 <p id="dFullDesc" style="background:#fffbe6;padding:8px;border-radius:8px;font-size:11px;white-space:pre-wrap;border:1px dashed #facc15;display:none"></p>
 <div class="qtyRow"><button onclick="changeDetailQty(-1)">-</button><input id="dQty" value="0" readonly><button onclick="changeDetailQty(1)">+</button></div>
+<div id="dTotalBox" class="totalBox"></div>
 <button class="btn btnG" onclick="addDetailToCart()">🛒 কার্টে যোগ</button>
 <button class="btn" style="background:#f0fdf4;border:1.5px dashed #16a34a;color:#166534;font-size:11px;margin-top:8px" onclick="copyBookLink()">🔗 এই বইয়ের লিংক কপি</button>
 <p id="bookLinkShow" style="font-size:10px;color:#64748b;word-break:break-all;background:#f8fafc;padding:6px;border-radius:6px;margin-top:6px"></p>
 </div>
 </div>
-<div id="checkoutModal" class="modal"><div class="modalBox" style="padding-bottom:160px"><h3 style="margin:0;font-size:14px">অর্ডার <span onclick="document.getElementById('checkoutModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3><div id="checkoutList" style="background:#f8fafc;padding:8px;border-radius:8px;margin:6px 0;font-size:11px;line-height:1.6"></div><h3 id="checkoutTotal" style="font-size:14px;margin:6px 0"></h3><input id="cName" placeholder="আপনার নাম *"><input id="cPhone" placeholder="মোবাইল নাম্বার *"><textarea id="cAddr" placeholder="সম্পূর্ণ ঠিকানা লিখুন *"></textarea><div style="background:#f0fdf4;border:1.5px dashed #16a34a;padding:8px;border-radius:8px;margin:6px 0"><b style="font-size:11px">💳 পেমেন্ট</b><div class="payOpt active" id="pay_bkash" onclick="selectPay('bkash')"><input type="radio" name="pay" checked><b>বিকাশ</b> - <span id="showBkash"></span></div><div class="payOpt" id="pay_nagad" onclick="selectPay('nagad')"><input type="radio" name="pay"><b>নগদ</b> - <span id="showNagad"></span></div><div class="payOpt" id="pay_rocket" onclick="selectPay('rocket')"><input type="radio" name="pay"><b>রকেট</b> - <span id="showRocket"></span></div><div class="payOpt" id="pay_cod" onclick="selectPay('cod')"><input type="radio" name="pay"><b>ক্যাশ অন ডেলিভারি</b></div><input id="trxId" placeholder="Trx ID"><input id="cSenderNumber" placeholder="যে নাম্বার থেকে টাকা পাঠিয়েছেন শেষ ৪ সংখ্যা লিখুন" style="width:100%;padding:12px;margin:6px 0;border:1.5px solid #16a34a;border-radius:10px;font-size:13px;background:#fff"></div><button class="btn btnG" id="placeOrderBtn" onclick="placeOrder()">✅ Submit করুন - <span id="btnTotal"></span></button></div></div>
-<div id="successModal" class="modal"><div class="modalBox" style="text-align:center"><h1>🎉</h1><h2 style="color:#16a34a">অর্ডার সফল!</h2><p>অর্ডার: <b id="orderId"></b></p><p style="font-size:11px;color:#166534">WhatsApp এ চলে গেছে</p><button class="btn btnG" onclick="document.getElementById('successModal').style.display='none';cart=[];render()">🏠 হোম</button></div></div>
+<div id="checkoutModal" class="modal"><div class="modalBox" style="padding-bottom:160px">
+<h3 style="margin:0;font-size:14px">অর্ডার <span onclick="document.getElementById('checkoutModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3>
+<div id="checkoutList" style="background:#f8fafc;padding:8px;border-radius:8px;margin:6px 0;font-size:11px;line-height:1.6"></div>
+<h3 id="checkoutTotal" style="font-size:14px;margin:6px 0"></h3>
+<input id="cName" placeholder="আপনার নাম *">
+<input id="cPhone" placeholder="মোবাইল নাম্বার *">
+<textarea id="cAddr" placeholder="সম্পূর্ণ ঠিকানা লিখুন *"></textarea>
+<div style="background:#f0fdf4;border:1.5px dashed #16a34a;padding:8px;border-radius:8px;margin:6px 0">
+<b style="font-size:11px">💳 পেমেন্ট</b>
+<div class="payOpt active" id="pay_bkash" onclick="selectPay('bkash')"><input type="radio" name="pay" checked><b>বিকাশ</b> - <span id="showBkash"></span></div>
+<div class="payOpt" id="pay_nagad" onclick="selectPay('nagad')"><input type="radio" name="pay"><b>নগদ</b> - <span id="showNagad"></span></div>
+<div class="payOpt" id="pay_rocket" onclick="selectPay('rocket')"><input type="radio" name="pay"><b>রকেট</b> - <span id="showRocket"></span></div>
+<div class="payOpt" id="pay_cod" onclick="selectPay('cod')"><input type="radio" name="pay"><b>ক্যাশ অন ডেলিভারি</b></div>
+<input id="trxId" placeholder="Trx ID">
+<input id="cSenderNumber" placeholder="যে নাম্বার থেকে টাকা পাঠিয়েছেন শেষ ৪ সংখ্যা লিখুন"
+style="width:100%;padding:12px;margin:6px 0;border:1.5px solid #16a34a;border-radius:10px;font-size:13px;background:#fff">
+</div>
+<button class="btn btnG" id="placeOrderBtn" onclick="placeOrder()">✅ Submit করুন - <span id="btnTotal"></span></button>
+</div></div>
+<div id="successModal" class="modal"><div class="modalBox" style="text-align:center"><h1>🎉</h1><h2 style="color:#16a34a">অর্ডার সফল!</h2><p>অর্ডার: <b id="orderId"></b></p><button class="btn btnG" onclick="document.getElementById('successModal').style.display='none';cart=[];render()">🏠 হোম</button></div></div>
 <div id="userModal" class="modal"><div class="modalBox" style="text-align:center"><h3>👤 User Login</h3><input id="uEmail" placeholder="example@gmail.com" style="width:100%;padding:10px;border:1.5px solid #cbd5e1;border-radius:8px"><button class="btn btnG" onclick="doUserLogin()">🔐 লগইন</button></div></div>
 <div id="notifModal" class="modal"><div class="modalBox"><h3>🔔 নোটিফিকেশন <span onclick="document.getElementById('notifModal').style.display='none'" style="float:right;cursor:pointer">❌</span></h3><div id="notifList"></div><button class="btn" style="background:#f1f5f9" onclick="clearNotif()">✅ সব পড়েছি</button></div></div>
 <div id="adminPassModal" class="modal"><div class="modalBox" style="text-align:center"><h3>🔑 এডমিন পাসওয়ার্ড</h3><input id="adminPassInput" type="password" placeholder="পাসওয়ার্ড" style="width:100%;padding:12px;border:2px solid #0f172a;border-radius:10px"><button class="btn btnD" onclick="checkAdminPass()" style="margin-top:10px">✅ ঢুকুন</button></div></div>
-<div id="adminPanel"><h2 style="display:flex;justify-content:space-between;margin:0 0 8px;font-size:13px">⚙️ V80.3 ORIGINAL FIX <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2><div style="display:flex;gap:4px;margin-bottom:10px;flex-wrap:wrap"><button class="adminTabBtn active" id="tabBtn_order" onclick="switchAdminSection('order')">📦 অর্ডার</button><button class="adminTabBtn" id="tabBtn_user" onclick="switchAdminSection('user')">👥 ইউজার</button><button class="adminTabBtn" id="tabBtn_product" onclick="switchAdminSection('product')">📚 প্রোডাক্ট</button><button class="adminTabBtn" id="tabBtn_affiliate" onclick="switchAdminSection('affiliate')">🤝 অ্যাফিলিয়েট</button><button class="adminTabBtn" id="tabBtn_setting" onclick="switchAdminSection('setting')">⚙️ সেটিং</button></div>
-<div id="sec_order" class="adminSec"><div class="adminCard" style="border:2px solid #0f172a;background:#fff"><h3>📦 অর্ডার তালিকা</h3><div style="display:flex;gap:6px;margin-bottom:8px"><button id="tabNewBtn" onclick="switchOrderTab('new')" style="flex:1;background:#16a34a;color:#fff;border:0;padding:8px;border-radius:8px;font-weight:800">🆕 নতুন (<span id="newOrderCount">0</span>)</button><button id="tabOldBtn" onclick="switchOrderTab('old')" style="flex:1;background:#e2e8f0;color:#0f172a;border:0;padding:8px;border-radius:8px;font-weight:800">📚 পুরাতন (<span id="oldOrderCount">0</span>)</button></div><div id="newOrdersList"></div><div id="oldOrdersList" style="display:none"></div></div></div>
-<div id="sec_user" class="adminSec" style="display:none"><div class="adminCard" style="border:2px solid #16a34a;background:#f0fdf4"><h3>📢 সব ইউজারকে মেসেজ</h3><textarea id="broadcastMsg" placeholder="অফার লিখুন..."></textarea><input id="broadcastImg" placeholder="ছবি লিংক"><div style="display:flex;gap:6px;margin:6px 0"><div class="gBtn" style="flex:1" onclick="document.getElementById('b_f1').click()">📁 গ্যালারি<input type="file" id="b_f1" accept="image/*" onchange="handleBroadcastFile(this)" style="display:none"></div><div class="gBtn" style="flex:1" onclick="document.getElementById('b_f2').click()">📷 ক্যামেরা<input type="file" id="b_f2" accept="image/*" capture="environment" onchange="handleBroadcastFile(this)" style="display:none"></div></div><img id="broadcastPreview" style="width:100%;height:120px;object-fit:contain;display:none;background:#fff;border-radius:8px;border:1px solid #e2e8f0"><p id="broadcastFileName" style="font-size:10px;color:#16a34a;font-weight:700"></p><button class="btn btnG" onclick="sendBroadcastEmail()">📧 সবার Gmail + 🔔 তে পাঠান</button><p id="broadcastStatus" style="font-size:11px;color:#166534;font-weight:700;margin-top:5px"></p></div><div class="adminCard" style="border:2px solid #0f172a;background:#fff"><h3>👥 সকল ইউজার (<span id="totalUserCount">0</span> জন)</h3><div id="allUsersList" style="max-height:600px;overflow:auto"></div></div></div>
-<div id="sec_product" class="adminSec" style="display:none"><div class="adminCard"><h3>📸 আইটেম যোগ <span id="prodTypeShow" style="background:#16a34a;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px">খুচরা</span></h3><div style="display:flex;gap:6px;margin-bottom:8px"><button id="prodTabKhucra" class="adminTabBtn active" onclick="setProdType('khucra')" style="flex:1">🛒 খুচরা</button><button id="prodTabPaikari" class="adminTabBtn" onclick="setProdType('paikari')" style="flex:1">📦 পাইকারি</button></div><input id="pName" placeholder="বাংলা নাম *" oninput="autoSlug(this.value)"><input id="pSlug" placeholder="ইংরেজি slug (অটো হবে)"><textarea id="pDesc" placeholder="সংক্ষিপ্ত বিবরণ"></textarea><textarea id="pFullDesc" placeholder="বিস্তারিত বিবরণ"></textarea><div style="display:flex;gap:6px"><input id="pCat" placeholder="ক্যাটাগরি" style="flex:1"><input id="pStock" type="number" placeholder="স্টক" style="flex:1"></div><div style="background:#f0fdf4;padding:10px;border-radius:10px;border:1.5px dashed #16a34a;margin:8px 0"><b style="font-size:11px">💰 দাম ও ছাড় - অটো %</b><div style="display:flex;gap:6px;margin-top:6px"><input id="pRetail" type="number" placeholder="MRP" oninput="calcPercentAuto()" style="flex:1;border:1.5px solid #f59e0b"><input id="pDiscountPercent" type="number" placeholder="ছাড় % (অটো)" oninput="calcSaleAuto()" style="flex:1;border:2px solid #16a34a;background:#e0f2fe"><input id="pSalePrice" type="number" placeholder="সেল প্রাইস" oninput="calcPercentAuto()" style="flex:1;border:1.5px solid #0f172a"></div><p style="font-size:9px;color:#166534;margin:4px 0;font-weight:700">MRP + সেল দিলে % অটো, % দিলে সেল অটো</p><div style="display:flex;gap:6px;margin-top:6px"><input id="pDiscountQty" type="number" placeholder="কত পিসে? 6/12/100" style="flex:1;border:1.5px solid #16a34a"><input id="pDiscount" type="number" placeholder="ছাড় টাকা" style="flex:1;border:1.5px solid #B91C1C"></div><div style="display:flex;gap:6px;margin-top:6px"><input id="pMinQty" type="number" placeholder="সর্বনিম্ন পিস" style="flex:1"><select id="pVendor" style="flex:1"><option value="">-- নিজের পণ্য --</option></select></div></div><input id="pImg" placeholder="ছবি লিংক"><div class="galleryBox"><div class="gBtn" onclick="document.getElementById('f1').click()">📁 গ্যালারি<input type="file" id="f1" accept="image/*" onchange="handleFile(this)" style="display:none"></div><div class="gBtn" onclick="document.getElementById('f2').click()">📷 ক্যামেরা<input type="file" id="f2" accept="image/*" capture="environment" onchange="handleFile(this)" style="display:none"></div></div><img id="preview" style="width:100%;height:120px;object-fit:contain;display:none;background:#fff;border-radius:8px;border:1px solid #e2e8f0"><p id="fileName" style="font-size:10px;color:#16a34a;font-weight:700"></p><div style="background:#f8fafc;padding:8px;border-radius:8px;margin-top:6px;border:1px solid #e2e8f0"><b style="font-size:11px">👕 সাইজ</b><div id="sizeList"></div><div style="display:flex;gap:6px;margin:4px 0"><input id="newSize" placeholder="সাইজ"><input id="newPrice" type="number" placeholder="দাম"><button onclick="addSizeRow()" style="background:#16a34a;color:#fff;border:0;padding:6px 10px;border-radius:6px;font-weight:800">+</button></div></div><button id="addBtn" class="btn btnG" onclick="addProduct()">✅ যুক্ত করুন</button><button id="updateBtn" class="btn" style="display:none;background:#f59e0b;color:#fff" onclick="updateProduct()">💾 আপডেট</button><button id="cancelBtn" class="btn" style="display:none;background:#e2e8f0" onclick="cancelEdit()">❌ ক্যানসেল</button></div><div class="adminCard"><h3>📦 সব পণ্য</h3><div id="adminList"></div></div></div>
-<div id="sec_affiliate" class="adminSec" style="display:none"><div class="adminCard" style="border:2px solid #7c3aed;background:#f5f3ff"><h3>🤝 অ্যাফিলিয়েট / ভেন্ডর</h3><div style="display:flex;gap:6px"><input id="vName" placeholder="ভেন্ডর নাম" style="flex:1"><input id="vCommission" type="number" placeholder="কমিশন %" style="flex:1"></div><input id="vApi" placeholder="API Link"><input id="vContact" placeholder="যোগাযোগ"><button class="btn btnG" style="background:#7c3aed" onclick="addVendor()">➕ ভেন্ডর যোগ</button><div id="vendorList" style="margin-top:10px"></div></div><div class="adminCard"><h3>📊 ভেন্ডর হিসাব</h3><div id="affiliateStats" style="font-size:11px"></div></div></div>
-<div id="sec_setting" class="adminSec" style="display:none"><div class="adminCard" style="border:2px solid #f59e0b;background:#fffbeb"><h3>🏷️ ক্যাটাগরি এডিট</h3><textarea id="sCategories" style="height:100px"></textarea><button class="btn" style="background:#f59e0b;color:#fff" onclick="saveCategories()">💾 ক্যাটাগরি সেভ</button></div><div class="adminCard" style="border:2px solid #0f172a;background:#fffbe6"><h3>💾 ব্যাকআপ</h3><button class="btn" style="background:#0f172a;color:#fff" onclick="showLocalBackup()">📱 মোবাইলে থাকা বই দেখুন</button><textarea id="backupViewArea" style="display:none;height:100px;font-size:9px"></textarea><div style="display:flex;gap:6px;margin-top:6px"><button class="btn btnG" onclick="downloadBackup()" style="flex:1">⬇️ ডাউনলোড</button><button class="btn btnD" onclick="document.getElementById('backupFileInput').click()" style="flex:1">⬆️ আপলোড</button></div><input type="file" id="backupFileInput" accept=".json" style="display:none" onchange="uploadBackup(this)"><button class="btn" style="background:#16a34a;color:#fff;margin-top:6px" onclick="restoreLocalBackup()">♻️ ফিরিয়ে আনুন</button><p id="backupStatus" style="font-size:10px;color:#166534;font-weight:700"></p></div><div class="adminCard" style="border:2px solid #B91C1C;background:#fef2f2"><h3>💝 অফার + ফ্রি লিমিট</h3><input id="sOffer" placeholder="অফার ব্যানার"><input id="sFreeLimit" type="number" placeholder="ফ্রি ডেলিভারি 1500"><button class="btn" style="background:#B91C1C;color:#fff" onclick="saveOffer()">💾 সেভ</button></div><div class="adminCard"><h3>🏪 দোকান তথ্য</h3><input id="sShopName" placeholder="Shop Name"><input id="sTagline" placeholder="Tagline"><input id="sSlogan" placeholder="Slogan"><input id="sPhone" placeholder="Phone"><input id="sExtra" placeholder="লিংক"><input id="sAddr" placeholder="Address"><button class="btn btnD" onclick="saveShop()">💾 সেভ</button></div><div class="adminCard" style="border:2px solid #0f172a;background:#fff"><h3>🔗 সোশ্যাল লিংক</h3><input id="sFacebook" placeholder="Facebook"><input id="sWhatsappChannel" placeholder="WhatsApp Channel"><input id="sYoutube" placeholder="YouTube"><input id="sInstagram" placeholder="Instagram"><button class="btn btnD" onclick="saveSocial()">💾 সোশ্যাল সেভ</button></div><div class="adminCard" style="border:2px solid #16a34a;background:#f0fdf4"><h3>💳 পেমেন্ট + WhatsApp</h3><input id="sWhatsapp" placeholder="অর্ডার যাবে এই WhatsApp এ"><input id="sBkash" placeholder="bKash"><input id="sNagad" placeholder="Nagad"><input id="sRocket" placeholder="Rocket"><input id="sGmail" placeholder="Admin Gmail"><input id="sMessenger" placeholder="Messenger"><button class="btn btnD" onclick="savePay()">💾 সেভ</button></div><button class="btn btnG" onclick="saveAndClose()">💾 সব সেভ করে হোম</button></div></div>
+<div id="adminPanel"><h2 style="display:flex;justify-content:space-between;margin:0 0 8px;font-size:13px">⚙️ V80.4 FAST <span onclick="saveAndClose()" style="cursor:pointer">❌</span></h2>
+<div style="display:flex;gap:4px;margin-bottom:10px;flex-wrap:wrap">
+<button class="adminTabBtn active" id="tabBtn_order" onclick="switchAdminSection('order')">📦 অর্ডার</button>
+<button class="adminTabBtn" id="tabBtn_user" onclick="switchAdminSection('user')">👥 ইউজার</button>
+<button class="adminTabBtn" id="tabBtn_product" onclick="switchAdminSection('product')">📚 প্রোডাক্ট</button>
+<button class="adminTabBtn" id="tabBtn_affiliate" onclick="switchAdminSection('affiliate')">🤝 অ্যাফিলিয়েট</button>
+<button class="adminTabBtn" id="tabBtn_setting" onclick="switchAdminSection('setting')">⚙️ সেটিং</button>
+</div>
+<div id="sec_order" class="adminSec"><div class="adminCard"><h3>📦 অর্ডার</h3>
+<div style="display:flex;gap:6px;margin-bottom:8px">
+<button id="tabNewBtn" onclick="switchOrderTab('new')" style="flex:1;background:#16a34a;color:#fff;border:0;padding:8px;border-radius:8px">🆕 (<span id="newOrderCount">0</span>)</button>
+<button id="tabOldBtn" onclick="switchOrderTab('old')" style="flex:1;background:#e2e8f0;color:#0f172a;border:0;padding:8px;border-radius:8px">📚 (<span id="oldOrderCount">0</span>)</button>
+</div><div id="newOrdersList"></div><div id="oldOrdersList" style="display:none"></div></div></div>
+<div id="sec_user" class="adminSec" style="display:none"><div class="adminCard"><h3>📢 মেসেজ</h3><textarea id="broadcastMsg"></textarea><input id="broadcastImg" placeholder="img link"><div style="display:flex;gap:6px;margin:6px 0"><div class="gBtn" style="flex:1" onclick="document.getElementById('b_f1').click()">📁<input type="file" id="b_f1" accept="image/*" onchange="handleBroadcastFile(this)" style="display:none"></div><div class="gBtn" style="flex:1" onclick="document.getElementById('b_f2').click()">📷<input type="file" id="b_f2" accept="image/*" capture="environment" onchange="handleBroadcastFile(this)" style="display:none"></div></div><img id="broadcastPreview" style="width:100%;height:120px;object-fit:contain;display:none;background:#fff;border-radius:8px;border:1px solid #e2e8f0"><button class="btn btnG" onclick="sendBroadcastEmail()">📧 Gmail + 🔔</button><p id="broadcastStatus"></p></div><div class="adminCard"><h3>👥 সকল ইউজার (<span id="totalUserCount">0</span> জন)</h3><div id="allUsersList" style="max-height:600px;overflow:auto"></div></div></div>
+<div id="sec_product" class="adminSec" style="display:none"><div class="adminCard"><h3>📸 আইটেম যোগ <span id="prodTypeShow" style="background:#16a34a;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px">খুচরা</span></h3>
+<div style="display:flex;gap:6px;margin-bottom:8px"><button id="prodTabKhucra" class="adminTabBtn active" onclick="setProdType('khucra')" style="flex:1">🛒 খুচরা</button><button id="prodTabPaikari" class="adminTabBtn" onclick="setProdType('paikari')" style="flex:1">📦 পাইকারি</button></div>
+<input id="pName" placeholder="বাংলা নাম *" oninput="autoSlug(this.value)"><input id="pSlug" placeholder="ইংরেজি slug (অটো হবে)"><textarea id="pDesc" placeholder="সংক্ষিপ্ত বিবরণ"></textarea><textarea id="pFullDesc" placeholder="বিস্তারিত বিবরণ"></textarea>
+<div style="display:flex;gap:6px"><input id="pCat" placeholder="ক্যাটাগরি" style="flex:1"><input id="pStock" type="number" placeholder="স্টক" style="flex:1"></div>
+<div style="background:#f0fdf4;padding:10px;border-radius:10px;border:1.5px dashed #16a34a;margin:8px 0">
+<b style="font-size:11px">💰 দাম ও ছাড় - অটো %</b>
+<div style="display:flex;gap:6px;margin-top:6px"><input id="pRetail" type="number" placeholder="MRP" oninput="calcPercentAuto()" style="flex:1"><input id="pDiscountPercent" type="number" placeholder="ছাড় % (অটো)" oninput="calcSaleAuto()" style="flex:1"><input id="pSalePrice" type="number" placeholder="সেল প্রাইস" oninput="calcPercentAuto()" style="flex:1"></div>
+<div style="display:flex;gap:6px;margin-top:6px"><input id="pDiscountQty" type="number" placeholder="কত পিসে? 6/12/100" style="flex:1"><input id="pDiscount" type="number" placeholder="ছাড় টাকা" style="flex:1"></div>
+<div style="display:flex;gap:6px;margin-top:6px"><input id="pMinQty" type="number" placeholder="সর্বনিম্ন পিস" style="flex:1"><select id="pVendor" style="flex:1"><option value="">-- নিজের পণ্য --</option></select></div>
+</div><input id="pImg" placeholder="ছবি লিংক"><div class="galleryBox"><div class="gBtn" onclick="document.getElementById('f1').click()">📁 গ্যালারি<input type="file" id="f1" accept="image/*" onchange="handleFile(this)" style="display:none"></div><div class="gBtn" onclick="document.getElementById('f2').click()">📷 ক্যামেরা<input type="file" id="f2" accept="image/*" capture="environment" onchange="handleFile(this)" style="display:none"></div></div><img id="preview" style="width:100%;height:120px;object-fit:contain;display:none;background:#fff;border-radius:8px;border:1px solid #e2e8f0"><p id="fileName" style="font-size:10px;color:#16a34a;font-weight:700"></p><div style="background:#f8fafc;padding:8px;border-radius:8px;margin-top:6px;border:1px solid #e2e8f0"><b style="font-size:11px">👕 সাইজ</b><div id="sizeList"></div><div style="display:flex;gap:6px;margin:4px 0"><input id="newSize" placeholder="সাইজ"><input id="newPrice" type="number" placeholder="দাম"><button onclick="addSizeRow()" style="background:#16a34a;color:#fff;border:0;padding:6px 10px;border-radius:6px;font-weight:800">+</button></div></div><button id="addBtn" class="btn btnG" onclick="addProduct()">✅ যুক্ত করুন</button><button id="updateBtn" class="btn" style="display:none;background:#f59e0b;color:#fff" onclick="updateProduct()">💾 আপডেট</button><button id="cancelBtn" class="btn" style="display:none;background:#e2e8f0" onclick="cancelEdit()">❌ ক্যানসেল</button></div><div class="adminCard"><h3>📦 সব পণ্য</h3><div id="adminList"></div></div></div>
+<div id="sec_affiliate" class="adminSec" style="display:none"><div class="adminCard"><h3>🤝 ভেন্ডর</h3><div style="display:flex;gap:6px"><input id="vName" placeholder="ভেন্ডর নাম" style="flex:1"><input id="vCommission" type="number" placeholder="কমিশন %" style="flex:1"></div><input id="vApi" placeholder="API Link"><input id="vContact" placeholder="যোগাযোগ"><button class="btn btnG" style="background:#7c3aed" onclick="addVendor()">➕ ভেন্ডর যোগ</button><div id="vendorList"></div></div><div class="adminCard"><h3>📊 ভেন্ডর হিসাব</h3><div id="affiliateStats"></div></div></div>
+<div id="sec_setting" class="adminSec" style="display:none"><div class="adminCard"><h3>🏷️ ক্যাটাগরি</h3><textarea id="sCategories" style="height:100px"></textarea><button class="btn" style="background:#f59e0b;color:#fff" onclick="saveCategories()">💾 ক্যাটাগরি সেভ</button></div><div class="adminCard"><h3>💾 ব্যাকআপ</h3><div style="display:flex;gap:6px;margin-top:6px"><button class="btn btnG" onclick="downloadBackup()" style="flex:1">⬇️ ডাউনলোড</button><button class="btn btnD" onclick="document.getElementById('backupFileInput').click()" style="flex:1">⬆️ আপলোড</button></div><input type="file" id="backupFileInput" accept=".json" style="display:none" onchange="uploadBackup(this)"><p id="backupStatus"></p></div><div class="adminCard"><h3>💝 অফার + ফ্রি লিমিট</h3><input id="sOffer"><input id="sFreeLimit" type="number"><button class="btn" style="background:#B91C1C;color:#fff" onclick="saveOffer()">💾 সেভ</button></div><div class="adminCard"><h3>🏪 দোকান তথ্য</h3><input id="sShopName"><input id="sTagline"><input id="sSlogan"><input id="sPhone"><input id="sExtra"><input id="sAddr"><button class="btn btnD" onclick="saveShop()">💾 সেভ</button></div><div class="adminCard"><h3>🔗 সোশ্যাল লিংক</h3><input id="sFacebook"><input id="sWhatsappChannel"><input id="sYoutube"><input id="sInstagram"><button class="btn btnD" onclick="saveSocial()">💾 সোশ্যাল সেভ</button></div><div class="adminCard"><h3>💳 পেমেন্ট + WhatsApp</h3><input id="sWhatsapp"><input id="sBkash"><input id="sNagad"><input id="sRocket"><input id="sGmail"><input id="sMessenger"><button class="btn btnD" onclick="savePay()">💾 সেভ</button></div><button class="btn btnG" onclick="saveAndClose()">💾 সব সেভ করে হোম</button></div></div>
 <script>
 const EMAILJS_SERVICE="service_4mv2qxq";
 const EMAILJS_TEMPLATE="template_w3l8ct7";
 const EMAILJS_PUBLIC="CvIMoz2LCj_qR1N_v";
 const API_URL="https://api.npoint.io/a890db3c52aa86b09912";
-let settings={shopName:"ইনসাফ শপ",orderCount:1000,tagline:"🌐 রকমারি বাজার",slogan:"✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি",phone:"01895280130",extra:"insafshop.net",address:"মিরপুর, ঢাকা",whatsapp:"01895280130",bkash:"01895280130",nagad:"01895280130",rocket:"01895280130",gmail:"",messenger:"",facebook:"",whatsappChannel:"",youtube:"",instagram:"",offerBanner:"💝 অফার! 1500 টাকায় ডেলিভারি ফ্রি!",freeDeliveryLimit:1500,adminPass:"1234",enableWA:true,categories:["সব","📚 দ্বীনি বই","👕 গেঞ্জি","🧢 টুপি","🌸 আতর","✂️ অন্যান্য","📦 পাইকারি"],userDiscounts:{},blockedEmails:[],notifications:[],usersList:[],newOrders:[],oldOrders:[],forceLogout:[],vendors:[]};
-let products=[];let activeCat="সব";let activeCatWh="সব";let detailIndex=-1;let selectedPay="bkash";let tempImg="";let tempSizes=[];let cart=[];let editingIndex=-1;let currentUser=null;let secretClicks=0;let secretTimer=null;let broadcastTempImg="";let prodBazarType='khucra';let currentOrderTab='new';let perPage=6;let currentPage=1;let currentPageWh=1;
-function loadUser(){try{let u=localStorage.getItem('insaf_user');if(u){currentUser=JSON.parse(u);if(settings.forceLogout&&settings.forceLogout.includes(currentUser.email)){currentUser=null;localStorage.removeItem('insaf_user');}}}catch(e){currentUser=null;}}
-function calcPercentAuto(){let mrp=parseInt(document.getElementById('pRetail').value)||0;let sale=parseInt(document.getElementById('pSalePrice').value)||0;if(mrp>0&&sale>0&&sale<=mrp){let perc=Math.round(((mrp-sale)/mrp)*100);document.getElementById('pDiscountPercent').value=perc;}}
-function calcSaleAuto(){let mrp=parseInt(document.getElementById('pRetail').value)||0;let perc=parseInt(document.getElementById('pDiscountPercent').value)||0;if(mrp>0&&perc>=0&&perc<100){let sale=Math.round(mrp-(mrp*perc/100));document.getElementById('pSalePrice').value=sale;}}
-function setProdType(t){prodBazarType=t;document.getElementById('prodTypeShow').innerText=t=='khucra'?'খুচরা':'পাইকারি';document.getElementById('prodTabKhucra').classList.toggle('active',t=='khucra');document.getElementById('prodTabPaikari').classList.toggle('active',t=='paikari');}
-const trigger=document.getElementById('secretTrigger');const secretDot=document.getElementById('secretAdminDot');trigger.addEventListener('click',()=>{secretClicks++;clearTimeout(secretTimer);if(secretClicks>=10){secretDot.style.display='flex';setTimeout(()=>{secretDot.style.display='none';secretClicks=0;},5000);}else{secretTimer=setTimeout(()=>{secretClicks=0;},2000);}});
-function banglaToEnglish(text){const map={'অ':'a','আ':'a','ই':'i','ঈ':'i','উ':'u','ঊ':'u','ঋ':'ri','এ':'e','ঐ':'oi','ও':'o','ঔ':'ou','ক':'k','খ':'kh','গ':'g','ঘ':'gh','ঙ':'ng','চ':'c','ছ':'ch','জ':'j','ঝ':'jh','ঞ':'n','ট':'t','ঠ':'th','ড':'d','ঢ':'dh','ণ':'n','ত':'t','থ':'th','দ':'d','ধ':'dh','ন':'n','প':'p','ফ':'f','ব':'b','ভ':'bh','ম':'m','য':'y','র':'r','ল':'l','শ':'sh','ষ':'sh','স':'s','হ':'h','ড়':'r','ঢ়':'rh','য়':'y','ৎ':'t','ং':'ng','ঃ':'h','ঁ':'n','া':'a','ি':'i','ী':'i','ু':'u','ূ':'u','ৃ':'ri','ে':'e','ৈ':'oi','ো':'o','ৌ':'ou','্':'','‌':'','‍':''};let res="";for(let ch of text){if(map[ch]!==undefined) res+=map[ch];else if(ch===' ') res+='-';else if(/[a-zA-Z0-9]/.test(ch)) res+=ch.toLowerCase();}return res.replace(/-+/g,'-').replace(/^-|-$/g,'');}
-function makeSlug(s){if(!s) return "";let en=banglaToEnglish(s);if(!en||en.length<2){en=s.toLowerCase().trim().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');}return en.replace(/-+/g,'-').replace(/^-|-$/g,'');}
-function makeUniqueSlugs(list){let seen={};return list.map(p=>{let base=p.slug||makeSlug(p.name);let slug=base;let c=2;while(seen[slug]){slug=base+"-"+c;c++;}seen[slug]=true;return{...p,slug:slug};});}
-function autoSlug(b){let f=document.getElementById("pSlug");if(!f||editingIndex>=0) return;let eng=makeSlug(b);f.value=eng;}
-function clearBookFilter(){history.pushState({},'',location.pathname);document.title="ইনসাফ শপ - রকমারি বাজার";currentPage=1;doRender();}
-function updateSEOForProduct(p){if(!p) return;let url="https://insafshop.net/?book="+encodeURIComponent(p.slug||makeSlug(p.name));document.getElementById('canonicalLink').href=url;document.getElementById('bookLinkShow').innerText=url;}
-function copyBookLink(){let t=document.getElementById('bookLinkShow').innerText;navigator.clipboard.writeText(t).then(()=>alert("✅ কপি"));}
-function copyAdminLink(slug){let u="https://insafshop.net/?book="+encodeURIComponent(slug);navigator.clipboard.writeText(u).then(()=>alert("✅ লিংক কপি"));}
-function compress(file,w,q){return new Promise(r=>{let img=new Image();let fr=new FileReader();fr.onload=e=>{img.onload=()=>{let c=document.createElement('canvas');let sc=w/img.width;if(img.width<w) sc=1;c.width=img.width*sc;c.height=img.height*sc;c.getContext('2d').drawImage(img,0,0,c.width,c.height);c.toBlob(b=>r(b),'image/jpeg',q);};img.src=e.target.result;};fr.readAsDataURL(file);});}
-async function handleFile(inp){let f=inp.files[0];if(!f) return;document.getElementById("fileName").innerText="⏳ আপলোড...";let blob=await compress(f,800,0.8);let prev=document.getElementById("preview");let rd=new FileReader();rd.onload=e=>{prev.src=e.target.result;prev.style.display="block";};rd.readAsDataURL(blob);try{let fd=new FormData();fd.append("reqtype","fileupload");fd.append("fileToUpload",blob,"a.jpg");let res=await fetch("https://catbox.moe/user/api.php",{method:"POST",body:fd});let url=await res.text();if(url.startsWith("https://")){tempImg=url.trim();document.getElementById("pImg").value=url.trim();document.getElementById("fileName").innerText="✅ রেডি!";}else throw 0;}catch{let r2=new FileReader();r2.onload=e=>{tempImg=e.target.result;};r2.readAsDataURL(blob);}}
-async function handleBroadcastFile(inp){let f=inp.files[0];if(!f) return;document.getElementById("broadcastFileName").innerText="⏳ আপলোড...";let blob=await compress(f,800,0.8);let prev=document.getElementById("broadcastPreview");let rd=new FileReader();rd.onload=e=>{prev.src=e.target.result;prev.style.display="block";};rd.readAsDataURL(blob);try{let fd=new FormData();fd.append("reqtype","fileupload");fd.append("fileToUpload",blob,"a.jpg");let res=await fetch("https://catbox.moe/user/api.php",{method:"POST",body:fd});let url=await res.text();if(url.startsWith("https://")){broadcastTempImg=url.trim();document.getElementById("broadcastImg").value=url.trim();document.getElementById("broadcastFileName").innerText="✅ ছবি রেডি!";}else throw 0;}catch{let r2=new FileReader();r2.onload=e=>{broadcastTempImg=e.target.result;};r2.readAsDataURL(blob);}}
-function addSizeRow(){let sz=document.getElementById("newSize").value.trim();let pr=parseInt(document.getElementById("newPrice").value);if(!sz||!pr){alert("সাইজ ও দাম দিন");return;}tempSizes.push({size:sz,price:pr});document.getElementById("newSize").value="";document.getElementById("newPrice").value="";renderSizeList();}
-function renderSizeList(){let h="";tempSizes.forEach((s,i)=>{h+=`<div style="display:flex;justify-content:space-between;background:#fff;padding:5px 8px;border-radius:6px;margin:3px 0;border:1px solid #e2e8f0;font-size:11px"><span><b>${s.size}</b> - ৳${s.price}</span><span onclick="tempSizes.splice(${i},1);renderSizeList()" style="color:#ef4444;cursor:pointer">❌</span></div>`;});document.getElementById("sizeList").innerHTML=h||"<p style='font-size:10px;color:#94a3b8'>বই হলে সাইজ লাগবে না</p>";}
-function switchAdminSection(sec){document.querySelectorAll('.adminSec').forEach(el=>el.style.display='none');document.querySelectorAll('.adminTabBtn').forEach(b=>b.classList.remove('active'));document.getElementById('sec_'+sec).style.display='block';document.getElementById('tabBtn_'+sec).classList.add('active');if(sec=='affiliate') renderVendors();}
-function switchOrderTab(t){currentOrderTab=t;document.getElementById('newOrdersList').style.display=t=='new'?'block':'none';document.getElementById('oldOrdersList').style.display=t=='old'?'block':'none';document.getElementById('tabNewBtn').style.background=t=='new'?'#16a34a':'#e2e8f0';document.getElementById('tabOldBtn').style.background=t=='old'?'#16a34a':'#e2e8f0';renderOrders();}
-function fastRender(){let backup=localStorage.getItem('insaf_products_backup');if(backup){try{let arr=JSON.parse(backup);if(arr.length>0){products=makeUniqueSlugs(arr.map(p=>({...p,selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:""),bazarType:p.bazarType||'khucra',discountQty:p.discountQty||6,vendorId:p.vendorId||""})));doRender();}}catch(e){}}}
-async function syncFromCloud(){fastRender();loadUser();try{let r=await fetch(API_URL+"?v="+Date.now());let d=await r.json();let cloudProducts=d.products||[];let localBackup=JSON.parse(localStorage.getItem('insaf_products_backup')||'[]');if(d.settings){settings={...settings,...d.settings};if(!settings.newOrders) settings.newOrders=[];if(!settings.oldOrders) settings.oldOrders=[];if(!settings.usersList) settings.usersList=[];if(!settings.vendors) settings.vendors=[];if(!settings.freeDeliveryLimit) settings.freeDeliveryLimit=1500;}loadUser();let merged=[];if(localBackup.length>=3 && localBackup.length>cloudProducts.length){let map={};cloudProducts.forEach(p=>map[p.slug]=p);localBackup.forEach(p=>map[p.slug]=p);merged=Object.values(map);}else{merged=cloudProducts.length>0?cloudProducts:localBackup;}if(merged.length>0){products=makeUniqueSlugs(merged.map(p=>{if(!p.sizes) p.sizes=[];if(!p.discountQty) p.discountQty=6;if(!p.vendorId) p.vendorId="";return {...p,selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:"")};}));}localStorage.setItem('insaf_products_backup',JSON.stringify(products));applySettings();render();}catch(e){let backup=localStorage.getItem('insaf_products_backup');if(backup) products=JSON.parse(backup);applySettings();render();}}
-async function syncToCloud(){localStorage.setItem('insaf_products_backup',JSON.stringify(products));try{await fetch(API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({products:products.map(p=>{let {selectedSize,...rest}=p;return rest;}),settings})});}catch(e){}}
-function applySettings(){try{let d=new Date();let ds="";try{ds=d.toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long',year:'numeric'});if(!ds||ds.length<5) throw 0;}catch(e){ds=d.toLocaleDateString('en-GB',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});}document.getElementById("hDate").innerText=ds;}catch(e){}document.getElementById("sShopName").value=settings.shopName||"";document.getElementById("sTagline").value=settings.tagline||"";document.getElementById("sSlogan").value=settings.slogan||"";document.getElementById("sPhone").value=settings.phone||"";document.getElementById("sExtra").value=settings.extra||"insafshop.net";document.getElementById("sAddr").value=settings.address||"";document.getElementById("sWhatsapp").value=settings.whatsapp||settings.bkash;document.getElementById("sBkash").value=settings.bkash||"";document.getElementById("sNagad").value=settings.nagad||"";document.getElementById("sRocket").value=settings.rocket||"";document.getElementById("sGmail").value=settings.gmail||"";document.getElementById("sMessenger").value=settings.messenger||"";document.getElementById("sFacebook").value=settings.facebook||"";document.getElementById("sWhatsappChannel").value=settings.whatsappChannel||"";document.getElementById("sYoutube").value=settings.youtube||"";document.getElementById("sInstagram").value=settings.instagram||"";document.getElementById("sOffer").value=settings.offerBanner||"";document.getElementById("sFreeLimit").value=settings.freeDeliveryLimit||1500;document.getElementById("sCategories").value=(settings.categories||[]).join("\n");let enWA=document.getElementById("sEnableWA");if(enWA) enWA.checked=settings.enableWA!=false;let banner=document.getElementById("offerBanner");if(settings.offerBanner&&settings.offerBanner.trim()!=""){banner.innerText=settings.offerBanner;banner.style.display="block";document.getElementById("searchWrap").classList.add("hasOffer");}else{banner.style.display="none";document.getElementById("searchWrap").classList.remove("hasOffer");}document.getElementById("footerShopName").innerText=settings.shopName||"ইনসাফ শপ";document.getElementById("footerTagline").innerText=(settings.tagline||"🌐 রকমারি বাজার")+" • "+(settings.slogan||"✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি");document.getElementById("footerAddressShow").innerText="📍 "+(settings.address||"মিরপুর, ঢাকা");let rawWa=(settings.whatsapp||settings.phone).toString().replace(/[^0-9]/g,'').replace(/^88/,'');document.getElementById("footerPhone").innerText=settings.phone||"01895280130";document.getElementById("footerPhoneLink").href="tel:"+(settings.phone||"");document.getElementById("footerWaIcon").href="https://wa.me/88"+rawWa;let extraText=settings.extra||"insafshop.net";let extraEl=document.getElementById("footerExtraLink");if(extraEl){if(extraText.startsWith("http")){extraEl.innerText=extraText.replace("https://","").replace("http://","").replace("www.","");extraEl.href=extraText;}else{extraEl.innerText=extraText;extraEl.href=extraText.includes(".")?"https://"+extraText:"#";}}let socialHtml="";if(settings.facebook&&settings.facebook.startsWith("http")){socialHtml+=`<a href="${settings.facebook}" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#1877F2;border-radius:50%;color:#fff;font-weight:900;margin:3px;text-decoration:none">f</a>`;}if(settings.whatsappChannel&&settings.whatsappChannel.startsWith("http")){socialHtml+=`<a href="${settings.whatsappChannel}" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#25D366;border-radius:50%;color:#fff;font-weight:900;margin:3px;text-decoration:none">W</a>`;}if(settings.youtube&&settings.youtube.startsWith("http")){socialHtml+=`<a href="${settings.youtube}" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#FF0000;border-radius:50%;color:#fff;font-weight:900;margin:3px;text-decoration:none">▶</a>`;}if(settings.instagram&&settings.instagram.startsWith("http")){socialHtml+=`<a href="${settings.instagram}" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);border-radius:50%;color:#fff;margin:3px;text-decoration:none">📸</a>`;}document.getElementById("footerSocial").innerHTML=socialHtml;updateUserUI();updateBell();renderOrders();renderUsers();renderCats();renderVendors();renderAffiliateStats();}
-function saveOffer(){settings.offerBanner=document.getElementById("sOffer").value.trim();let lim=parseInt(document.getElementById("sFreeLimit").value)||1500;settings.freeDeliveryLimit=lim;applySettings();syncToCloud();alert("✅ অফার সেভ! "+lim);}
-function saveCategories(){let txt=document.getElementById("sCategories").value.trim();if(!txt){alert("ক্যাটাগরি লিখুন");return;}let arr=txt.split("\n").map(s=>s.trim()).filter(s=>s!="");if(!arr.includes("সব")) arr.unshift("সব");settings.categories=arr;applySettings();renderCats();syncToCloud();alert("✅ ক্যাটাগরি সেভ!");}
-function saveAdminPass(){let np=document.getElementById("sAdminPass")?document.getElementById("sAdminPass").value.trim():"";if(np) settings.adminPass=np;let en=document.getElementById("sEnableWA");if(en) settings.enableWA=en.checked;if(document.getElementById("sAdminPass")) document.getElementById("sAdminPass").value="";syncToCloud();alert("✅ পাসওয়ার্ড সেভ");}
-function saveShop(){settings.shopName=document.getElementById("sShopName").value;settings.tagline=document.getElementById("sTagline").value;settings.slogan=document.getElementById("sSlogan").value;settings.phone=document.getElementById("sPhone").value;settings.extra=document.getElementById("sExtra").value||"insafshop.net";settings.address=document.getElementById("sAddr").value;applySettings();syncToCloud();alert("✅ দোকান তথ্য সেভ");}
-function saveSocial(){settings.facebook=document.getElementById("sFacebook").value.trim();settings.whatsappChannel=document.getElementById("sWhatsappChannel").value.trim();settings.youtube=document.getElementById("sYoutube").value.trim();settings.instagram=document.getElementById("sInstagram").value.trim();applySettings();syncToCloud();alert("✅ সোশ্যাল সেভ");}
-function savePay(){settings.whatsapp=document.getElementById("sWhatsapp").value.trim()||settings.whatsapp;settings.bkash=document.getElementById("sBkash").value;settings.nagad=document.getElementById("sNagad").value;settings.rocket=document.getElementById("sRocket").value;settings.gmail=document.getElementById("sGmail").value.trim();settings.messenger=document.getElementById("sMessenger").value.trim()||"";applySettings();syncToCloud();alert("✅ পেমেন্ট সেভ");}
-function addVendor(){let name=document.getElementById("vName").value.trim();let comm=parseInt(document.getElementById("vCommission").value)||15;let api=document.getElementById("vApi").value.trim();let contact=document.getElementById("vContact").value.trim();if(!name){alert("ভেন্ডর নাম দিন");return;}if(!settings.vendors) settings.vendors=[];settings.vendors.push({id:"v_"+Date.now(),name:name,commission:comm,api:api,contact:contact});document.getElementById("vName").value="";document.getElementById("vCommission").value="";document.getElementById("vApi").value="";document.getElementById("vContact").value="";syncToCloud();renderVendors();alert("✅ ভেন্ডর যোগ");}
-function renderVendors(){let el=document.getElementById("vendorList");let sel=document.getElementById("pVendor");if(!el) return;let vendors=settings.vendors||[];if(sel){sel.innerHTML=`<option value="">-- নিজের পণ্য --</option>`+vendors.map(v=>`<option value="${v.id}">${v.name} (${v.commission}%)</option>`).join('');}if(vendors.length==0){el.innerHTML="<p style='font-size:11px;color:#888'>কোনো ভেন্ডর নাই</p>";return;}el.innerHTML=vendors.map((v,i)=>`<div style="background:#fff;border:1px solid #e2e8f0;padding:8px;border-radius:8px;margin:4px 0;font-size:11px;display:flex;justify-content:space-between;align-items:center"><span><b>${v.name}</b> - ${v.commission}%<br><small>${v.contact||''}</small></span><button onclick="settings.vendors.splice(${i},1);syncToCloud();renderVendors()" style="padding:4px 8px;background:#fef2f2;border:1px solid #fecaca;border-radius:6px">🗑️</button></div>`).join('');}
-function renderAffiliateStats(){let el=document.getElementById("affiliateStats");if(!el) return;let vendors=settings.vendors||[];let all=[...(settings.newOrders||[]),...(settings.oldOrders||[])];if(vendors.length==0){el.innerHTML="কোনো ভেন্ডর নাই";return;}let html="";vendors.forEach(v=>{let count=0;let total=0;let commTotal=0;all.forEach(o=>{(o.items||[]).forEach(it=>{let p=products.find(pr=>pr.name==it.name);if(p&&p.vendorId==v.id){count+=it.qty;total+=it.total;commTotal+=Math.round(it.total*v.commission/100);}});});html+=`<div style="background:#f5f3ff;border:1px solid #ddd6fe;padding:8px;border-radius:8px;margin:4px 0"><b>${v.name}</b> - ${count} পিস<br>বিক্রি: ৳${total} | কমিশন: <b>৳${commTotal}</b></div>`;});el.innerHTML=html||"এখনো বিক্রি হয় নাই";}
-function getPrice(p,size){if(p.sizes&&p.sizes.length>0&&size){let f=p.sizes.find(s=>s.size==size);if(f) return f.price;}return p.retailPrice||0;}
+let settings={shopName:"ইনসাফ শপ",orderCount:1000,
+tagline:"🌐 রকমারি বাজার",slogan:"✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি",
+phone:"01895280130",extra:"insafshop.net",address:"মিরপুর, ঢাকা",
+whatsapp:"01895280130",bkash:"01895280130",nagad:"01895280130",
+rocket:"01895280130",gmail:"",facebook:"",whatsappChannel:"",
+youtube:"",instagram:"",offerBanner:"💝 অফার! 1000+ অর্ডারে ডেলিভারি ফ্রি!",
+freeDeliveryLimit:1000,adminPass:"1234",enableWA:true,
+categories:["সব","📚 দ্বীনি বই","👕 গেঞ্জি","🧢 টুপি","🌸 আতর","✂️ অন্যান্য","📦 পাইকারি"],
+userDiscounts:{},notifications:[],usersList:[],newOrders:[],
+oldOrders:[],forceLogout:[],vendors:[]};
+let products=[],activeCat="সব",activeCatWh="সব",detailIndex=-1,
+selectedPay="bkash",tempImg="",tempSizes=[],cart=[],editingIndex=-1,
+currentUser=null,secretClicks=0,secretTimer=null,
+broadcastTempImg="",prodBazarType='khucra',currentOrderTab='new',
+perPage=6,currentPage=1,currentPageWh=1;
+function loadUser(){try{let u=localStorage.getItem('insaf_user');
+if(u){currentUser=JSON.parse(u);
+if(settings.forceLogout&&settings.forceLogout.includes(currentUser.email)){
+currentUser=null;localStorage.removeItem('insaf_user');}}}catch(e){currentUser=null;}}
+function calcPercentAuto(){let mrp=parseInt(document.getElementById('pRetail').value)||0;
+let sale=parseInt(document.getElementById('pSalePrice').value)||0;
+if(mrp>0&&sale>0&&sale<=mrp){document.getElementById('pDiscountPercent').value=
+Math.round(((mrp-sale)/mrp)*100);}}
+function calcSaleAuto(){let mrp=parseInt(document.getElementById('pRetail').value)||0;
+let perc=parseInt(document.getElementById('pDiscountPercent').value)||0;
+if(mrp>0&&perc>=0&&perc<100){document.getElementById('pSalePrice').value=
+Math.round(mrp-(mrp*perc/100));}}
+function setProdType(t){prodBazarType=t;
+document.getElementById('prodTypeShow').innerText=t=='khucra'?'খুচরা':'পাইকারি';
+document.getElementById('prodTabKhucra').classList.toggle('active',t=='khucra');
+document.getElementById('prodTabPaikari').classList.toggle('active',t=='paikari');}
+const trigger=document.getElementById('secretTrigger');
+const secretDot=document.getElementById('secretAdminDot');
+trigger.addEventListener('click',()=>{secretClicks++;
+clearTimeout(secretTimer);
+if(secretClicks>=10){secretDot.style.display='flex';
+setTimeout(()=>{secretDot.style.display='none';secretClicks=0;},5000);}
+else{secretTimer=setTimeout(()=>{secretClicks=0;},2000);}});
+function banglaToEnglish(text){const map={'অ':'a','আ':'a','ই':'i','ঈ':'i','উ':'u','ঊ':'u',
+'এ':'e','ও':'o','ক':'k','খ':'kh','গ':'g','চ':'c','ছ':'ch','জ':'j','ট':'t','ঠ':'th','ড':'d',
+'ত':'t','থ':'th','দ':'d','ধ':'dh','ন':'n','প':'p','ফ':'f','ব':'b','ভ':'bh','ম':'m',
+'য':'y','র':'r','ল':'l','শ':'sh','স':'s','হ':'h','া':'a','ি':'i','ী':'i','ু':'u','ূ':'u',
+'ে':'e','ো':'o','্':''};let res="";for(let ch of text){
+if(map[ch]!==undefined) res+=map[ch];
+else if(ch===' ') res+='-';
+else if(/[a-zA-Z0-9]/.test(ch)) res+=ch.toLowerCase();}
+return res.replace(/-+/g,'-').replace(/^-|-$/g,'');}
+function makeSlug(s){if(!s) return "";let en=banglaToEnglish(s);
+if(!en||en.length<2){en=s.toLowerCase().trim().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');}
+return en.replace(/-+/g,'-').replace(/^-|-$/g,'');}
+function makeUniqueSlugs(list){let seen={};return list.map(p=>{
+let base=p.slug||makeSlug(p.name);let slug=base;let c=2;
+while(seen[slug]){slug=base+"-"+c;c++;}seen[slug]=true;return{...p,slug:slug};});}
+function autoSlug(b){let f=document.getElementById("pSlug");
+if(!f||editingIndex>=0) return;f.value=makeSlug(b);}
+function clearBookFilter(){history.pushState({},'',location.pathname);
+document.title="ইনসাফ শপ - রকমারি বাজার";currentPage=1;doRender();}
+function updateSEOForProduct(p){if(!p) return;
+let url="https://insafshop.net/?book="+encodeURIComponent(p.slug||makeSlug(p.name));
+let title=p.name+" - ইনসাফ শপ";
+document.title=title;
+document.getElementById('canonicalLink').href=url;
+document.getElementById('bookLinkShow').innerText=url;
+let ogT=document.getElementById('ogTitle');
+let ogI=document.getElementById('ogImage');
+let ogU=document.getElementById('ogUrl');
+let ogD=document.getElementById('ogDesc');
+if(ogT) ogT.setAttribute('content',title);
+if(ogI) ogI.setAttribute('content',p.img);
+if(ogU) ogU.setAttribute('content',url);
+if(ogD) ogD.setAttribute('content',p.desc||"");
+let sc=document.getElementById('seoSchema');
+if(sc){sc.innerHTML=JSON.stringify({"@context":"https://schema.org",
+"@type":"Product","name":p.name,"image":p.img,"description":p.desc||"",
+"offers":{"@type":"Offer","price":p.retailPrice,"priceCurrency":"BDT"}});}}
+function copyBookLink(){let t=document.getElementById('bookLinkShow').innerText;
+navigator.clipboard.writeText(t).then(()=>alert("✅ কপি"));}
+function copyAdminLink(slug){let u="https://insafshop.net/?book="+encodeURIComponent(slug);
+navigator.clipboard.writeText(u).then(()=>alert("✅ লিংক কপি"));}
+function compress(file,w,q){return new Promise(r=>{let img=new Image();
+let fr=new FileReader();fr.onload=e=>{img.onload=()=>{let c=document.createElement('canvas');
+let sc=w/img.width;if(img.width<w) sc=1;c.width=img.width*sc;c.height=img.height*sc;
+c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+c.toBlob(b=>r(b),'image/jpeg',q);};img.src=e.target.result;};fr.readAsDataURL(file);});}
+async function handleFile(inp){let f=inp.files[0];if(!f) return;
+document.getElementById("fileName").innerText="⏳ আপলোড...";
+let blob=await compress(f,800,0.8);
+let prev=document.getElementById("preview");
+let rd=new FileReader();rd.onload=e=>{prev.src=e.target.result;prev.style.display="block";};
+rd.readAsDataURL(blob);try{let fd=new FormData();
+fd.append("reqtype","fileupload");fd.append("fileToUpload",blob,"a.jpg");
+let res=await fetch("https://catbox.moe/user/api.php",{method:"POST",body:fd});
+let url=await res.text();if(url.startsWith("https://")){
+tempImg=url.trim();document.getElementById("pImg").value=url.trim();
+document.getElementById("fileName").innerText="✅ রেডি!";}else throw 0;}
+catch{let r2=new FileReader();r2.onload=e=>{tempImg=e.target.result;};
+r2.readAsDataURL(blob);}}
+async function handleBroadcastFile(inp){let f=inp.files[0];if(!f) return;
+let blob=await compress(f,800,0.8);
+let prev=document.getElementById("broadcastPreview");
+let rd=new FileReader();rd.onload=e=>{prev.src=e.target.result;prev.style.display="block";};
+rd.readAsDataURL(blob);try{let fd=new FormData();
+fd.append("reqtype","fileupload");fd.append("fileToUpload",blob,"a.jpg");
+let res=await fetch("https://catbox.moe/user/api.php",{method:"POST",body:fd});
+let url=await res.text();if(url.startsWith("https://")){
+broadcastTempImg=url.trim();document.getElementById("broadcastImg").value=url.trim();}
+else throw 0;}catch{let r2=new FileReader();
+r2.onload=e=>{broadcastTempImg=e.target.result;};r2.readAsDataURL(blob);}}
+function addSizeRow(){let sz=document.getElementById("newSize").value.trim();
+let pr=parseInt(document.getElementById("newPrice").value);
+if(!sz||!pr){alert("সাইজ ও দাম দিন");return;}
+tempSizes.push({size:sz,price:pr});
+document.getElementById("newSize").value="";
+document.getElementById("newPrice").value="";renderSizeList();}
+function renderSizeList(){let h="";tempSizes.forEach((s,i)=>{
+h+=`<div style="display:flex;justify-content:space-between;background:#fff;
+padding:5px 8px;border-radius:6px;margin:3px 0;border:1px solid #e2e8f0;font-size:11px">
+<span><b>${s.size}</b> - ৳${s.price}</span>
+<span onclick="tempSizes.splice(${i},1);renderSizeList()" style="color:#ef4444;cursor:pointer">❌</span></div>`;});
+document.getElementById("sizeList").innerHTML=h||"<p style='font-size:10px;color:#94a3b8'>বই হলে সাইজ লাগবে না</p>";}
+function switchAdminSection(sec){document.querySelectorAll('.adminSec')
+.forEach(el=>el.style.display='none');
+document.querySelectorAll('.adminTabBtn')
+.forEach(b=>b.classList.remove('active'));
+document.getElementById('sec_'+sec).style.display='block';
+document.getElementById('tabBtn_'+sec).classList.add('active');
+if(sec=='affiliate') renderVendors();}
+function switchOrderTab(t){currentOrderTab=t;
+document.getElementById('newOrdersList').style.display=t=='new'?'block':'none';
+document.getElementById('oldOrdersList').style.display=t=='old'?'block':'none';
+document.getElementById('tabNewBtn').style.background=t=='new'?'#16a34a':'#e2e8f0';
+document.getElementById('tabOldBtn').style.background=t=='old'?'#16a34a':'#e2e8f0';
+renderOrders();}
+function fastRender(){let backup=localStorage.getItem('insaf_products_backup');
+if(backup){try{let arr=JSON.parse(backup);if(arr.length>0){
+products=makeUniqueSlugs(arr.map(p=>({...p,
+selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:""),
+bazarType:p.bazarType||'khucra',discountQty:p.discountQty||6,
+vendorId:p.vendorId||""})));doRender();}}catch(e){}}}
+async function syncFromCloud(){fastRender();loadUser();
+try{let r=await fetch(API_URL+"?v="+Date.now());let d=await r.json();
+let cloudProducts=d.products||[];let localBackup=
+JSON.parse(localStorage.getItem('insaf_products_backup')||'[]');
+if(d.settings){settings={...settings,...d.settings};}
+loadUser();let merged=[];
+if(localBackup.length>=3 && localBackup.length>cloudProducts.length){
+let map={};cloudProducts.forEach(p=>map[p.slug]=p);
+localBackup.forEach(p=>map[p.slug]=p);merged=Object.values(map);}
+else{merged=cloudProducts.length>0?cloudProducts:localBackup;}
+if(merged.length>0){products=makeUniqueSlugs(merged.map(p=>{
+if(!p.sizes) p.sizes=[];if(!p.discountQty) p.discountQty=6;
+if(!p.vendorId) p.vendorId="";
+return {...p,selectedSize:p.selectedSize||(p.sizes[0]?p.sizes[0].size:"")};}));}
+localStorage.setItem('insaf_products_backup',JSON.stringify(products));
+applySettings();render();}catch(e){
+let backup=localStorage.getItem('insaf_products_backup');
+if(backup) products=JSON.parse(backup);applySettings();render();}}
+async function syncToCloud(){localStorage.setItem('insaf_products_backup',
+JSON.stringify(products));try{await fetch(API_URL,{method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({products:products.map(p=>{
+let {selectedSize,...rest}=p;return rest;}),settings})});}catch(e){}}
+function applySettings(){try{let d=new Date();let ds="";
+try{ds=d.toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',
+month:'long',year:'numeric'});}catch(e){
+ds=d.toLocaleDateString('en-GB',{weekday:'long',day:'2-digit',
+month:'long',year:'numeric'});}
+document.getElementById("hDate").innerText=ds;}catch(e){}
+document.getElementById("sShopName").value=settings.shopName||"";
+document.getElementById("sTagline").value=settings.tagline||"";
+document.getElementById("sSlogan").value=settings.slogan||"";
+document.getElementById("sPhone").value=settings.phone||"";
+document.getElementById("sExtra").value=settings.extra||"insafshop.net";
+document.getElementById("sAddr").value=settings.address||"";
+document.getElementById("sWhatsapp").value=settings.whatsapp||settings.bkash;
+document.getElementById("sBkash").value=settings.bkash||"";
+document.getElementById("sNagad").value=settings.nagad||"";
+document.getElementById("sRocket").value=settings.rocket||"";
+document.getElementById("sGmail").value=settings.gmail||"";
+document.getElementById("sFacebook").value=settings.facebook||"";
+document.getElementById("sWhatsappChannel").value=settings.whatsappChannel||"";
+document.getElementById("sYoutube").value=settings.youtube||"";
+document.getElementById("sInstagram").value=settings.instagram||"";
+document.getElementById("sOffer").value=settings.offerBanner||"";
+document.getElementById("sFreeLimit").value=settings.freeDeliveryLimit||1500;
+document.getElementById("sCategories").value=(settings.categories||[]).join("\n");
+let banner=document.getElementById("offerBanner");
+if(settings.offerBanner&&settings.offerBanner.trim()!=""){
+banner.innerText=settings.offerBanner;banner.style.display="block";
+document.getElementById("searchWrap").classList.add("hasOffer");}
+else{banner.style.display="none";
+document.getElementById("searchWrap").classList.remove("hasOffer");}
+document.getElementById("footerShopName").innerText=settings.shopName||"ইনসাফ শপ";
+document.getElementById("footerTagline").innerText=
+(settings.tagline||"🌐 রকমারি বাজার")+" • "+(settings.slogan||"✅ পেমেন্ট কনফার্ম হলেই ডেলিভারি");
+document.getElementById("footerAddressShow").innerText="📍 "+(settings.address||"মিরপুর, ঢাকা");
+let rawWa=(settings.whatsapp||settings.phone).toString().replace(/[^0-9]/g,'').replace(/^88/,'');
+document.getElementById("footerPhone").innerText=settings.phone||"01895280130";
+document.getElementById("footerPhoneLink").href="tel:"+(settings.phone||"");
+document.getElementById("footerWaIcon").href="https://wa.me/88"+rawWa;
+let extraText=settings.extra||"insafshop.net";
+let extraEl=document.getElementById("footerExtraLink");
+if(extraEl){if(extraText.startsWith("http")){
+extraEl.innerText=extraText.replace("https://","").replace("http://","").replace("www.","");
+extraEl.href=extraText;}else{extraEl.innerText=extraText;
+extraEl.href=extraText.includes(".")?"https://"+extraText:"#";}}
+let socialHtml="";
+if(settings.facebook&&settings.facebook.startsWith("http")){
+socialHtml+=`<a href="${settings.facebook}" target="_blank"
+style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;
+background:#1877F2;border-radius:50%;color:#fff;font-weight:900;margin:3px">f</a>`;}
+if(settings.whatsappChannel&&settings.whatsappChannel.startsWith("http")){
+socialHtml+=`<a href="${settings.whatsappChannel}" target="_blank"
+style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;
+background:#25D366;border-radius:50%;color:#fff;font-weight:900;margin:3px">W</a>`;}
+document.getElementById("footerSocial").innerHTML=socialHtml;
+updateUserUI();updateBell();renderOrders();renderUsers();
+renderCats();renderVendors();renderAffiliateStats();}
+function saveOffer(){settings.offerBanner=document.getElementById("sOffer").value.trim();
+let lim=parseInt(document.getElementById("sFreeLimit").value)||1500;
+settings.freeDeliveryLimit=lim;applySettings();syncToCloud();}
+function saveCategories(){let txt=document.getElementById("sCategories").value.trim();
+if(!txt){alert("ক্যাটাগরি লিখুন");return;}
+let arr=txt.split("\n").map(s=>s.trim()).filter(s=>s!="");
+if(!arr.includes("সব")) arr.unshift("সব");settings.categories=arr;
+applySettings();renderCats();syncToCloud();}
+function saveShop(){settings.shopName=document.getElementById("sShopName").value;
+settings.tagline=document.getElementById("sTagline").value;
+settings.slogan=document.getElementById("sSlogan").value;
+settings.phone=document.getElementById("sPhone").value;
+settings.extra=document.getElementById("sExtra").value||"insafshop.net";
+settings.address=document.getElementById("sAddr").value;applySettings();syncToCloud();}
+function saveSocial(){settings.facebook=document.getElementById("sFacebook").value.trim();
+settings.whatsappChannel=document.getElementById("sWhatsappChannel").value.trim();
+settings.youtube=document.getElementById("sYoutube").value.trim();
+settings.instagram=document.getElementById("sInstagram").value.trim();
+applySettings();syncToCloud();}
+function savePay(){settings.whatsapp=document.getElementById("sWhatsapp").value.trim()||settings.whatsapp;
+settings.bkash=document.getElementById("sBkash").value;
+settings.nagad=document.getElementById("sNagad").value;
+settings.rocket=document.getElementById("sRocket").value;
+settings.gmail=document.getElementById("sGmail").value.trim();
+settings.messenger=document.getElementById("sMessenger").value.trim()||"";
+applySettings();syncToCloud();}
+function addVendor(){let name=document.getElementById("vName").value.trim();
+let comm=parseInt(document.getElementById("vCommission").value)||15;
+let api=document.getElementById("vApi").value.trim();
+let contact=document.getElementById("vContact").value.trim();
+if(!name){alert("ভেন্ডর নাম দিন");return;}
+if(!settings.vendors) settings.vendors=[];
+settings.vendors.push({id:"v_"+Date.now(),name:name,commission:comm,api:api,contact:contact});
+document.getElementById("vName").value="";document.getElementById("vCommission").value="";
+document.getElementById("vApi").value="";document.getElementById("vContact").value="";
+syncToCloud();renderVendors();}
+function renderVendors(){let el=document.getElementById("vendorList");
+let sel=document.getElementById("pVendor");if(!el) return;
+let vendors=settings.vendors||[];
+if(sel){sel.innerHTML=`<option value="">-- নিজের পণ্য --</option>`+
+vendors.map(v=>`<option value="${v.id}">${v.name} (${v.commission}%)</option>`).join('');}
+if(vendors.length==0){el.innerHTML="<p style='font-size:11px;color:#888'>কোনো ভেন্ডর নাই</p>";return;}
+el.innerHTML=vendors.map((v,i)=>`<div style="background:#fff;border:1px solid #e2e8f0;
+padding:8px;border-radius:8px;margin:4px 0;font-size:11px;display:flex;justify-content:space-between;align-items:center">
+<span><b>${v.name}</b> - ${v.commission}%<br><small>${v.contact||''}</small></span>
+<button onclick="settings.vendors.splice(${i},1);syncToCloud();renderVendors()"
+style="padding:4px 8px;background:#fef2f2;border:1px solid #fecaca;border-radius:6px">🗑️</button></div>`).join('');}
+function renderAffiliateStats(){let el=document.getElementById("affiliateStats");if(!el) return;
+let vendors=settings.vendors||[];let all=[...(settings.newOrders||[]),...(settings.oldOrders||[])];
+if(vendors.length==0){el.innerHTML="কোনো ভেন্ডর নাই";return;}let html="";
+vendors.forEach(v=>{let count=0;let total=0;let commTotal=0;all.forEach(o=>{
+(o.items||[]).forEach(it=>{let p=products.find(pr=>pr.name==it.name);
+if(p&&p.vendorId==v.id){count+=it.qty;total+=it.total;
+commTotal+=Math.round(it.total*v.commission/100);}});});
+html+=`<div style="background:#f5f3ff;border:1px solid #ddd6fe;padding:8px;border-radius:8px;margin:4px 0">
+<b>${v.name}</b> - ${count} পিস<br>বিক্রি: ৳${total} | কমিশন: <b>৳${commTotal}</b></div>`;});
+el.innerHTML=html||"এখনো বিক্রি হয় নাই";}
+function getPrice(p,size){if(p.sizes&&p.sizes.length>0&&size){
+let f=p.sizes.find(s=>s.size==size);if(f) return f.price;}return p.retailPrice||0;}
 function getCartQty(prodIdx,size){let f=cart.find(c=>c.prodIdx==prodIdx&&c.size==size);return f?f.qty:0;}
-function addToCartFast(prodIdx,size,delta,btn){let p=products[prodIdx];let minQ=p.minQty||(p.bazarType=='paikari'?6:1);if(!size&&p.sizes&&p.sizes.length>0) size=p.sizes[0].size;let idx=cart.findIndex(c=>c.prodIdx==prodIdx&&c.size==size);let cur=idx>=0?cart[idx].qty:0;if(delta>0&&cur==0&&minQ>1) delta=minQ;if(idx>=0){let newQ=cart[idx].qty+delta;if(newQ>0&&newQ<minQ){alert(`সর্বনিম্ন ${minQ} পিস`);return;}cart[idx].qty=newQ;if(cart[idx].qty<=0) cart.splice(idx,1);}else{if(delta>0){if(delta<minQ) delta=minQ;cart.push({prodIdx,size,qty:delta});}}updateBar();try{let card=btn&&btn.closest?btn.closest('.card'):null;if(card){let qty=getCartQty(prodIdx,size);let inp=card.querySelector('.qtyRow input');if(inp) inp.value=qty;let unit=getPrice(p,size);let need=p.discountQty||6;let disc=Math.floor(qty/need)*(p.discountPer6||0);let total=unit*qty-disc;let box=card.querySelector('.totalBox');if(qty>0){if(box){box.style.display='block';box.innerHTML=`মোট: ৳${total}`;}else{let nb=document.createElement('div');nb.className='totalBox';nb.innerHTML=`মোট: ৳${total}`;card.querySelector('.qtyRow').after(nb);}}else if(box) box.style.display='none';}}catch(e){}}
-function calcTotalForItem(item){let p=products[item.prodIdx];let pr=getPrice(p,item.size);let base=pr*item.qty;let need=p.discountQty||6;let disc=Math.floor(item.qty/need)*(p.discountPer6||0);return{total:base-disc,discount:disc,unit:pr};}
-function getCurrentUserDiscount(){if(!currentUser) return 0;return settings.userDiscounts[currentUser.email]||0;}
+function addToCartFast(prodIdx,size,delta,btn){
+let p=products[prodIdx];let minQ=p.minQty||(p.bazarType=='paikari'?6:1);
+if(!size&&p.sizes&&p.sizes.length>0) size=p.sizes[0].size;
+let idx=cart.findIndex(c=>c.prodIdx==prodIdx&&c.size==size);
+let cur=idx>=0?cart[idx].qty:0;
+if(delta>0&&cur==0&&minQ>1) delta=minQ;
+if(idx>=0){let newQ=cart[idx].qty+delta;
+if(newQ>0&&newQ<minQ){alert(`সর্বনিম্ন ${minQ} পিস`);return;}
+cart[idx].qty=newQ;if(cart[idx].qty<=0) cart.splice(idx,1);}
+else{if(delta>0){if(delta<minQ) delta=minQ;cart.push({prodIdx,size,qty:delta});}}
+updateBar();
+try{let card=btn&&btn.closest?btn.closest('.card'):null;
+if(card){let qty=getCartQty(prodIdx,size);
+let inp=card.querySelector('.qtyRow input');if(inp) inp.value=qty;
+let unit=getPrice(p,size);let need=p.discountQty||6;
+let disc=Math.floor(qty/need)*(p.discountPer6||0);
+let total=unit*qty-disc;let box=card.querySelector('.totalBox');
+if(qty>0){if(box){box.style.display='block';box.innerHTML=`মোট: ৳${total}`;}
+else{let nb=document.createElement('div');nb.className='totalBox';
+nb.innerHTML=`মোট: ৳${total}`;card.querySelector('.qtyRow').after(nb);}}
+else if(box) box.style.display='none';}}catch(e){}}
+function calcTotalForItem(item){let p=products[item.prodIdx];
+let pr=getPrice(p,item.size);let base=pr*item.qty;
+let need=p.discountQty||6;let disc=Math.floor(item.qty/need)*(p.discountPer6||0);
+return{total:base-disc,discount:disc,unit:pr};}
+function getCurrentUserDiscount(){if(!currentUser) return 0;
+return settings.userDiscounts[currentUser.email]||0;}
 function filterCat(c){activeCat=c;currentPage=1;render();}
-function renderCats(){let chips=settings.categories.map(c=>`<div class="chip ${activeCat==c?'active':''}" onclick="filterCat('${c.replace(/'/g, "\\'")}')">${c}</div>`).join('');document.getElementById("catWrap").innerHTML=chips;document.getElementById("catWrapWh").innerHTML=settings.categories.map(c=>`<div class="chip ${activeCatWh==c?'active':''}" onclick="activeCatWh='${c.replace(/'/g, "\\'")}';currentPageWh=1;renderWh()">${c}</div>`).join('');}
-function getSearchScore(p,q){if(!q) return 1;let name=p.name.toLowerCase();let cat=p.category.toLowerCase();q=q.toLowerCase();if(name===q) return 100;if(name.startsWith(q)) return 50;if(name.includes(q)) return 20;if(cat.includes(q)) return 10;return 0;}
-function openDetail(i){detailIndex=i;let p=products[i];document.getElementById("dImg").src=p.img;document.getElementById("dName").innerText=p.name;let vendorInfo="";if(p.vendorId){let v=(settings.vendors||[]).find(x=>x.id==p.vendorId);if(v) vendorInfo=` • 🤝 ${v.name}`;}document.getElementById("dCat").innerText=p.category+(p.bazarType=='paikari'?` • সর্বনিম্ন ${p.minQty||6} পিস`:'')+vendorInfo;let curSize=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");document.getElementById("dPrice").innerText="৳"+getPrice(p,curSize);document.getElementById("dMrpShow").innerText=p.mrp&&p.mrp>getPrice(p,curSize)?`MRP ৳${p.mrp}`:"";document.getElementById("dDesc").innerText=p.desc||"";let fullEl=document.getElementById("dFullDesc");if(p.fullDesc&&p.fullDesc!=p.desc){fullEl.innerText=p.fullDesc;fullEl.style.display="block";}else fullEl.style.display="none";document.getElementById("dQty").value=getCartQty(i,curSize);let need=p.discountQty||6;if(p.discountPer6>0){document.getElementById("dOffer").innerText=`💝 ${need} পিসে ৳${p.discountPer6} ছাড়!`;document.getElementById("dOffer").style.display="inline-block";}else document.getElementById("dOffer").style.display="none";document.getElementById("detailModal").style.display="block";updateSEOForProduct(p);}
-function changeDetailQty(d){if(detailIndex<0) return;let p=products[detailIndex];let sz=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");addToCartFast(detailIndex,sz,d,{closest:()=>null});document.getElementById("dQty").value=getCartQty(detailIndex,sz);}
-function addDetailToCart(){document.getElementById("detailModal").style.display="none";clearBookFilter();render();}
-function doRender(){let q=document.getElementById("search").value.toLowerCase().trim();let filtered=products.map((p,i)=>({p,i,score:getSearchScore(p,q)})).filter(x=>{if(activeCat!="সব"){let clean=activeCat.replace(/^[^\w\u0980-\u09FF]+ /,"").toLowerCase();if(!x.p.category.toLowerCase().includes(clean)&&!x.p.name.toLowerCase().includes(clean)) return false;}if(q&&x.score==0) return false;return true;});filtered=filtered.filter(x=>{if(activeCat=="📦 পাইকারি") return x.p.bazarType=='paikari';if(!q) return x.p.bazarType!='paikari';return true;});filtered.sort((a,b)=>b.score-a.score);let totalPages=Math.ceil(filtered.length/perPage)||1;if(currentPage>totalPages) currentPage=totalPages;let pageList=filtered.slice((currentPage-1)*perPage, currentPage*perPage);let cards=[];pageList.forEach(x=>{let i=x.i;let p=x.p;let curSize=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");let curQty=getCartQty(i,curSize);let unit=getPrice(p,curSize);let need=p.discountQty||6;let base=unit*curQty;let disc=Math.floor(curQty/need)*(p.discountPer6||0);let total=base-disc;let mrp=p.mrp||0;let perc=p.discountPercent||(mrp>unit?Math.round(((mrp-unit)/mrp)*100):0);let starBadge=perc>0?`<div class="discountStar">-${perc}%</div>`:"";let mrpHtml=mrp>unit?`<span class="mrp">৳${mrp}</span>`:"";let offerTag=p.discountPer6>0?`<div class="discountTag">💝 ${need} পিসে ৳${p.discountPer6} ছাড়</div>`:"";let qtyTotalHtml=curQty>0?`<div class="totalBox">মোট: ৳${total}</div>`:'';cards.push(`<div class="card"><div style="position:relative" onclick="openDetail(${i})"><img src="${p.img}" loading="lazy">${starBadge}<div class="card-body"><span class="badge">${p.category}</span><div class="pName">${p.name}</div><div><span class="price">৳${unit}</span>${mrpHtml}</div>${offerTag}</div></div><div style="padding:0 8px 8px"><div class="qtyRow"><button onclick="event.stopPropagation();addToCartFast(${i},'${curSize}',-1,this)">-</button><input value="${curQty}" readonly><button onclick="event.stopPropagation();addToCartFast(${i},'${curSize}',1,this)">+</button></div>${qtyTotalHtml}</div></div>`);});document.getElementById("grid").innerHTML=cards.join('')||"<p style='text-align:center;padding:20px'>কোনো পণ্য নাই</p>";let pagHtml="";if(totalPages>1){pagHtml=`<div style="display:flex;gap:6px;justify-content:center;margin:14px 0;flex-wrap:wrap">`;for(let pg=1; pg<=totalPages; pg++){pagHtml+=`<button onclick="goPage(${pg})" style="padding:8px 14px;border-radius:20px;border:1.5px solid ${pg==currentPage?'#16a34a':'#cbd5e1'};background:${pg==currentPage?'#16a34a':'#fff'};color:${pg==currentPage?'#fff':'#0f172a'};font-weight:800">${pg}</button>`;}pagHtml+=`</div>`;}document.getElementById("pagination").innerHTML=pagHtml;updateBar();renderCats();renderAdmin();renderOrders();renderWh();}
-function renderWh(){let list=products.filter(p=>p.bazarType=='paikari');if(activeCatWh!="সব"){list=list.filter(p=>{let clean=activeCatWh.replace(/^[^\w\u0980-\u09FF]+ /,"").toLowerCase();return p.category.toLowerCase().includes(clean)||p.name.toLowerCase().includes(clean);});}let totalPages=Math.ceil(list.length/perPage)||1;if(currentPageWh>totalPages) currentPageWh=totalPages;let pageList=list.slice((currentPageWh-1)*perPage, currentPageWh*perPage);let html=pageList.map((p)=>{let idx=products.indexOf(p);let curSize=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");let curQty=getCartQty(idx,curSize);let unit=getPrice(p,curSize);let need=p.discountQty||6;let base=unit*curQty;let disc=Math.floor(curQty/need)*(p.discountPer6||0);let total=base-disc;let mrp=p.mrp||0;let perc=p.discountPercent||(mrp>unit?Math.round(((mrp-unit)/mrp)*100):0);let starBadge=perc>0?`<div class="discountStar">-${perc}%</div>`:"";let mrpHtml=mrp>unit?`<span class="mrp">৳${mrp}</span>`:"";let offerTag=p.discountPer6>0?`<div class="discountTag" style="font-size:10px">💝 ${need} পিসে ৳${p.discountPer6} ছাড়</div>`:"";let totalHtml=curQty>0?`<div class="totalBox" style="display:block">মোট: ৳${total}</div>`:'';return `<div class="card"><div style="position:relative" onclick="openDetail(${idx})"><img src="${p.img}" loading="lazy">${starBadge}<div style="position:absolute;top:6px;left:6px;background:#B91C1C;color:#fff;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:800">পাইকারি</div><div class="card-body"><span class="badge">${p.category}</span><div class="pName">${p.name}</div><div><span class="price">৳${unit}</span> ${mrpHtml}</div>${offerTag}</div></div><div style="padding:0 8px 8px"><div class="qtyRow"><button onclick="event.stopPropagation();addToCartFast(${idx},'${curSize}',-1,this)">-</button><input value="${curQty}" readonly><button onclick="event.stopPropagation();addToCartFast(${idx},'${curSize}',1,this)">+</button></div>${totalHtml}</div></div>`;}).join('');document.getElementById("gridWh").innerHTML=html||"<p style='text-align:center;padding:20px'>কোনো পাইকারি পণ্য নাই</p>";}
+function renderCats(){let chips=settings.categories.map(c=>
+`<div class="chip ${activeCat==c?'active':''}" onclick="filterCat('${c.replace(/'/g, "\\'")}')">${c}</div>`).join('');
+document.getElementById("catWrap").innerHTML=chips;
+document.getElementById("catWrapWh").innerHTML=settings.categories.map(c=>
+`<div class="chip ${activeCatWh==c?'active':''}" onclick="activeCatWh='${c.replace(/'/g, "\\'")}';currentPageWh=1;renderWh()">${c}</div>`).join('');}
+function getSearchScore(p,q){if(!q) return 1;let name=p.name.toLowerCase();
+let cat=p.category.toLowerCase();q=q.toLowerCase();
+if(name===q) return 100;if(name.startsWith(q)) return 50;
+if(name.includes(q)) return 20;if(cat.includes(q)) return 10;return 0;}
+function openDetail(i){detailIndex=i;let p=products[i];
+document.getElementById("dImg").src=p.img;document.getElementById("dName").innerText=p.name;
+let vendorInfo="";if(p.vendorId){let v=(settings.vendors||[]).find(x=>x.id==p.vendorId);
+if(v) vendorInfo=` • 🤝 ${v.name}`;}
+document.getElementById("dCat").innerText=p.category+
+(p.bazarType=='paikari'?` • সর্বনিম্ন ${p.minQty||6} পিস`:'')+vendorInfo;
+let curSize=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");
+document.getElementById("dPrice").innerText="৳"+getPrice(p,curSize);
+document.getElementById("dMrpShow").innerText=p.mrp&&p.mrp>getPrice(p,curSize)?`MRP ৳${p.mrp}`:"";
+document.getElementById("dDesc").innerText=p.desc||"";
+let fullEl=document.getElementById("dFullDesc");
+if(p.fullDesc&&p.fullDesc!=p.desc){fullEl.innerText=p.fullDesc;fullEl.style.display="block";}
+else fullEl.style.display="none";
+document.getElementById("dQty").value=getCartQty(i,curSize);
+let need=p.discountQty||6;
+if(p.discountPer6>0){document.getElementById("dOffer").innerText=`💝 ${need} পিসে ৳${p.discountPer6} ছাড়!`;
+document.getElementById("dOffer").style.display="inline-block";}
+else document.getElementById("dOffer").style.display="none";
+document.getElementById("detailModal").style.display="block";updateSEOForProduct(p);}
+function changeDetailQty(d){if(detailIndex<0) return;
+let p=products[detailIndex];let sz=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");
+addToCartFast(detailIndex,sz,d,{closest:()=>null});
+document.getElementById("dQty").value=getCartQty(detailIndex,sz);}
+function addDetailToCart(){document.getElementById("detailModal").style.display="none";
+clearBookFilter();render();}
+function doRender(){let q=document.getElementById("search").value.toLowerCase().trim();
+let filtered=products.map((p,i)=>({p,i,score:getSearchScore(p,q)})).filter(x=>{
+if(activeCat!="সব"){let clean=activeCat.replace(/^[^\w\u0980-\u09FF]+ /,"").toLowerCase();
+if(!x.p.category.toLowerCase().includes(clean)&&!x.p.name.toLowerCase().includes(clean)) return false;}
+if(q&&x.score==0) return false;return true;});
+filtered=filtered.filter(x=>{if(activeCat=="📦 পাইকারি") return x.p.bazarType=='paikari';
+if(!q) return x.p.bazarType!='paikari';return true;});
+filtered.sort((a,b)=>b.score-a.score);
+let totalPages=Math.ceil(filtered.length/perPage)||1;
+if(currentPage>totalPages) currentPage=totalPages;
+let pageList=filtered.slice((currentPage-1)*perPage, currentPage*perPage);
+let cards=[];pageList.forEach(x=>{let i=x.i;let p=x.p;
+let curSize=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");
+let curQty=getCartQty(i,curSize);let unit=getPrice(p,curSize);
+let need=p.discountQty||6;let base=unit*curQty;
+let disc=Math.floor(curQty/need)*(p.discountPer6||0);let total=base-disc;
+let mrp=p.mrp||0;let perc=p.discountPercent||(mrp>unit?Math.round(((mrp-unit)/mrp)*100):0);
+let starBadge=perc>0?`<div class="discountStar">-${perc}%</div>`:"";
+let mrpHtml=mrp>unit?`<span class="mrp">৳${mrp}</span>`:"";
+let offerTag=p.discountPer6>0?`<div class="discountTag">💝 ${need} পিসে ৳${p.discountPer6} ছাড়</div>`:"";
+let qtyTotalHtml=curQty>0?`<div class="totalBox">মোট: ৳${total}</div>`:'';
+cards.push(`<div class="card"><div style="position:relative" onclick="openDetail(${i})">
+<img src="${p.img}" loading="lazy">${starBadge}
+<div class="card-body"><span class="badge">${p.category}</span>
+<div class="pName">${p.name}</div><div><span class="price">৳${unit}</span>${mrpHtml}</div>${offerTag}</div></div>
+<div style="padding:0 8px 8px"><div class="qtyRow">
+<button onclick="event.stopPropagation();addToCartFast(${i},'${curSize}',-1,this)">-</button>
+<input value="${curQty}" readonly>
+<button onclick="event.stopPropagation();addToCartFast(${i},'${curSize}',1,this)">+</button></div>${qtyTotalHtml}</div></div>`);});
+document.getElementById("grid").innerHTML=cards.join('')||"<p style='text-align:center;padding:20px'>কোনো পণ্য নাই</p>";
+let pagHtml="";if(totalPages>1){pagHtml=`<div style="display:flex;gap:6px;justify-content:center;margin:14px 0;flex-wrap:wrap">`;
+for(let pg=1; pg<=totalPages; pg++){pagHtml+=`<button onclick="goPage(${pg})"
+style="padding:8px 14px;border-radius:20px;border:1.5px solid ${pg==currentPage?'#16a34a':'#cbd5e1'};
+background:${pg==currentPage?'#16a34a':'#fff'};color:${pg==currentPage?'#fff':'#0f172a'};font-weight:800">${pg}</button>`;}
+pagHtml+=`</div>`;}document.getElementById("pagination").innerHTML=pagHtml;
+updateBar();renderCats();renderAdmin();renderOrders();renderWh();}
+function renderWh(){let list=products.filter(p=>p.bazarType=='paikari');
+if(activeCatWh!="সব"){list=list.filter(p=>{let clean=activeCatWh.replace(/^[^\w\u0980-\u09FF]+ /,"").toLowerCase();
+return p.category.toLowerCase().includes(clean)||p.name.toLowerCase().includes(clean);});}
+let totalPages=Math.ceil(list.length/perPage)||1;
+if(currentPageWh>totalPages) currentPageWh=totalPages;
+let pageList=list.slice((currentPageWh-1)*perPage, currentPageWh*perPage);
+let html=pageList.map((p)=>{let idx=products.indexOf(p);
+let curSize=p.selectedSize||(p.sizes[0]?p.sizes[0].size:"");
+let curQty=getCartQty(idx,curSize);let unit=getPrice(p,curSize);
+let need=p.discountQty||6;let base=unit*curQty;
+let disc=Math.floor(curQty/need)*(p.discountPer6||0);let total=base-disc;
+let mrp=p.mrp||0;let perc=p.discountPercent||(mrp>unit?Math.round(((mrp-unit)/mrp)*100):0);
+let starBadge=perc>0?`<div class="discountStar">-${perc}%</div>`:"";
+let mrpHtml=mrp>unit?`<span class="mrp">৳${mrp}</span>`:"";
+let offerTag=p.discountPer6>0?`<div class="discountTag" style="font-size:10px">💝 ${need} পিসে ৳${p.discountPer6} ছাড়</div>`:"";
+let totalHtml=curQty>0?`<div class="totalBox" style="display:block">মোট: ৳${total}</div>`:'';
+return `<div class="card"><div style="position:relative" onclick="openDetail(${idx})">
+<img src="${p.img}" loading="lazy">${starBadge}
+<div style="position:absolute;top:6px;left:6px;background:#B91C1C;color:#fff;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:800">পাইকারি</div>
+<div class="card-body"><span class="badge">${p.category}</span>
+<div class="pName">${p.name}</div><div><span class="price">৳${unit}</span> ${mrpHtml}</div>${offerTag}</div></div>
+<div style="padding:0 8px 8px"><div class="qtyRow">
+<button onclick="event.stopPropagation();addToCartFast(${idx},'${curSize}',-1,this)">-</button>
+<input value="${curQty}" readonly>
+<button onclick="event.stopPropagation();addToCartFast(${idx},'${curSize}',1,this)">+</button></div>${totalHtml}</div></div>`;}).join('');
+document.getElementById("gridWh").innerHTML=html||"<p style='text-align:center;padding:20px'>কোনো পাইকারি পণ্য নাই</p>";}
 function openWh(){document.getElementById('whView').style.display='block';currentPageWh=1;renderWh();}
 function goPage(p){currentPage=p;doRender();}
 function goPageWh(p){currentPageWh=p;renderWh();}
-function updateBar(){let pcs=0,sub=0;cart.forEach(it=>{let c=calcTotalForItem(it);pcs+=it.qty;sub+=c.total;});let perc=getCurrentUserDiscount();let save=Math.round(sub*perc/100);let tot=sub-save;document.getElementById("cartPcs").innerText=pcs;document.getElementById("grandTotal").innerText="৳"+tot;document.getElementById("btnTotal").innerText="৳"+tot;document.getElementById("checkoutTotal").innerText="মোট: ৳"+tot;let checkoutList=document.getElementById("checkoutList");if(checkoutList){let html="";cart.forEach(it=>{let p=products[it.prodIdx];let c=calcTotalForItem(it);html+=`<div style="display:flex;justify-content:space-between"><span>${p.name} x${it.qty}</span><span>৳${c.total}</span></div>`;});if(perc>0){html+=`<div style="border-top:1.5px dashed #16a34a;margin-top:6px;padding-top:6px;display:flex;justify-content:space-between;color:#B91C1C;font-weight:800"><span>🎁 ${perc}% ছাড়</span><span>-৳${save}</span></div><div style="display:flex;justify-content:space-between;font-weight:900"><span>মোট:</span><span>৳${tot}</span></div>`;}checkoutList.innerHTML=html||"কার্ট খালি";}let prog=document.getElementById("cartProgress");let limit=settings.freeDeliveryLimit||1500;if(pcs>0||sub>0){if(tot>=limit){prog.style.display="block";prog.innerText=`🎉 ${limit} টাকায় ডেলিভারি ফ্রি!`;}else{prog.style.display="block";prog.innerText=`🚚 ফ্রি পেতে আরো ৳${limit-tot} লাগবে`;} }else prog.style.display="none";}
-function openAdmin(){document.getElementById("adminPassModal").style.display="block";document.getElementById("adminPassInput").value="";}
-function checkAdminPass(){let pr=document.getElementById("adminPassInput").value;if(pr==settings.adminPass){document.getElementById("adminPassModal").style.display="none";document.getElementById("adminPanel").style.display="block";switchAdminSection('order');}else if(pr!="") alert("ভুল পাসওয়ার্ড!");}
-function saveAndClose(){syncToCloud();document.getElementById("adminPanel").style.display="none";doRender();}
-function selectPay(t){selectedPay=t;document.querySelectorAll(".payOpt").forEach(e=>e.classList.remove("active"));document.getElementById("pay_"+t).classList.add("active");document.getElementById("trxId").style.display=t=="cod"?"none":"block";document.getElementById("cSenderNumber").style.display=t=="cod"?"none":"block";}
-function editProduct(i){editingIndex=i;let p=products[i];document.getElementById("pName").value=p.name;document.getElementById("pSlug").value=p.slug||"";document.getElementById("pCat").value=p.category;document.getElementById("pRetail").value=p.mrp||p.retailPrice;document.getElementById("pSalePrice").value=p.retailPrice;document.getElementById("pDiscountPercent").value=p.discountPercent||0;document.getElementById("pStock").value=p.stock;document.getElementById("pDiscount").value=p.discountPer6||0;document.getElementById("pDiscountQty").value=p.discountQty||6;document.getElementById("pMinQty").value=p.minQty||1;document.getElementById("pImg").value=p.img;document.getElementById("pDesc").value=p.desc||"";document.getElementById("pFullDesc").value=p.fullDesc||"";document.getElementById("pVendor").value=p.vendorId||"";tempSizes=[...(p.sizes||[])];tempImg=p.img;prodBazarType=p.bazarType||'khucra';setProdType(prodBazarType);renderSizeList();document.getElementById("preview").src=p.img;document.getElementById("preview").style.display="block";document.getElementById("addBtn").style.display="none";document.getElementById("updateBtn").style.display="block";document.getElementById("cancelBtn").style.display="block";switchAdminSection('product');}
-function addProduct(){let nm=document.getElementById("pName").value.trim();if(!nm){alert("নাম দিন");return;}let slug=document.getElementById("pSlug").value.trim().toLowerCase()||makeSlug(nm);let cat=document.getElementById("pCat").value.trim()||"📚 দ্বীনি বই";let mrp=parseInt(document.getElementById("pRetail").value)||0;let sale=parseInt(document.getElementById("pSalePrice").value)||0;let perc=parseInt(document.getElementById("pDiscountPercent").value)||0;if(!sale&&mrp&&perc) sale=Math.round(mrp-(mrp*perc/100));let retail=sale||mrp||100;if(mrp&&retail&&!perc) perc=Math.round(((mrp-retail)/mrp)*100);let stock=parseInt(document.getElementById("pStock").value)||100;let disc=parseInt(document.getElementById("pDiscount").value)||0;let discQty=parseInt(document.getElementById("pDiscountQty").value)||6;let minQ=parseInt(document.getElementById("pMinQty").value)||1;let img=document.getElementById("pImg").value.trim()||tempImg;if(!img){alert("ছবি দিন");return;}let desc=document.getElementById("pDesc").value.trim();let fullDesc=document.getElementById("pFullDesc").value.trim()||desc;let vendorId=document.getElementById("pVendor").value||"";let prod={name:nm,slug:slug,category:cat,retailPrice:retail,mrp:mrp,discountPercent:perc,stock:stock,discountPer6:disc,discountQty:discQty,minQty:minQ,img:img,desc:desc,fullDesc:fullDesc,sizes:[...tempSizes],bazarType:prodBazarType,vendorId:vendorId,selectedSize:tempSizes[0]?tempSizes[0].size:""};products.push(prod);products=makeUniqueSlugs(products);document.getElementById("pName").value="";document.getElementById("pSlug").value="";document.getElementById("pDiscountPercent").value="";tempSizes=[];renderSizeList();document.getElementById("preview").style.display="none";syncToCloud();doRender();alert("✅ যোগ হয়েছে");}
-function updateProduct(){if(editingIndex<0) return;let p=products[editingIndex];p.name=document.getElementById("pName").value.trim()||p.name;p.slug=document.getElementById("pSlug").value.trim()||p.slug;p.category=document.getElementById("pCat").value.trim()||p.category;p.mrp=parseInt(document.getElementById("pRetail").value)||p.mrp;p.retailPrice=parseInt(document.getElementById("pSalePrice").value)||p.retailPrice;p.discountPercent=parseInt(document.getElementById("pDiscountPercent").value)||0;p.stock=parseInt(document.getElementById("pStock").value)||p.stock;p.discountPer6=parseInt(document.getElementById("pDiscount").value)||0;p.discountQty=parseInt(document.getElementById("pDiscountQty").value)||6;p.minQty=parseInt(document.getElementById("pMinQty").value)||1;p.img=document.getElementById("pImg").value.trim()||p.img;p.desc=document.getElementById("pDesc").value.trim();p.fullDesc=document.getElementById("pFullDesc").value.trim()||p.desc;p.vendorId=document.getElementById("pVendor").value||"";p.sizes=[...tempSizes];p.bazarType=prodBazarType;products=makeUniqueSlugs(products);editingIndex=-1;document.getElementById("addBtn").style.display="block";document.getElementById("updateBtn").style.display="none";document.getElementById("cancelBtn").style.display="none";document.getElementById("pName").value="";document.getElementById("pSlug").value="";document.getElementById("pDiscountPercent").value="";tempSizes=[];renderSizeList();syncToCloud();doRender();alert("✅ আপডেট");}
-function cancelEdit(){editingIndex=-1;document.getElementById("addBtn").style.display="block";document.getElementById("updateBtn").style.display="none";document.getElementById("cancelBtn").style.display="none";document.getElementById("pName").value="";document.getElementById("pSlug").value="";document.getElementById("pDiscountPercent").value="";}
-function deleteProduct(i){if(!confirm("ডিলিট?")) return;products.splice(i,1);syncToCloud();doRender();}
-function copyWholesaleToRetail(i){let p=products[i];if(!p) return;let newP={...p,slug:p.slug+"-retail",bazarType:'khucra',minQty:1,discountQty:6};products.push(newP);products=makeUniqueSlugs(products);syncToCloud();doRender();alert("✅ খুচরাতে কপি হয়েছে");editProduct(products.length-1);}
-function renderAdmin(){let el=document.getElementById("adminList");if(!el) return;el.innerHTML=products.map((p,i)=>{let vName="";if(p.vendorId){let v=(settings.vendors||[]).find(x=>x.id==p.vendorId);if(v) vName=` 🤝${v.name}`;}let copyBtn=p.bazarType=='paikari'?`<button onclick="copyWholesaleToRetail(${i})" style="padding:4px 6px;background:#e0f2fe;border:1px solid #7dd3fc;border-radius:6px;font-size:10px">📋 খুচরায় কপি</button>`:'';return `<div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid #e2e8f0;padding:8px;border-radius:8px;margin:4px 0;font-size:11px"><span><b>${p.name}</b> ${p.bazarType=='paikari'?'<small style="background:#B91C1C;color:#fff;padding:1px 6px;border-radius:10px">পাইকারি</small>':''} ${vName}<br><small>${p.category} • MRP ৳${p.mrp||p.retailPrice} • সেল ৳${p.retailPrice} • ${p.discountPercent||0}%</small></span><span style="display:flex;gap:4px;flex-wrap:wrap">${copyBtn}<button onclick="copyAdminLink('${p.slug}')" style="padding:4px 8px;background:#f0fdf4;border:1px solid #16a34a;border-radius:6px;font-size:10px">🔗</button><button onclick="editProduct(${i})" style="padding:4px 8px;background:#fffbeb;border:1px solid #f59e0b;border-radius:6px">✏️</button><button onclick="deleteProduct(${i})" style="padding:4px 8px;background:#fef2f2;border:1px solid #fecaca;border-radius:6px">🗑️</button></span></div>`;}).join('');}
-function renderUsers(){let el=document.getElementById("allUsersList");if(!el) return;let list=settings.usersList||[];document.getElementById("totalUserCount").innerText=list.length;if(list.length==0){el.innerHTML="<p style='text-align:center;color:#888;padding:12px'>কোনো ইউজার নাই</p>";return;}let html="";for(let idx=0;idx<list.length;idx++){let email=list[idx];let disc=settings.userDiscounts[email]||0;let safeEmail=email.replace(/'/g,"\\'");html+=`<div style="background:#fff;border:1.5px solid #16a34a;padding:10px;border-radius:10px;margin:6px 0;font-size:11px"><b>📧 ${email}</b><br><span style="background:#f0fdf4;padding:2px 8px;border-radius:10px;font-weight:800">🎁 ${disc}%</span><div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap"><input id="disc_${idx}" type="number" value="${disc}" style="width:80px;padding:8px;border:2px solid #16a34a;border-radius:8px;font-weight:800"><button onclick="setUserDiscount('${safeEmail}',${idx})" style="padding:8px 12px;background:#16a34a;color:#fff;border:0;border-radius:8px;font-weight:800">% সেভ</button><button onclick="forceLogoutUser('${safeEmail}')" style="padding:8px 12px;background:#0f172a;color:#fff;border:0;border-radius:8px">🚪 লগআউট</button></div></div>`;}el.innerHTML=html;}
-function setUserDiscount(email,idx){let el=document.getElementById('disc_'+idx);let v=parseInt(el.value)||0;settings.userDiscounts[email]=v;syncToCloud();alert("✅ সেভ: "+email+" => "+v+"%");renderUsers();updateUserUI();updateBar();}
-function forceLogoutUser(email){if(!settings.forceLogout) settings.forceLogout=[];if(!settings.forceLogout.includes(email)) settings.forceLogout.push(email);syncToCloud();alert("✅ "+email+" লগআউট");setTimeout(()=>{settings.forceLogout=settings.forceLogout.filter(e=>e!=email);syncToCloud();},4000);}
-function updateUserUI(){loadUser();let out=document.getElementById('loggedOutView');let inn=document.getElementById('loggedInView');if(!out||!inn) return;if(currentUser){out.style.display='none';inn.style.display='block';let perc=settings.userDiscounts[currentUser.email]||0;let pe=document.getElementById('percShow');if(pe) pe.innerText=perc;}else{out.style.display='block';inn.style.display='none';}}
+function updateBar(){let pcs=0,sub=0;cart.forEach(it=>{let c=calcTotalForItem(it);pcs+=it.qty;sub+=c.total;});
+let perc=getCurrentUserDiscount();let save=Math.round(sub*perc/100);let tot=sub-save;
+document.getElementById("cartPcs").innerText=pcs;
+document.getElementById("grandTotal").innerText="৳"+tot;
+document.getElementById("btnTotal").innerText="৳"+tot;
+document.getElementById("checkoutTotal").innerText="মোট: ৳"+tot;
+let checkoutList=document.getElementById("checkoutList");
+if(checkoutList){let html="";cart.forEach(it=>{let p=products[it.prodIdx];
+let c=calcTotalForItem(it);html+=`<div style="display:flex;justify-content:space-between">
+<span>${p.name} x${it.qty}</span><span>৳${c.total}</span></div>`;});
+if(perc>0){html+=`<div style="border-top:1.5px dashed #16a34a;margin-top:6px;padding-top:6px;
+display:flex;justify-content:space-between;color:#B91C1C;font-weight:800">
+<span>🎁 ${perc}% ছাড়</span><span>-৳${save}</span></div>
+<div style="display:flex;justify-content:space-between;font-weight:900">
+<span>মোট:</span><span>৳${tot}</span></div>`;}
+checkoutList.innerHTML=html||"কার্ট খালি";}let prog=document.getElementById("cartProgress");
+let limit=settings.freeDeliveryLimit||1500;
+if(pcs>0||sub>0){if(tot>=limit){prog.style.display="block";
+prog.innerText=`🎉 ${limit} টাকায় ডেলিভারি ফ্রি!`;}else{prog.style.display="block";
+prog.innerText=`🚚 ফ্রি পেতে আরো ৳${limit-tot} লাগবে`;} }else prog.style.display="none";}
+function openAdmin(){document.getElementById("adminPassModal").style.display="block";
+document.getElementById("adminPassInput").value="";}
+function checkAdminPass(){let pr=document.getElementById("adminPassInput").value;
+if(pr==settings.adminPass){document.getElementById("adminPassModal").style.display="none";
+document.getElementById("adminPanel").style.display="block";switchAdminSection('order');}
+else if(pr!="") alert("ভুল পাসওয়ার্ড!");}
+function saveAndClose(){syncToCloud();
+document.getElementById("adminPanel").style.display="none";doRender();}
+function selectPay(t){selectedPay=t;
+document.querySelectorAll(".payOpt").forEach(e=>e.classList.remove("active"));
+document.getElementById("pay_"+t).classList.add("active");
+document.getElementById("trxId").style.display=t=="cod"?"none":"block";
+document.getElementById("cSenderNumber").style.display=t=="cod"?"none":"block";}
+function editProduct(i){editingIndex=i;let p=products[i];
+document.getElementById("pName").value=p.name;
+document.getElementById("pSlug").value=p.slug||"";
+document.getElementById("pCat").value=p.category;
+document.getElementById("pRetail").value=p.mrp||p.retailPrice;
+document.getElementById("pSalePrice").value=p.retailPrice;
+document.getElementById("pDiscountPercent").value=p.discountPercent||0;
+document.getElementById("pStock").value=p.stock;
+document.getElementById("pDiscount").value=p.discountPer6||0;
+document.getElementById("pDiscountQty").value=p.discountQty||6;
+document.getElementById("pMinQty").value=p.minQty||1;
+document.getElementById("pImg").value=p.img;
+document.getElementById("pDesc").value=p.desc||"";
+document.getElementById("pFullDesc").value=p.fullDesc||"";
+document.getElementById("pVendor").value=p.vendorId||"";
+tempSizes=[...(p.sizes||[])];tempImg=p.img;
+prodBazarType=p.bazarType||'khucra';setProdType(prodBazarType);
+renderSizeList();document.getElementById("preview").src=p.img;
+document.getElementById("preview").style.display="block";
+document.getElementById("addBtn").style.display="none";
+document.getElementById("updateBtn").style.display="block";
+document.getElementById("cancelBtn").style.display="block";switchAdminSection('product');}
+function addProduct(){let nm=document.getElementById("pName").value.trim();
+if(!nm){alert("নাম দিন");return;}
+let slug=document.getElementById("pSlug").value.trim().toLowerCase()||makeSlug(nm);
+let cat=document.getElementById("pCat").value.trim()||"📚 দ্বীনি বই";
+let mrp=parseInt(document.getElementById("pRetail").value)||0;
+let sale=parseInt(document.getElementById("pSalePrice").value)||0;
+let perc=parseInt(document.getElementById("pDiscountPercent").value)||0;
+if(!sale&&mrp&&perc) sale=Math.round(mrp-(mrp*perc/100));
+let retail=sale||mrp||100;
+if(mrp&&retail&&!perc) perc=Math.round(((mrp-retail)/mrp)*100);
+let stock=parseInt(document.getElementById("pStock").value)||100;
+let disc=parseInt(document.getElementById("pDiscount").value)||0;
+let discQty=parseInt(document.getElementById("pDiscountQty").value)||6;
+let minQ=parseInt(document.getElementById("pMinQty").value)||1;
+let img=document.getElementById("pImg").value.trim()||tempImg;
+if(!img){alert("ছবি দিন");return;}
+let desc=document.getElementById("pDesc").value.trim();
+let fullDesc=document.getElementById("pFullDesc").value.trim()||desc;
+let vendorId=document.getElementById("pVendor").value||"";
+let prod={name:nm,slug:slug,category:cat,retailPrice:retail,mrp:mrp,
+discountPercent:perc,stock:stock,discountPer6:disc,discountQty:discQty,
+minQty:minQ,img:img,desc:desc,fullDesc:fullDesc,sizes:[...tempSizes],
+bazarType:prodBazarType,vendorId:vendorId,
+selectedSize:tempSizes[0]?tempSizes[0].size:""};products.push(prod);
+products=makeUniqueSlugs(products);document.getElementById("pName").value="";
+document.getElementById("pSlug").value="";document.getElementById("pDiscountPercent").value="";
+tempSizes=[];renderSizeList();document.getElementById("preview").style.display="none";
+syncToCloud();doRender();alert("✅ যোগ হয়েছে");}
+function updateProduct(){if(editingIndex<0) return;let p=products[editingIndex];
+p.name=document.getElementById("pName").value.trim()||p.name;
+p.slug=document.getElementById("pSlug").value.trim()||p.slug;
+p.category=document.getElementById("pCat").value.trim()||p.category;
+p.mrp=parseInt(document.getElementById("pRetail").value)||p.mrp;
+p.retailPrice=parseInt(document.getElementById("pSalePrice").value)||p.retailPrice;
+p.discountPercent=parseInt(document.getElementById("pDiscountPercent").value)||0;
+p.stock=parseInt(document.getElementById("pStock").value)||p.stock;
+p.discountPer6=parseInt(document.getElementById("pDiscount").value)||0;
+p.discountQty=parseInt(document.getElementById("pDiscountQty").value)||6;
+p.minQty=parseInt(document.getElementById("pMinQty").value)||1;
+p.img=document.getElementById("pImg").value.trim()||p.img;
+p.desc=document.getElementById("pDesc").value.trim();
+p.fullDesc=document.getElementById("pFullDesc").value.trim()||p.desc;
+p.vendorId=document.getElementById("pVendor").value||"";
+p.sizes=[...tempSizes];p.bazarType=prodBazarType;products=makeUniqueSlugs(products);
+editingIndex=-1;document.getElementById("addBtn").style.display="block";
+document.getElementById("updateBtn").style.display="none";
+document.getElementById("cancelBtn").style.display="none";
+document.getElementById("pName").value="";document.getElementById("pSlug").value="";
+document.getElementById("pDiscountPercent").value="";tempSizes=[];
+renderSizeList();syncToCloud();doRender();alert("✅ আপডেট");}
+function cancelEdit(){editingIndex=-1;
+document.getElementById("addBtn").style.display="block";
+document.getElementById("updateBtn").style.display="none";
+document.getElementById("cancelBtn").style.display="none";
+document.getElementById("pName").value="";document.getElementById("pSlug").value="";
+document.getElementById("pDiscountPercent").value="";}
+function deleteProduct(i){if(!confirm("ডিলিট?")) return;
+products.splice(i,1);syncToCloud();doRender();}
+function copyWholesaleToRetail(i){let p=products[i];if(!p) return;
+let newP={...p,slug:p.slug+"-retail",bazarType:'khucra',minQty:1,discountQty:6};
+products.push(newP);products=makeUniqueSlugs(products);syncToCloud();doRender();
+alert("✅ খুচরাতে কপি হয়েছে");editProduct(products.length-1);}
+function renderAdmin(){let el=document.getElementById("adminList");if(!el) return;
+el.innerHTML=products.map((p,i)=>{let vName="";if(p.vendorId){
+let v=(settings.vendors||[]).find(x=>x.id==p.vendorId);if(v) vName=` 🤝${v.name}`;}
+let copyBtn=p.bazarType=='paikari'?`<button onclick="copyWholesaleToRetail(${i})"
+style="padding:4px 6px;background:#e0f2fe;border:1px solid #7dd3fc;border-radius:6px;font-size:10px">📋 খুচরায় কপি</button>`:'';
+return `<div style="display:flex;justify-content:space-between;align-items:center;background:#fff;
+border:1px solid #e2e8f0;padding:8px;border-radius:8px;margin:4px 0;font-size:11px">
+<span><b>${p.name}</b> ${p.bazarType=='paikari'?'<small style="background:#B91C1C;color:#fff;padding:1px 6px;border-radius:10px">পাইকারি</small>':''} ${vName}<br>
+<small>${p.category} • MRP ৳${p.mrp||p.retailPrice} • সেল ৳${p.retailPrice} • ${p.discountPercent||0}%</small></span>
+<span style="display:flex;gap:4px;flex-wrap:wrap">${copyBtn}
+<button onclick="copyAdminLink('${p.slug}')" style="padding:4px 8px;background:#f0fdf4;border:1px solid #16a34a;border-radius:6px;font-size:10px">🔗</button>
+<button onclick="editProduct(${i})" style="padding:4px 8px;background:#fffbeb;border:1px solid #f59e0b;border-radius:6px">✏️</button>
+<button onclick="deleteProduct(${i})" style="padding:4px 8px;background:#fef2f2;border:1px solid #fecaca;border-radius:6px">🗑️</button></span></div>`;}).join('');}
+function renderUsers(){let el=document.getElementById("allUsersList");if(!el) return;
+let list=settings.usersList||[];document.getElementById("totalUserCount").innerText=list.length;
+if(list.length==0){el.innerHTML="<p style='text-align:center;color:#888;padding:12px'>কোনো ইউজার নাই</p>";return;}
+let html="";for(let idx=0;idx<list.length;idx++){let email=list[idx];
+let disc=settings.userDiscounts[email]||0;let safeEmail=email.replace(/'/g,"\\'");
+html+=`<div style="background:#fff;border:1.5px solid #16a34a;padding:10px;border-radius:10px;margin:6px 0;font-size:11px">
+<b>📧 ${email}</b><br><span style="background:#f0fdf4;padding:2px 8px;border-radius:10px;font-weight:800">🎁 ${disc}%</span>
+<div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+<input id="disc_${idx}" type="number" value="${disc}" style="width:80px;padding:8px;border:2px solid #16a34a;border-radius:8px;font-weight:800">
+<button onclick="setUserDiscount('${safeEmail}',${idx})" style="padding:8px 12px;background:#16a34a;color:#fff;border:0;border-radius:8px;font-weight:800">% সেভ</button>
+<button onclick="forceLogoutUser('${safeEmail}')" style="padding:8px 12px;background:#0f172a;color:#fff;border:0;border-radius:8px">🚪 লগআউট</button></div></div>`;}el.innerHTML=html;}
+function setUserDiscount(email,idx){let el=document.getElementById('disc_'+idx);
+let v=parseInt(el.value)||0;settings.userDiscounts[email]=v;syncToCloud();
+alert("✅ সেভ: "+email+" => "+v+"%");renderUsers();updateUserUI();updateBar();}
+function forceLogoutUser(email){if(!settings.forceLogout) settings.forceLogout=[];
+if(!settings.forceLogout.includes(email)) settings.forceLogout.push(email);
+syncToCloud();alert("✅ "+email+" লগআউট");
+setTimeout(()=>{settings.forceLogout=settings.forceLogout.filter(e=>e!=email);syncToCloud();},4000);}
+function updateUserUI(){loadUser();let out=document.getElementById('loggedOutView');
+let inn=document.getElementById('loggedInView');if(!out||!inn) return;
+if(currentUser){out.style.display='none';inn.style.display='block';
+let perc=settings.userDiscounts[currentUser.email]||0;
+let pe=document.getElementById('percShow');if(pe) pe.innerText=perc;}
+else{out.style.display='block';inn.style.display='none';}}
 function openUserLogin(){document.getElementById('userModal').style.display='block';}
-function doUserLogin(){let email=document.getElementById('uEmail').value.trim().toLowerCase();if(!email||!email.includes('@')){alert("সঠিক Gmail দিন");return;}currentUser={email:email};localStorage.setItem('insaf_user',JSON.stringify(currentUser));if(!settings.usersList) settings.usersList=[];if(!settings.usersList.includes(email)){settings.usersList.push(email);}syncToCloud();document.getElementById('userModal').style.display='none';document.getElementById('uEmail').value="";updateUserUI();renderUsers();render();alert("✅ লগইন হয়েছে");}
-function logoutUser(){if(!confirm("লগআউট করবেন?")) return;localStorage.removeItem('insaf_user');currentUser=null;updateUserUI();render();}
+function doUserLogin(){let email=document.getElementById('uEmail').value.trim().toLowerCase();
+if(!email||!email.includes('@')){alert("সঠিক Gmail দিন");return;}
+currentUser={email:email};localStorage.setItem('insaf_user',JSON.stringify(currentUser));
+if(!settings.usersList) settings.usersList=[];if(!settings.usersList.includes(email)){
+settings.usersList.push(email);}syncToCloud();
+document.getElementById('userModal').style.display='none';
+document.getElementById('uEmail').value="";updateUserUI();renderUsers();render();alert("✅ লগইন হয়েছে");}
+function logoutUser(){if(!confirm("লগআউট করবেন?")) return;
+localStorage.removeItem('insaf_user');currentUser=null;updateUserUI();render();}
 function openNotif(){document.getElementById('notifModal').style.display='block';renderNotif();}
-function renderNotif(){let list=settings.notifications||[];let el=document.getElementById('notifList');if(!el) return;if(list.length==0){el.innerHTML="<p style='text-align:center;color:#888'>কোনো নোটিফিকেশন নাই</p>";return;}el.innerHTML=[...list].reverse().map((n)=>`<div style="background:#fff;border:1px solid #e2e8f0;padding:8px;border-radius:8px;margin:6px 0;font-size:11px"><b>${n.title||'অফার'}</b><br>${n.msg||''}${n.img?`<br><img src="${n.img}" style="width:100%;height:120px;object-fit:contain;background:#fff;border-radius:6px;margin-top:4px">`:''}<br><small>${n.date||''}</small></div>`).join('');}
-function updateBell(){let list=settings.notifications||[];let countEl=document.getElementById('bellCount');if(!countEl) return;if(list.length>0){countEl.innerText=list.length;countEl.style.display='flex';}else countEl.style.display='none';}
-function clearNotif(){settings.notifications=[];syncToCloud();renderNotif();updateBell();document.getElementById('notifModal').style.display='none';}
-async function sendBroadcastEmail(){let msg=document.getElementById('broadcastMsg').value.trim();let img=document.getElementById('broadcastImg').value.trim()||broadcastTempImg;if(!msg){alert("মেসেজ লিখুন");return;}document.getElementById('broadcastStatus').innerText="⏳ পাঠানো হচ্ছে...";let notif={title:"📢 নতুন অফার",msg:msg,img:img||"",date:new Date().toLocaleString('bn-BD')};if(!settings.notifications) settings.notifications=[];settings.notifications.push(notif);syncToCloud();updateBell();renderNotif();try{if(typeof emailjs!=="undefined"){emailjs.init(EMAILJS_PUBLIC);let users=settings.usersList||[];let sent=0;for(let em of users){try{await emailjs.send(EMAILJS_SERVICE,EMAILJS_TEMPLATE,{to_email:em,to_name:em,message:msg,image:img||"",shop_name:settings.shopName});sent++;}catch(e){console.log("fail",em,e);}}document.getElementById('broadcastStatus').innerText=`✅ বেল: ${users.length} | Gmail: ${sent} জনকে গেছে`;}else{document.getElementById('broadcastStatus').innerText=`✅ ${ (settings.usersList||[]).length } জনকে বেল এ পাঠানো হয়েছে`;}}catch(e){document.getElementById('broadcastStatus').innerText="❌ Error: "+e.message;}document.getElementById('broadcastMsg').value="";document.getElementById('broadcastImg').value="";document.getElementById('broadcastPreview').style.display='none';broadcastTempImg="";}
-function showLocalBackup(){let b=localStorage.getItem('insaf_products_backup');if(!b){alert("ব্যাকআপ নাই");return;}document.getElementById('backupViewArea').style.display='block';document.getElementById('backupViewArea').value=b;let len=JSON.parse(b).length;document.getElementById('backupStatus').innerText=`✅ মোবাইলে ${len} টা`;}
-function downloadBackup(){let data=localStorage.getItem('insaf_products_backup')||JSON.stringify(products);let blob=new Blob([data],{type:"application/json"});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download="insafshop_backup_"+Date.now()+".json";a.click();alert("✅ ডাউনলোড");}
-function uploadBackup(inp){let f=inp.files[0];if(!f) return;let r=new FileReader();r.onload=e=>{try{let arr=JSON.parse(e.target.result);if(!Array.isArray(arr)) throw 0;products=makeUniqueSlugs(arr);localStorage.setItem('insaf_products_backup',JSON.stringify(products));syncToCloud();doRender();document.getElementById('backupStatus').innerText=`✅ ${arr.length} টা`;alert(`✅ ${arr.length} টা লোড`);}catch{alert("ফাইল ভুল");}};r.readAsText(f);}
-function restoreLocalBackup(){let b=localStorage.getItem('insaf_products_backup');if(!b){alert("ব্যাকআপ নাই");return;}try{let arr=JSON.parse(b);products=makeUniqueSlugs(arr);syncToCloud();doRender();alert("✅ ফিরে এসেছে");}catch{alert("ভুল");}}
-function renderOrders(){let nl=settings.newOrders||[],ol=settings.oldOrders||[],ne=document.getElementById("newOrdersList"),oe=document.getElementById("oldOrdersList");if(!ne) return;document.getElementById("newOrderCount").innerText=nl.length;document.getElementById("oldOrderCount").innerText=ol.length;ne.innerHTML=nl.length==0?"<p style='text-align:center;color:#888;padding:10px'>নতুন অর্ডার নাই</p>":[...nl].reverse().map((o,i)=>{let r=nl.length-1-i;return `<div style="background:#fff;border:1.5px solid #16a34a;border-radius:8px;padding:8px;margin:6px 0;font-size:11px"><b>${o.id}</b> • ${o.date||''}<br>👤 ${o.name} • 📞 ${o.phone}<br>🏠 ${o.address||''}<br>💳 ${o.pay||''} ${o.trx?`• Trx ${o.trx}`:''} ${o.senderNumber?`• 📱 ${o.senderNumber}`:''}<br>💰 ৳${o.total} ${o.discountInfo?`(${o.discountInfo})`:''}<div style="font-size:10px;background:#f8fafc;padding:6px;border-radius:6px;margin:6px 0">${(o.items||[]).map(it=>`• ${it.name} ${it.size?`(${it.size})`:''} x${it.qty} = ৳${it.total}`).join('<br>')}</div><div style="display:flex;gap:6px"><button onclick="copyOrderFull(${r},'new')" style="flex:1;padding:6px;background:#f0fdf4;border:1px solid #16a34a;border-radius:6px;font-size:10px">📋 কপি</button><button onclick="settings.oldOrders.push(settings.newOrders.splice(${r},1)[0]);syncToCloud();renderOrders()" style="flex:1;padding:6px;background:#0f172a;color:#fff;border:0;border-radius:6px">✅ পুরাতনে</button><button onclick="if(confirm('ডিলিট?')){settings.newOrders.splice(${r},1);syncToCloud();renderOrders()}" style="padding:6px;background:#fef2f2;border:1px solid #fecaca;border-radius:6px">🗑️</button></div></div>`;}).join('');oe.innerHTML=ol.length==0?"<p style='text-align:center;color:#888;padding:10px'>পুরাতন নাই</p>":[...ol].reverse().map((o,i)=>{let r=ol.length-1-i;return `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:8px;margin:6px 0;font-size:11px"><b>${o.id}</b> • ${o.date||''} • ৳${o.total}<br>👤 ${o.name} • 📞 ${o.phone}<div style="display:flex;gap:6px;margin-top:6px"><button onclick="copyOrderFull(${r},'old')" style="flex:1;padding:6px;background:#f0fdf4;border:1px solid #16a34a;border-radius:6px">📋</button><button onclick="settings.newOrders.push(settings.oldOrders.splice(${r},1)[0]);syncToCloud();renderOrders()" style="flex:1;padding:6px;background:#16a34a;color:#fff;border:0;border-radius:6px">♻️ নতুনে</button><button onclick="if(confirm('ডিলিট?')){settings.oldOrders.splice(${r},1);syncToCloud();renderOrders()}" style="padding:6px;background:#fef2f2;border:1px solid #fecaca;border-radius:6px">🗑️</button></div></div>`;}).join('');}
-function copyOrderFull(i,t){let li=t=='new'?settings.newOrders:settings.oldOrders,o=li[i];if(!o) return;let it=(o.items||[]).map(x=>`• ${x.name} ${x.size?`(${x.size})`:''} x${x.qty} = ৳${x.total}`).join('\n');let tx=`📦 অর্ডার: ${o.id}\n🔢 সিরিয়াল: ${o.serial}\n👤 নাম: ${o.name}\n📞 ফোন: ${o.phone}\n🏠 ঠিকানা: ${o.address}\n💳 পেমেন্ট: ${o.pay}${o.trx?`\nTrx: ${o.trx}`:''}${o.senderNumber?`\n📱 শেষ ৪ সংখ্যা: ${o.senderNumber}`:''}\n🛒 পণ্য:\n${it}\n💰 মোট: ৳${o.total}${o.discountInfo?` (${o.discountInfo})`:''}\n📧 ইউজার: ${o.email||''}\n🌐 insafshop.net`;navigator.clipboard.writeText(tx).then(()=>alert("✅ কপি হয়েছে"));if(navigator.share){navigator.share({title:o.id,text:tx}).catch(()=>{});}}
-function checkout(){if(cart.length==0){alert("কার্ট খালি!");return;}document.getElementById("checkoutModal").style.display="block";document.getElementById("showBkash").innerText=settings.bkash||"";document.getElementById("showNagad").innerText=settings.nagad||"";document.getElementById("showRocket").innerText=settings.rocket||"";updateBar();}
-function placeOrder(){let n=document.getElementById("cName").value.trim();let p=document.getElementById("cPhone").value.trim();let a=document.getElementById("cAddr").value.trim();let tr=document.getElementById("trxId").value.trim();let sn=document.getElementById("cSenderNumber").value.trim();if(!n){alert("নাম দিন");return;}if(!p){alert("ফোন দিন");return;}if(!a){alert("ঠিকানা দিন");return;}let btn=document.getElementById("placeOrderBtn");btn.disabled=true;btn.innerText="⏳ অর্ডার হচ্ছে...";let items=cart.map(c=>{let pr=products[c.prodIdx];let cal=calcTotalForItem(c);return{name:pr.name,size:c.size,qty:c.qty,unit:cal.unit,total:cal.total,vendorId:pr.vendorId||""};});let sub=0;items.forEach(it=>sub+=it.total);let perc=getCurrentUserDiscount();let save=Math.round(sub*perc/100);let total=sub-save;settings.orderCount=(settings.orderCount||1000)+1;let serial=settings.orderCount;let oid="INS"+serial;let order={id:oid,serial:serial,name:n,phone:p,address:a,pay:selectedPay,trx:tr||"",senderNumber:sn||"",items:items,subTotal:sub,discount:save,total:total,discountInfo:perc>0?`${perc}% ছাড় -৳${save}`:"",date:new Date().toLocaleString('bn-BD'),email:currentUser?currentUser.email:""};if(!settings.newOrders) settings.newOrders=[];settings.newOrders.push(order);syncToCloud();renderOrders();let msg=`*নতুন অর্ডার: ${oid}*%0A🔢 সিরিয়াল: ${serial}%0A👤 নাম: ${n}%0A📞 ফোন: ${p}%0A🏠 ঠিকানা: ${a}%0A💳 পেমেন্ট: ${selectedPay}${tr?`%0ATrx: ${tr}`:''}${sn?`%0A📱 শেষ ৪ সংখ্যা: ${sn}`:''}%0A🛒 পণ্য:%0A${items.map(it=>`• ${it.name} ${it.size?`(${it.size})`:''} x${it.qty} = ৳${it.total}`).join('%0A')}%0A💰 মোট: ৳${total}${perc>0?` (${perc}% ছাড়)`:""}%0A🌐 insafshop.net`;let waNum=(settings.whatsapp||settings.bkash||"").toString().replace(/[^0-9]/g,'');if(waNum.startsWith("880")) waNum=waNum.slice(3);if(waNum.startsWith("88")) waNum=waNum.slice(2);if(settings.enableWA!=false&&waNum){window.open(`https://wa.me/88${waNum}?text=${msg}`,'_blank');}document.getElementById("checkoutModal").style.display="none";document.getElementById("orderId").innerText=oid;document.getElementById("successModal").style.display="block";document.getElementById("cName").value="";document.getElementById("cPhone").value="";document.getElementById("cAddr").value="";document.getElementById("trxId").value="";document.getElementById("cSenderNumber").value="";cart=[];updateBar();render();btn.disabled=false;btn.innerText=`✅ Submit করুন - ৳${total}`;}
-let rt=null;function render(){if(rt) return;rt=setTimeout(()=>{doRender();rt=null;},80);}
+function renderNotif(){let list=settings.notifications||[];let el=document.getElementById('notifList');if(!el) return;
+if(list.length==0){el.innerHTML="<p style='text-align:center;color:#888'>কোনো নোটিফিকেশন নাই</p>";return;}
+el.innerHTML=[...list].reverse().map((n)=>
+`<div style="background:#fff;border:1px solid #e2e8f0;padding:8px;border-radius:8px;margin:6px 0;font-size:11px">
+<b>${n.title||'অফার'}</b><br>${n.msg||''}${n.img?`<br><img src="${n.img}" style="width:100%;height:120px;object-fit:contain;background:#fff;border-radius:6px;margin-top:4px">`:''}<br><small>${n.date||''}</small></div>`).join('');}
+function updateBell(){let list=settings.notifications||[];let countEl=document.getElementById('bellCount');
+if(!countEl) return;if(list.length>0){countEl.innerText=list.length;countEl.style.display='flex';}
+else countEl.style.display='none';}
+function clearNotif(){settings.notifications=[];syncToCloud();renderNotif();updateBell();
+document.getElementById('notifModal').style.display='none';}
+async function sendBroadcastEmail(){let msg=document.getElementById('broadcastMsg').value.trim();
+let img=document.getElementById('broadcastImg').value.trim()||broadcastTempImg;
+if(!msg){alert("মেসেজ লিখুন");return;}
+document.getElementById('broadcastStatus').innerText="⏳ পাঠানো হচ্ছে...";
+let notif={title:"📢 নতুন অফার",msg:msg,img:img||"",date:new Date().toLocaleString('bn-BD')};
+if(!settings.notifications) settings.notifications=[];settings.notifications.push(notif);
+syncToCloud();updateBell();renderNotif();
+try{if(typeof emailjs!=="undefined"){emailjs.init(EMAILJS_PUBLIC);
+let users=settings.usersList||[];let sent=0;for(let em of users){try{
+await emailjs.send(EMAILJS_SERVICE,EMAILJS_TEMPLATE,{to_email:em,to_name:em,message:msg,image:img||"",
+shop_name:settings.shopName});sent++;}catch(e){console.log("fail",em,e);}}
+document.getElementById('broadcastStatus').innerText=`✅ বেল: ${users.length} | Gmail: ${sent} জনকে গেছে`;}
+else{document.getElementById('broadcastStatus').innerText=`✅ ${ (settings.usersList||[]).length } জনকে বেল এ পাঠানো হয়েছে`;}}
+catch(e){document.getElementById('broadcastStatus').innerText="❌ Error: "+e.message;}
+document.getElementById('broadcastMsg').value="";document.getElementById('broadcastImg').value="";
+document.getElementById('broadcastPreview').style.display='none';broadcastTempImg="";}
+function downloadBackup(){let data=localStorage.getItem('insaf_products_backup')||JSON.stringify(products);
+let blob=new Blob([data],{type:"application/json"});let a=document.createElement('a');
+a.href=URL.createObjectURL(blob);a.download="insafshop_backup_"+Date.now()+".json";a.click();}
+function uploadBackup(inp){let f=inp.files[0];if(!f) return;let r=new FileReader();
+r.onload=e=>{try{let arr=JSON.parse(e.target.result);if(!Array.isArray(arr)) throw 0;
+products=makeUniqueSlugs(arr);localStorage.setItem('insaf_products_backup',JSON.stringify(products));
+syncToCloud();doRender();alert(`✅ ${arr.length} টা লোড`);}catch{alert("ফাইল ভুল");}};r.readAsText(f);}
+function renderOrders(){let nl=settings.newOrders||[],ol=settings.oldOrders||[];
+let ne=document.getElementById("newOrdersList"),oe=document.getElementById("oldOrdersList");
+if(!ne) return;document.getElementById("newOrderCount").innerText=nl.length;
+document.getElementById("oldOrderCount").innerText=ol.length;
+ne.innerHTML=nl.length==0?"<p style='text-align:center;color:#888;padding:10px'>নতুন অর্ডার নাই</p>":[...nl].reverse().map((o,i)=>{
+let r=nl.length-1-i;return `<div style="background:#fff;border:1.5px solid #16a34a;border-radius:8px;padding:8px;margin:6px 0;font-size:11px">
+<b>${o.id}</b> • ${o.date||''}<br>👤 ${o.name} • 📞 ${o.phone}<br>🏠 ${o.address||''}<br>
+💳 ${o.pay||''} ${o.trx?`• Trx ${o.trx}`:''} ${o.senderNumber?`• 📱 ${o.senderNumber}`:''}<br>💰 ৳${o.total}
+<div style="font-size:10px;background:#f8fafc;padding:6px;border-radius:6px;margin:6px 0">
+${(o.items||[]).map(it=>`• ${it.name} ${it.size?`(${it.size})`:''} x${it.qty} = ৳${it.total}`).join('<br>')}</div>
+<div style="display:flex;gap:6px"><button onclick="copyOrderFull(${r},'new')"
+style="flex:1;padding:6px;background:#f0fdf4;border:1px solid #16a34a;border-radius:6px;font-size:10px">📋 কপি</button>
+<button onclick="settings.oldOrders.push(settings.newOrders.splice(${r},1)[0]);syncToCloud();renderOrders()"
+style="flex:1;padding:6px;background:#0f172a;color:#fff;border:0;border-radius:6px">✅ পুরাতনে</button>
+<button onclick="if(confirm('ডিলিট?')){settings.newOrders.splice(${r},1);syncToCloud();renderOrders()}"
+style="padding:6px;background:#fef2f2;border:1px solid #fecaca;border-radius:6px">🗑️</button></div></div>`;}).join('');
+oe.innerHTML=ol.length==0?"<p style='text-align:center;color:#888;padding:10px'>পুরাতন নাই</p>":[...ol].reverse().map((o,i)=>{
+let r=ol.length-1-i;return `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:8px;margin:6px 0;font-size:11px">
+<b>${o.id}</b> • ${o.date||''} • ৳${o.total}<br>👤 ${o.name} • 📞 ${o.phone}
+<div style="display:flex;gap:6px;margin-top:6px"><button onclick="copyOrderFull(${r},'old')"
+style="flex:1;padding:6px;background:#f0fdf4;border:1px solid #16a34a;border-radius:6px">📋</button>
+<button onclick="settings.newOrders.push(settings.oldOrders.splice(${r},1)[0]);syncToCloud();renderOrders()"
+style="flex:1;padding:6px;background:#16a34a;color:#fff;border:0;border-radius:6px">♻️ নতুনে</button>
+<button onclick="if(confirm('ডিলিট?')){settings.oldOrders.splice(${r},1);syncToCloud();renderOrders()}"
+style="padding:6px;background:#fef2f2;border:1px solid #fecaca;border-radius:6px">🗑️</button></div></div>`;}).join('');}
+function copyOrderFull(i,t){let li=t=='new'?settings.newOrders:settings.oldOrders,o=li[i];if(!o) return;
+let it=(o.items||[]).map(x=>`• ${x.name} ${x.size?`(${x.size})`:''} x${x.qty} = ৳${x.total}`).join('\n');
+let tx=`📦 অর্ডার: ${o.id}\n👤 নাম: ${o.name}\n📞 ফোন: ${o.phone}\n🏠 ঠিকানা: ${o.address}\n💳 পেমেন্ট: ${o.pay}${o.trx?`\nTrx: ${o.trx}`:''}${o.senderNumber?`\n📱 শেষ ৪ সংখ্যা: ${o.senderNumber}`:''}\n🛒 পণ্য:\n${it}\n💰 মোট: ৳${o.total}`;
+navigator.clipboard.writeText(tx).then(()=>alert("✅ কপি হয়েছে"));}
+function checkout(){if(cart.length==0){alert("কার্ট খালি!");return;}
+document.getElementById("checkoutModal").style.display="block";
+document.getElementById("showBkash").innerText=settings.bkash||"";
+document.getElementById("showNagad").innerText=settings.nagad||"";
+document.getElementById("showRocket").innerText=settings.rocket||"";
+updateBar();}
+function placeOrder(){let n=document.getElementById("cName").value.trim();
+let p=document.getElementById("cPhone").value.trim();
+let a=document.getElementById("cAddr").value.trim();
+let tr=document.getElementById("trxId").value.trim();
+let sn=document.getElementById("cSenderNumber").value.trim();
+if(!n){alert("নাম দিন");return;}if(!p){alert("ফোন দিন");return;}if(!a){alert("ঠিকানা দিন");return;}
+let btn=document.getElementById("placeOrderBtn");btn.disabled=true;btn.innerText="⏳ অর্ডার হচ্ছে...";
+let items=cart.map(c=>{let pr=products[c.prodIdx];let cal=calcTotalForItem(c);
+return{name:pr.name,size:c.size,qty:c.qty,unit:cal.unit,total:cal.total,vendorId:pr.vendorId||""};});
+let sub=0;items.forEach(it=>sub+=it.total);let perc=getCurrentUserDiscount();
+let save=Math.round(sub*perc/100);let total=sub-save;
+settings.orderCount=(settings.orderCount||1000)+1;let serial=settings.orderCount;
+let oid="INS"+serial;let order={id:oid,serial:serial,name:n,phone:p,address:a,pay:selectedPay,
+trx:tr||"",senderNumber:sn||"",items:items,subTotal:sub,discount:save,total:total,
+discountInfo:perc>0?`${perc}% ছাড় -৳${save}`:"",date:new Date().toLocaleString('bn-BD'),
+email:currentUser?currentUser.email:""};
+if(!settings.newOrders) settings.newOrders=[];settings.newOrders.push(order);
+syncToCloud();renderOrders();
+let msg=`*নতুন অর্ডার: ${oid}*%0A👤 ${n}%0A📞 ${p}%0A🏠 ${a}%0A💳 ${selectedPay}${tr?`%0ATrx: ${tr}`:''}${sn?`%0A📱 শেষ ৪: ${sn}`:''}%0A🛒 ${items.map(it=>`${it.name} x${it.qty}=৳${it.total}`).join('%0A')}%0A💰 ৳${total}`;
+let waNum=(settings.whatsapp||settings.bkash||"").toString().replace(/[^0-9]/g,'');
+if(waNum.startsWith("880")) waNum=waNum.slice(3);if(waNum.startsWith("88")) waNum=waNum.slice(2);
+if(settings.enableWA!=false&&waNum){window.open(`https://wa.me/88${waNum}?text=${msg}`,'_blank');}
+document.getElementById("checkoutModal").style.display="none";
+document.getElementById("orderId").innerText=oid;
+document.getElementById("successModal").style.display="block";
+document.getElementById("cName").value="";document.getElementById("cPhone").value="";
+document.getElementById("cAddr").value="";document.getElementById("trxId").value="";
+document.getElementById("cSenderNumber").value="";cart=[];updateBar();render();
+btn.disabled=false;btn.innerText=`✅ Submit করুন - ৳${total}`;}
+let rt=null;function render(){if(rt) return;rt=setTimeout(()=>{doRender();rt=null;},60);}
 document.getElementById("search").addEventListener("input",()=>{currentPage=1;render();});
-window.addEventListener("load",()=>{syncFromCloud();let params=new URLSearchParams(location.search);let book=params.get("book");if(book){let tryFind=()=>{if(products.length==0){setTimeout(tryFind,400);return;}let idx=products.findIndex(p=>p.slug==book||p.slug==decodeURIComponent(book));if(idx>=0) openDetail(idx);};tryFind();}});
+window.addEventListener("load",()=>{syncFromCloud();});
 </script>
 </body>
-</html>  
+</html>
